@@ -179,8 +179,8 @@ If you want to use basic authentication instead of Kerberos, set useKerberos to 
 ### Get Event Frames given an AF database path
 
 ```vb# 
-    Set db = client.AssetData.GetByPath(dbPath)
-    Set efs = client.AssetData.GetEventFrames(db.webId, False, False, 100, True, 0, "", "*", "", elem.Name, elem.templateName, "", "", "None", "", "", "*-900", "*")
+    Set db = client.AssetDatabase.GetByPath(dbPath)
+    Set efs = client.AssetDatabase.GetEventFrames(db.webId, False, False, 100, True, 0, "", "*", "", elem.Name, elem.templateName, "", "", "None", "", "", "*-900", "*")
 ```
 
 

@@ -46,7 +46,7 @@ namespace PIWebAPIWrapper
         [DispId(6)]
         IAnalysisTemplateApi AnalysisTemplate { get; }
         [DispId(7)]
-        IAssetDatabaseApi AssetData { get; }
+        IAssetDatabaseApi AssetDatabase { get; }
         [DispId(8)]
         IAssetServerApi AssetServer { get; }
         [DispId(9)]
@@ -255,7 +255,7 @@ namespace PIWebAPIWrapper
             }
         }
 
-        public IAssetDatabaseApi AssetData
+        public IAssetDatabaseApi AssetDatabase
         {
             get
             {

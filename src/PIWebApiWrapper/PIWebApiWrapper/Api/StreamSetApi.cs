@@ -1,6 +1,6 @@
 // ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -27,7 +27,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Api
 {
 
-	[Guid("F794FBB6-9A95-444F-8839-E938427CBC7A")]
+	[Guid("C1491A71-ABBE-40D0-8FF8-88EC0DEE1463")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -229,7 +229,7 @@ namespace PIWebAPIWrapper.Api
 		#endregion
 	}
 
-	[Guid("2BFE6B70-C7F9-45B2-8895-389788BC46FF")]
+	[Guid("7B110A51-84C7-4F93-BE86-8B25911C4414")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IStreamSetApi))]
