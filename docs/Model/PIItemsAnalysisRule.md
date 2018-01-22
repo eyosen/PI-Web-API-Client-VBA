@@ -4,7 +4,7 @@
 Name | Type | Notes
 ------------ | ------------- | -------------
 **Items** | **[**PIAnalysisRule[]**](../Model/PIAnalysisRule.md)**
-**Links** | **[**object**](../Model/Object.md)**
+**Links** | **[**PIPaginationLinks**](../Model/PIPaginationLinks.md)**
 
 ## Methods
 

@@ -27,7 +27,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Api
 {
 
-	[Guid("6DCBDAFB-15E6-4291-BABB-9D68EE231383")]
+	[Guid("8F2E30CA-E11A-4B2B-9603-8462B455CBB5")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -36,11 +36,11 @@ namespace PIWebAPIWrapper.Api
 		#region Synchronous Operations
 		/// <summary>Opens a channel that will send messages about any value changes for the specified stream.</summary>
 		[DispId(1)]
-		PIItemsStreamValues GetChannel(string webId, bool includeInitialValues);
+		PIItemsStreamValues GetChannel(string webId, int heartbeatRate, bool includeInitialValues, string webIdType = null);
 
 		/// <summary>Opens a channel that will send messages about any value changes for the specified stream.</summary>
 		[DispId(2)]
-		ApiResponsePIItemsStreamValues GetChannelWithHttpInfo(string webId, bool includeInitialValues);
+		ApiResponsePIItemsStreamValues GetChannelWithHttpInfo(string webId, int heartbeatRate, bool includeInitialValues, string webIdType = null);
 
 		/// <summary>Returns the end-of-stream value of the stream.</summary>
 		[DispId(3)]
@@ -52,11 +52,11 @@ namespace PIWebAPIWrapper.Api
 
 		/// <summary>Retrieves interpolated values over the specified time range at the specified sampling interval.</summary>
 		[DispId(5)]
-		PITimedValues GetInterpolated(string webId, bool includeFilteredValues, string desiredUnits = null, string endTime = null, string filterExpression = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		PITimedValues GetInterpolated(string webId, bool includeFilteredValues, string desiredUnits = null, string endTime = null, string filterExpression = null, string interval = null, string selectedFields = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null);
 
 		/// <summary>Retrieves interpolated values over the specified time range at the specified sampling interval.</summary>
 		[DispId(6)]
-		ApiResponsePITimedValues GetInterpolatedWithHttpInfo(string webId, bool includeFilteredValues, string desiredUnits = null, string endTime = null, string filterExpression = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		ApiResponsePITimedValues GetInterpolatedWithHttpInfo(string webId, bool includeFilteredValues, string desiredUnits = null, string endTime = null, string filterExpression = null, string interval = null, string selectedFields = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null);
 
 		/// <summary>Retrieves interpolated values over the specified time range at the specified sampling interval.</summary>
 		[DispId(7)]
@@ -124,16 +124,16 @@ namespace PIWebAPIWrapper.Api
 
 		/// <summary>Updates a value for the specified stream.</summary>
 		[DispId(23)]
-		Object UpdateValue(string webId, PITimedValue value, string bufferOption = null, string updateOption = null);
+		Object UpdateValue(string webId, PITimedValue value, string bufferOption = null, string updateOption = null, string webIdType = null);
 
 		/// <summary>Updates a value for the specified stream.</summary>
 		[DispId(24)]
-		ApiResponseObject UpdateValueWithHttpInfo(string webId, PITimedValue value, string bufferOption = null, string updateOption = null);
+		ApiResponseObject UpdateValueWithHttpInfo(string webId, PITimedValue value, string bufferOption = null, string updateOption = null, string webIdType = null);
 
 		#endregion
 	}
 
-	[Guid("B09786DD-8019-4A5B-B671-993E1F64C969")]
+	[Guid("39C5F867-BEAB-487D-8CBB-F4348F3BF8AA")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IStreamApi))]
@@ -172,18 +172,22 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Opens a channel that will send messages about any value changes for the specified stream.</summary>
-		public PIItemsStreamValues GetChannel(string webId, bool includeInitialValues)
+		public PIItemsStreamValues GetChannel(string webId, int heartbeatRate, bool includeInitialValues, string webIdType = null)
 		{
-			ApiResponsePIItemsStreamValues localVarResponse = GetChannelWithHttpInfo(webId, includeInitialValues);
+			ApiResponsePIItemsStreamValues localVarResponse = GetChannelWithHttpInfo(webId, heartbeatRate, includeInitialValues, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Opens a channel that will send messages about any value changes for the specified stream.</summary>
-		public ApiResponsePIItemsStreamValues GetChannelWithHttpInfo(string webId, bool includeInitialValues)
+		public ApiResponsePIItemsStreamValues GetChannelWithHttpInfo(string webId, int heartbeatRate, bool includeInitialValues, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
 				webId = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -207,7 +211,9 @@ namespace PIWebAPIWrapper.Api
 			localVarPathParams.Add("format", "json");
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			localVarQueryParams.Add("heartbeatRate", Configuration.ApiClient.ParameterToString(heartbeatRate));
 			localVarQueryParams.Add("includeInitialValues", Configuration.ApiClient.ParameterToString(includeInitialValues));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -291,14 +297,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieves interpolated values over the specified time range at the specified sampling interval.</summary>
-		public PITimedValues GetInterpolated(string webId, bool includeFilteredValues, string desiredUnits = null, string endTime = null, string filterExpression = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public PITimedValues GetInterpolated(string webId, bool includeFilteredValues, string desiredUnits = null, string endTime = null, string filterExpression = null, string interval = null, string selectedFields = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null)
 		{
-			ApiResponsePITimedValues localVarResponse = GetInterpolatedWithHttpInfo(webId, includeFilteredValues, desiredUnits, endTime, filterExpression, interval, selectedFields, startTime, timeZone);
+			ApiResponsePITimedValues localVarResponse = GetInterpolatedWithHttpInfo(webId, includeFilteredValues, desiredUnits, endTime, filterExpression, interval, selectedFields, startTime, syncTime, syncTimeBoundaryType, timeZone);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieves interpolated values over the specified time range at the specified sampling interval.</summary>
-		public ApiResponsePITimedValues GetInterpolatedWithHttpInfo(string webId, bool includeFilteredValues, string desiredUnits = null, string endTime = null, string filterExpression = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public ApiResponsePITimedValues GetInterpolatedWithHttpInfo(string webId, bool includeFilteredValues, string desiredUnits = null, string endTime = null, string filterExpression = null, string interval = null, string selectedFields = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -327,6 +333,14 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(startTime)==true)
 			{
 				startTime = null;
+			}
+			if (string.IsNullOrEmpty(syncTime)==true)
+			{
+				syncTime = null;
+			}
+			if (string.IsNullOrEmpty(syncTimeBoundaryType)==true)
+			{
+				syncTimeBoundaryType = null;
 			}
 			if (string.IsNullOrEmpty(timeZone)==true)
 			{
@@ -361,6 +375,8 @@ namespace PIWebAPIWrapper.Api
 			if (interval!= null) localVarQueryParams.Add("interval", Configuration.ApiClient.ParameterToString(interval));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
+			if (syncTime!= null) localVarQueryParams.Add("syncTime", Configuration.ApiClient.ParameterToString(syncTime));
+			if (syncTimeBoundaryType!= null) localVarQueryParams.Add("syncTimeBoundaryType", Configuration.ApiClient.ParameterToString(syncTimeBoundaryType));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
@@ -1050,14 +1066,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Updates a value for the specified stream.</summary>
-		public Object UpdateValue(string webId, PITimedValue value, string bufferOption = null, string updateOption = null)
+		public Object UpdateValue(string webId, PITimedValue value, string bufferOption = null, string updateOption = null, string webIdType = null)
 		{
-			ApiResponseObject localVarResponse = UpdateValueWithHttpInfo(webId, value, bufferOption, updateOption);
+			ApiResponseObject localVarResponse = UpdateValueWithHttpInfo(webId, value, bufferOption, updateOption, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Updates a value for the specified stream.</summary>
-		public ApiResponseObject UpdateValueWithHttpInfo(string webId, PITimedValue value, string bufferOption = null, string updateOption = null)
+		public ApiResponseObject UpdateValueWithHttpInfo(string webId, PITimedValue value, string bufferOption = null, string updateOption = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -1070,6 +1086,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(updateOption)==true)
 			{
 				updateOption = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -1105,6 +1125,7 @@ namespace PIWebAPIWrapper.Api
 			}
 			if (bufferOption!= null) localVarQueryParams.Add("bufferOption", Configuration.ApiClient.ParameterToString(bufferOption));
 			if (updateOption!= null) localVarQueryParams.Add("updateOption", Configuration.ApiClient.ParameterToString(updateOption));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,

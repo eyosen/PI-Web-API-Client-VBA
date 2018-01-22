@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Model
 {
 
-	[Guid("36930FB7-0194-4B3B-B8E8-8A84A18F37CC")]
+	[Guid("FBA85C20-E188-413D-B522-917C3CE4F406")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -54,11 +54,11 @@ namespace PIWebAPIWrapper.Model
 		void CreateItemsArray(int i);
 
 		[DispId(6)]
-		object Links { get; set; }
+		PIPaginationLinks Links { get; set; }
 
 	}
 
-	[Guid("C356A401-19A1-47AF-97C5-C5B52B69025C")]
+	[Guid("99BAEC3D-7DE8-4768-86D2-1897546DDA10")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IPIItemsElementCategory))]
@@ -95,7 +95,7 @@ namespace PIWebAPIWrapper.Model
 		}
 
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
-		public object Links { get; set; }
+		public PIPaginationLinks Links { get; set; }
 
 	}
 }

@@ -4,7 +4,7 @@
 Name | Type | Notes
 ------------ | ------------- | -------------
 **Items** | **[**PIDataServer[]**](../Model/PIDataServer.md)**
-**Links** | **[**object**](../Model/Object.md)**
+**Links** | **[**PIPaginationLinks**](../Model/PIPaginationLinks.md)**
 
 ## Methods
 

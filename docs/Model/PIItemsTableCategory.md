@@ -4,7 +4,7 @@
 Name | Type | Notes
 ------------ | ------------- | -------------
 **Items** | **[**PITableCategory[]**](../Model/PITableCategory.md)**
-**Links** | **[**object**](../Model/Object.md)**
+**Links** | **[**PIPaginationLinks**](../Model/PIPaginationLinks.md)**
 
 ## Methods
 

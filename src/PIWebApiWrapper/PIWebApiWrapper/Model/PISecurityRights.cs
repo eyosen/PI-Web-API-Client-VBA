@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Model
 {
 
-	[Guid("D6B354D1-5FBA-4AA2-8539-C464FA175354")]
+	[Guid("404CC830-8D67-4487-811D-A9991651DD34")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -48,11 +48,47 @@ namespace PIWebAPIWrapper.Model
 		string UserIdentity { get; set; }
 
 		[DispId(4)]
-		object Links { get; set; }
+		PISecurityRightsLinks Links { get; set; }
+
+		[DispId(5)]
+		bool CanAnnotate { get; set; }
+
+		[DispId(6)]
+		bool CanDelete { get; set; }
+
+		[DispId(7)]
+		bool CanExecute { get; set; }
+
+		[DispId(8)]
+		bool CanRead { get; set; }
+
+		[DispId(9)]
+		bool CanReadData { get; set; }
+
+		[DispId(10)]
+		bool CanSubscribe { get; set; }
+
+		[DispId(11)]
+		bool CanSubscribeOthers { get; set; }
+
+		[DispId(12)]
+		bool CanWrite { get; set; }
+
+		[DispId(13)]
+		bool CanWriteData { get; set; }
+
+		[DispId(14)]
+		bool HasAdmin { get; set; }
+
+		[DispId(15)]
+		string[] Rights { get; set; }
+
+		[DispId(16)]
+		PIWebException WebException { get; set; }
 
 	}
 
-	[Guid("BC71993F-7356-466C-ACAE-FF3213DFC12E")]
+	[Guid("D6918665-7467-40DA-BBEF-085D4C375C25")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IPISecurityRights))]
@@ -75,7 +111,43 @@ namespace PIWebAPIWrapper.Model
 		public string UserIdentity { get; set; }
 
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
-		public object Links { get; set; }
+		public PISecurityRightsLinks Links { get; set; }
+
+		[DataMember(Name = "CanAnnotate", EmitDefaultValue = false)]
+		public bool CanAnnotate { get; set; }
+
+		[DataMember(Name = "CanDelete", EmitDefaultValue = false)]
+		public bool CanDelete { get; set; }
+
+		[DataMember(Name = "CanExecute", EmitDefaultValue = false)]
+		public bool CanExecute { get; set; }
+
+		[DataMember(Name = "CanRead", EmitDefaultValue = false)]
+		public bool CanRead { get; set; }
+
+		[DataMember(Name = "CanReadData", EmitDefaultValue = false)]
+		public bool CanReadData { get; set; }
+
+		[DataMember(Name = "CanSubscribe", EmitDefaultValue = false)]
+		public bool CanSubscribe { get; set; }
+
+		[DataMember(Name = "CanSubscribeOthers", EmitDefaultValue = false)]
+		public bool CanSubscribeOthers { get; set; }
+
+		[DataMember(Name = "CanWrite", EmitDefaultValue = false)]
+		public bool CanWrite { get; set; }
+
+		[DataMember(Name = "CanWriteData", EmitDefaultValue = false)]
+		public bool CanWriteData { get; set; }
+
+		[DataMember(Name = "HasAdmin", EmitDefaultValue = false)]
+		public bool HasAdmin { get; set; }
+
+		[DataMember(Name = "Rights", EmitDefaultValue = false)]
+		public string[] Rights { get; set; }
+
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

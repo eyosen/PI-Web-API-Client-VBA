@@ -27,7 +27,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Api
 {
 
-	[Guid("C1491A71-ABBE-40D0-8FF8-88EC0DEE1463")]
+	[Guid("76D898CD-1090-4F21-985C-8BF8EE19CB85")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -36,51 +36,51 @@ namespace PIWebAPIWrapper.Api
 		#region Synchronous Operations
 		/// <summary>Opens a channel that will send messages about any value changes for the attributes of an Element, Event Frame, or Attribute.</summary>
 		[DispId(1)]
-		PIItemsStreamValue GetChannel(string webId, bool includeInitialValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string templateName = null);
+		PIItemsStreamValue GetChannel(string webId, int heartbeatRate, bool includeInitialValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string templateName = null, string webIdType = null);
 
 		/// <summary>Opens a channel that will send messages about any value changes for the attributes of an Element, Event Frame, or Attribute.</summary>
 		[DispId(2)]
-		ApiResponsePIItemsStreamValue GetChannelWithHttpInfo(string webId, bool includeInitialValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string templateName = null);
+		ApiResponsePIItemsStreamValue GetChannelWithHttpInfo(string webId, int heartbeatRate, bool includeInitialValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string templateName = null, string webIdType = null);
 
 		/// <summary>Returns End of stream values of the attributes for an Element, Event Frame or Attribute</summary>
 		[DispId(3)]
-		PIItemsStreamValue GetEnd(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string selectedFields = null, string templateName = null);
+		PIItemsStreamValue GetEnd(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string webIdType = null);
 
 		/// <summary>Returns End of stream values of the attributes for an Element, Event Frame or Attribute</summary>
 		[DispId(4)]
-		ApiResponsePIItemsStreamValue GetEndWithHttpInfo(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string selectedFields = null, string templateName = null);
+		ApiResponsePIItemsStreamValue GetEndWithHttpInfo(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string webIdType = null);
 
 		/// <summary>Returns interpolated values of attributes for an element, event frame or attribute over the specified time range at the specified sampling interval.</summary>
 		[DispId(5)]
-		PIItemsStreamValues GetInterpolated(string webId, bool includeFilteredValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string endTime = null, string filterExpression = null, string interval = null, string nameFilter = null, string selectedFields = null, string startTime = null, string templateName = null, string timeZone = null);
+		PIItemsStreamValues GetInterpolated(string webId, bool includeFilteredValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string endTime = null, string filterExpression = null, string interval = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns interpolated values of attributes for an element, event frame or attribute over the specified time range at the specified sampling interval.</summary>
 		[DispId(6)]
-		ApiResponsePIItemsStreamValues GetInterpolatedWithHttpInfo(string webId, bool includeFilteredValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string endTime = null, string filterExpression = null, string interval = null, string nameFilter = null, string selectedFields = null, string startTime = null, string templateName = null, string timeZone = null);
+		ApiResponsePIItemsStreamValues GetInterpolatedWithHttpInfo(string webId, bool includeFilteredValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string endTime = null, string filterExpression = null, string interval = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns interpolated values of attributes for an element, event frame or attribute at the specified times.</summary>
 		[DispId(7)]
-		PIItemsStreamValues GetInterpolatedAtTimes(string webId, string times, bool includeFilteredValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string filterExpression = null, string nameFilter = null, string selectedFields = null, string sortOrder = null, string templateName = null, string timeZone = null);
+		PIItemsStreamValues GetInterpolatedAtTimes(string webId, string times, bool includeFilteredValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string filterExpression = null, string nameFilter = null, string selectedFields = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns interpolated values of attributes for an element, event frame or attribute at the specified times.</summary>
 		[DispId(8)]
-		ApiResponsePIItemsStreamValues GetInterpolatedAtTimesWithHttpInfo(string webId, string times, bool includeFilteredValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string filterExpression = null, string nameFilter = null, string selectedFields = null, string sortOrder = null, string templateName = null, string timeZone = null);
+		ApiResponsePIItemsStreamValues GetInterpolatedAtTimesWithHttpInfo(string webId, string times, bool includeFilteredValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string filterExpression = null, string nameFilter = null, string selectedFields = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns values of attributes for an element, event frame or attribute over the specified time range suitable for plotting over the number of intervals (typically represents pixels).</summary>
 		[DispId(9)]
-		PIItemsStreamValues GetPlot(string webId, int intervals, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string endTime = null, string nameFilter = null, string selectedFields = null, string startTime = null, string templateName = null, string timeZone = null);
+		PIItemsStreamValues GetPlot(string webId, int intervals, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string endTime = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns values of attributes for an element, event frame or attribute over the specified time range suitable for plotting over the number of intervals (typically represents pixels).</summary>
 		[DispId(10)]
-		ApiResponsePIItemsStreamValues GetPlotWithHttpInfo(string webId, int intervals, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string endTime = null, string nameFilter = null, string selectedFields = null, string startTime = null, string templateName = null, string timeZone = null);
+		ApiResponsePIItemsStreamValues GetPlotWithHttpInfo(string webId, int intervals, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string endTime = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns recorded values of the attributes for an element, event frame, or attribute.</summary>
 		[DispId(11)]
-		PIItemsStreamValues GetRecorded(string webId, bool includeFilteredValues, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string selectedFields = null, string startTime = null, string templateName = null, string timeZone = null);
+		PIItemsStreamValues GetRecorded(string webId, bool includeFilteredValues, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns recorded values of the attributes for an element, event frame, or attribute.</summary>
 		[DispId(12)]
-		ApiResponsePIItemsStreamValues GetRecordedWithHttpInfo(string webId, bool includeFilteredValues, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string selectedFields = null, string startTime = null, string templateName = null, string timeZone = null);
+		ApiResponsePIItemsStreamValues GetRecordedWithHttpInfo(string webId, bool includeFilteredValues, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Updates multiple values for the specified streams.</summary>
 		[DispId(13)]
@@ -92,35 +92,35 @@ namespace PIWebAPIWrapper.Api
 
 		/// <summary>Returns recorded values of the attributes for an element, event frame, or attribute.</summary>
 		[DispId(15)]
-		PIItemsStreamValues GetRecordedAtTime(string webId, string time, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string retrievalMode = null, string selectedFields = null, string templateName = null, string timeZone = null);
+		PIItemsStreamValues GetRecordedAtTime(string webId, string time, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string retrievalMode = null, string selectedFields = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns recorded values of the attributes for an element, event frame, or attribute.</summary>
 		[DispId(16)]
-		ApiResponsePIItemsStreamValues GetRecordedAtTimeWithHttpInfo(string webId, string time, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string retrievalMode = null, string selectedFields = null, string templateName = null, string timeZone = null);
+		ApiResponsePIItemsStreamValues GetRecordedAtTimeWithHttpInfo(string webId, string time, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string retrievalMode = null, string selectedFields = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns recorded values of attributes for an element, event frame or attribute at the specified times.</summary>
 		[DispId(17)]
-		PIItemsStreamValues GetRecordedAtTimes(string webId, string times, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string templateName = null, string timeZone = null);
+		PIItemsStreamValues GetRecordedAtTimes(string webId, string times, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns recorded values of attributes for an element, event frame or attribute at the specified times.</summary>
 		[DispId(18)]
-		ApiResponsePIItemsStreamValues GetRecordedAtTimesWithHttpInfo(string webId, string times, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string templateName = null, string timeZone = null);
+		ApiResponsePIItemsStreamValues GetRecordedAtTimesWithHttpInfo(string webId, string times, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns summary values of the attributes for an element, event frame or attribute.</summary>
 		[DispId(19)]
-		PIItemsStreamSummaries GetSummaries(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, string summaryTypes = null, string templateName = null, string timeType = null, string timeZone = null);
+		PIItemsStreamSummaries GetSummaries(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, string summaryTypes = null, string templateName = null, string timeType = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns summary values of the attributes for an element, event frame or attribute.</summary>
 		[DispId(20)]
-		ApiResponsePIItemsStreamSummaries GetSummariesWithHttpInfo(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, string summaryTypes = null, string templateName = null, string timeType = null, string timeZone = null);
+		ApiResponsePIItemsStreamSummaries GetSummariesWithHttpInfo(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, string summaryTypes = null, string templateName = null, string timeType = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns values of the attributes for an Element, Event Frame or Attribute at the specified time.</summary>
 		[DispId(21)]
-		PIItemsStreamValue GetValues(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string selectedFields = null, string templateName = null, string time = null, string timeZone = null);
+		PIItemsStreamValue GetValues(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string time = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns values of the attributes for an Element, Event Frame or Attribute at the specified time.</summary>
 		[DispId(22)]
-		ApiResponsePIItemsStreamValue GetValuesWithHttpInfo(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string selectedFields = null, string templateName = null, string time = null, string timeZone = null);
+		ApiResponsePIItemsStreamValue GetValuesWithHttpInfo(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string time = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Updates a single value for the specified streams.</summary>
 		[DispId(23)]
@@ -132,51 +132,51 @@ namespace PIWebAPIWrapper.Api
 
 		/// <summary>Opens a channel that will send messages about any value changes for the specified streams.</summary>
 		[DispId(25)]
-		PIItemsStreamValue GetChannelAdHoc(string webIds, bool includeInitialValues);
+		PIItemsStreamValue GetChannelAdHoc(string webIds, int heartbeatRate, bool includeInitialValues, string webIdType = null);
 
 		/// <summary>Opens a channel that will send messages about any value changes for the specified streams.</summary>
 		[DispId(26)]
-		ApiResponsePIItemsStreamValue GetChannelAdHocWithHttpInfo(string webIds, bool includeInitialValues);
+		ApiResponsePIItemsStreamValue GetChannelAdHocWithHttpInfo(string webIds, int heartbeatRate, bool includeInitialValues, string webIdType = null);
 
 		/// <summary>Returns End Of Stream values for attributes of the specified streams</summary>
 		[DispId(27)]
-		PIItemsStreamValues GetEndAdHoc(string webIds, string selectedFields = null);
+		PIItemsStreamValues GetEndAdHoc(string webIds, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>Returns End Of Stream values for attributes of the specified streams</summary>
 		[DispId(28)]
-		ApiResponsePIItemsStreamValues GetEndAdHocWithHttpInfo(string webIds, string selectedFields = null);
+		ApiResponsePIItemsStreamValues GetEndAdHocWithHttpInfo(string webIds, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>Returns interpolated values of the specified streams over the specified time range at the specified sampling interval.</summary>
 		[DispId(29)]
-		PIItemsStreamValues GetInterpolatedAdHoc(string webIds, bool includeFilteredValues, string endTime = null, string filterExpression = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		PIItemsStreamValues GetInterpolatedAdHoc(string webIds, bool includeFilteredValues, string endTime = null, string filterExpression = null, string interval = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns interpolated values of the specified streams over the specified time range at the specified sampling interval.</summary>
 		[DispId(30)]
-		ApiResponsePIItemsStreamValues GetInterpolatedAdHocWithHttpInfo(string webIds, bool includeFilteredValues, string endTime = null, string filterExpression = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		ApiResponsePIItemsStreamValues GetInterpolatedAdHocWithHttpInfo(string webIds, bool includeFilteredValues, string endTime = null, string filterExpression = null, string interval = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns interpolated values of the specified streams at the specified times.</summary>
 		[DispId(31)]
-		PIItemsStreamValues GetInterpolatedAtTimesAdHoc(string times, string webIds, bool includeFilteredValues, string filterExpression = null, string selectedFields = null, string sortOrder = null, string timeZone = null);
+		PIItemsStreamValues GetInterpolatedAtTimesAdHoc(string times, string webIds, bool includeFilteredValues, string filterExpression = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns interpolated values of the specified streams at the specified times.</summary>
 		[DispId(32)]
-		ApiResponsePIItemsStreamValues GetInterpolatedAtTimesAdHocWithHttpInfo(string times, string webIds, bool includeFilteredValues, string filterExpression = null, string selectedFields = null, string sortOrder = null, string timeZone = null);
+		ApiResponsePIItemsStreamValues GetInterpolatedAtTimesAdHocWithHttpInfo(string times, string webIds, bool includeFilteredValues, string filterExpression = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns values of attributes for the specified streams over the specified time range suitable for plotting over the number of intervals (typically represents pixels).</summary>
 		[DispId(33)]
-		PIItemsStreamValues GetPlotAdHoc(string webIds, int intervals, string endTime = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		PIItemsStreamValues GetPlotAdHoc(string webIds, int intervals, string endTime = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns values of attributes for the specified streams over the specified time range suitable for plotting over the number of intervals (typically represents pixels).</summary>
 		[DispId(34)]
-		ApiResponsePIItemsStreamValues GetPlotAdHocWithHttpInfo(string webIds, int intervals, string endTime = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		ApiResponsePIItemsStreamValues GetPlotAdHocWithHttpInfo(string webIds, int intervals, string endTime = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns recorded values of the specified streams.</summary>
 		[DispId(35)]
-		PIItemsStreamValues GetRecordedAdHoc(string webIds, bool includeFilteredValues, int maxCount, string boundaryType = null, string endTime = null, string filterExpression = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		PIItemsStreamValues GetRecordedAdHoc(string webIds, bool includeFilteredValues, int maxCount, string boundaryType = null, string endTime = null, string filterExpression = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns recorded values of the specified streams.</summary>
 		[DispId(36)]
-		ApiResponsePIItemsStreamValues GetRecordedAdHocWithHttpInfo(string webIds, bool includeFilteredValues, int maxCount, string boundaryType = null, string endTime = null, string filterExpression = null, string selectedFields = null, string startTime = null, string timeZone = null);
+		ApiResponsePIItemsStreamValues GetRecordedAdHocWithHttpInfo(string webIds, bool includeFilteredValues, int maxCount, string boundaryType = null, string endTime = null, string filterExpression = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Updates multiple values for the specified streams.</summary>
 		[DispId(37)]
@@ -188,35 +188,35 @@ namespace PIWebAPIWrapper.Api
 
 		/// <summary>Returns recorded values based on the passed time and retrieval mode.</summary>
 		[DispId(39)]
-		PIItemsStreamValue GetRecordedAtTimeAdHoc(string time, string webIds, string retrievalMode = null, string selectedFields = null, string timeZone = null);
+		PIItemsStreamValue GetRecordedAtTimeAdHoc(string time, string webIds, string retrievalMode = null, string selectedFields = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns recorded values based on the passed time and retrieval mode.</summary>
 		[DispId(40)]
-		ApiResponsePIItemsStreamValue GetRecordedAtTimeAdHocWithHttpInfo(string time, string webIds, string retrievalMode = null, string selectedFields = null, string timeZone = null);
+		ApiResponsePIItemsStreamValue GetRecordedAtTimeAdHocWithHttpInfo(string time, string webIds, string retrievalMode = null, string selectedFields = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns recorded values of the specified streams at the specified times.</summary>
 		[DispId(41)]
-		PIItemsStreamValues GetRecordedAtTimesAdHoc(string times, string webIds, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null);
+		PIItemsStreamValues GetRecordedAtTimesAdHoc(string times, string webIds, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns recorded values of the specified streams at the specified times.</summary>
 		[DispId(42)]
-		ApiResponsePIItemsStreamValues GetRecordedAtTimesAdHocWithHttpInfo(string times, string webIds, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null);
+		ApiResponsePIItemsStreamValues GetRecordedAtTimesAdHocWithHttpInfo(string times, string webIds, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns summary values of the specified streams.</summary>
 		[DispId(43)]
-		PIItemsStreamSummaries GetSummariesAdHoc(string webIds, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, string summaryTypes = null, string timeType = null, string timeZone = null);
+		PIItemsStreamSummaries GetSummariesAdHoc(string webIds, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, string summaryTypes = null, string timeType = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns summary values of the specified streams.</summary>
 		[DispId(44)]
-		ApiResponsePIItemsStreamSummaries GetSummariesAdHocWithHttpInfo(string webIds, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, string summaryTypes = null, string timeType = null, string timeZone = null);
+		ApiResponsePIItemsStreamSummaries GetSummariesAdHocWithHttpInfo(string webIds, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, string summaryTypes = null, string timeType = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns values of the specified streams.</summary>
 		[DispId(45)]
-		PIItemsStreamValue GetValuesAdHoc(string webIds, string selectedFields = null, string time = null, string timeZone = null);
+		PIItemsStreamValue GetValuesAdHoc(string webIds, string selectedFields = null, string sortField = null, string sortOrder = null, string time = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Returns values of the specified streams.</summary>
 		[DispId(46)]
-		ApiResponsePIItemsStreamValue GetValuesAdHocWithHttpInfo(string webIds, string selectedFields = null, string time = null, string timeZone = null);
+		ApiResponsePIItemsStreamValue GetValuesAdHocWithHttpInfo(string webIds, string selectedFields = null, string sortField = null, string sortOrder = null, string time = null, string timeZone = null, string webIdType = null);
 
 		/// <summary>Updates a single value for the specified streams.</summary>
 		[DispId(47)]
@@ -229,7 +229,7 @@ namespace PIWebAPIWrapper.Api
 		#endregion
 	}
 
-	[Guid("7B110A51-84C7-4F93-BE86-8B25911C4414")]
+	[Guid("3E5779AC-3827-4DAF-AE0A-6CD2C131516C")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IStreamSetApi))]
@@ -268,14 +268,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Opens a channel that will send messages about any value changes for the attributes of an Element, Event Frame, or Attribute.</summary>
-		public PIItemsStreamValue GetChannel(string webId, bool includeInitialValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string templateName = null)
+		public PIItemsStreamValue GetChannel(string webId, int heartbeatRate, bool includeInitialValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string templateName = null, string webIdType = null)
 		{
-			ApiResponsePIItemsStreamValue localVarResponse = GetChannelWithHttpInfo(webId, includeInitialValues, searchFullHierarchy, showExcluded, showHidden, categoryName, nameFilter, templateName);
+			ApiResponsePIItemsStreamValue localVarResponse = GetChannelWithHttpInfo(webId, heartbeatRate, includeInitialValues, searchFullHierarchy, showExcluded, showHidden, categoryName, nameFilter, templateName, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Opens a channel that will send messages about any value changes for the attributes of an Element, Event Frame, or Attribute.</summary>
-		public ApiResponsePIItemsStreamValue GetChannelWithHttpInfo(string webId, bool includeInitialValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string templateName = null)
+		public ApiResponsePIItemsStreamValue GetChannelWithHttpInfo(string webId, int heartbeatRate, bool includeInitialValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string templateName = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -292,6 +292,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(templateName)==true)
 			{
 				templateName = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -316,12 +320,14 @@ namespace PIWebAPIWrapper.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (categoryName!= null) localVarQueryParams.Add("categoryName", Configuration.ApiClient.ParameterToString(categoryName));
+			localVarQueryParams.Add("heartbeatRate", Configuration.ApiClient.ParameterToString(heartbeatRate));
 			localVarQueryParams.Add("includeInitialValues", Configuration.ApiClient.ParameterToString(includeInitialValues));
 			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
 			localVarQueryParams.Add("searchFullHierarchy", Configuration.ApiClient.ParameterToString(searchFullHierarchy));
 			localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
 			localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -341,14 +347,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Returns End of stream values of the attributes for an Element, Event Frame or Attribute</summary>
-		public PIItemsStreamValue GetEnd(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string selectedFields = null, string templateName = null)
+		public PIItemsStreamValue GetEnd(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string webIdType = null)
 		{
-			ApiResponsePIItemsStreamValue localVarResponse = GetEndWithHttpInfo(webId, searchFullHierarchy, showExcluded, showHidden, categoryName, nameFilter, selectedFields, templateName);
+			ApiResponsePIItemsStreamValue localVarResponse = GetEndWithHttpInfo(webId, searchFullHierarchy, showExcluded, showHidden, categoryName, nameFilter, selectedFields, sortField, sortOrder, templateName, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Returns End of stream values of the attributes for an Element, Event Frame or Attribute</summary>
-		public ApiResponsePIItemsStreamValue GetEndWithHttpInfo(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string selectedFields = null, string templateName = null)
+		public ApiResponsePIItemsStreamValue GetEndWithHttpInfo(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -366,9 +372,21 @@ namespace PIWebAPIWrapper.Api
 			{
 				selectedFields = null;
 			}
+			if (string.IsNullOrEmpty(sortField)==true)
+			{
+				sortField = null;
+			}
+			if (string.IsNullOrEmpty(sortOrder)==true)
+			{
+				sortOrder = null;
+			}
 			if (string.IsNullOrEmpty(templateName)==true)
 			{
 				templateName = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -398,7 +416,10 @@ namespace PIWebAPIWrapper.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
 			localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -418,14 +439,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Returns interpolated values of attributes for an element, event frame or attribute over the specified time range at the specified sampling interval.</summary>
-		public PIItemsStreamValues GetInterpolated(string webId, bool includeFilteredValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string endTime = null, string filterExpression = null, string interval = null, string nameFilter = null, string selectedFields = null, string startTime = null, string templateName = null, string timeZone = null)
+		public PIItemsStreamValues GetInterpolated(string webId, bool includeFilteredValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string endTime = null, string filterExpression = null, string interval = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponsePIItemsStreamValues localVarResponse = GetInterpolatedWithHttpInfo(webId, includeFilteredValues, searchFullHierarchy, showExcluded, showHidden, categoryName, endTime, filterExpression, interval, nameFilter, selectedFields, startTime, templateName, timeZone);
+			ApiResponsePIItemsStreamValues localVarResponse = GetInterpolatedWithHttpInfo(webId, includeFilteredValues, searchFullHierarchy, showExcluded, showHidden, categoryName, endTime, filterExpression, interval, nameFilter, selectedFields, sortField, sortOrder, startTime, syncTime, syncTimeBoundaryType, templateName, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Returns interpolated values of attributes for an element, event frame or attribute over the specified time range at the specified sampling interval.</summary>
-		public ApiResponsePIItemsStreamValues GetInterpolatedWithHttpInfo(string webId, bool includeFilteredValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string endTime = null, string filterExpression = null, string interval = null, string nameFilter = null, string selectedFields = null, string startTime = null, string templateName = null, string timeZone = null)
+		public ApiResponsePIItemsStreamValues GetInterpolatedWithHttpInfo(string webId, bool includeFilteredValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string endTime = null, string filterExpression = null, string interval = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -455,9 +476,25 @@ namespace PIWebAPIWrapper.Api
 			{
 				selectedFields = null;
 			}
+			if (string.IsNullOrEmpty(sortField)==true)
+			{
+				sortField = null;
+			}
+			if (string.IsNullOrEmpty(sortOrder)==true)
+			{
+				sortOrder = null;
+			}
 			if (string.IsNullOrEmpty(startTime)==true)
 			{
 				startTime = null;
+			}
+			if (string.IsNullOrEmpty(syncTime)==true)
+			{
+				syncTime = null;
+			}
+			if (string.IsNullOrEmpty(syncTimeBoundaryType)==true)
+			{
+				syncTimeBoundaryType = null;
 			}
 			if (string.IsNullOrEmpty(templateName)==true)
 			{
@@ -466,6 +503,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(timeZone)==true)
 			{
 				timeZone = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -499,9 +540,14 @@ namespace PIWebAPIWrapper.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
 			localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
+			if (syncTime!= null) localVarQueryParams.Add("syncTime", Configuration.ApiClient.ParameterToString(syncTime));
+			if (syncTimeBoundaryType!= null) localVarQueryParams.Add("syncTimeBoundaryType", Configuration.ApiClient.ParameterToString(syncTimeBoundaryType));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -521,14 +567,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Returns interpolated values of attributes for an element, event frame or attribute at the specified times.</summary>
-		public PIItemsStreamValues GetInterpolatedAtTimes(string webId, string times, bool includeFilteredValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string filterExpression = null, string nameFilter = null, string selectedFields = null, string sortOrder = null, string templateName = null, string timeZone = null)
+		public PIItemsStreamValues GetInterpolatedAtTimes(string webId, string times, bool includeFilteredValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string filterExpression = null, string nameFilter = null, string selectedFields = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponsePIItemsStreamValues localVarResponse = GetInterpolatedAtTimesWithHttpInfo(webId, times, includeFilteredValues, searchFullHierarchy, showExcluded, showHidden, categoryName, filterExpression, nameFilter, selectedFields, sortOrder, templateName, timeZone);
+			ApiResponsePIItemsStreamValues localVarResponse = GetInterpolatedAtTimesWithHttpInfo(webId, times, includeFilteredValues, searchFullHierarchy, showExcluded, showHidden, categoryName, filterExpression, nameFilter, selectedFields, sortOrder, templateName, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Returns interpolated values of attributes for an element, event frame or attribute at the specified times.</summary>
-		public ApiResponsePIItemsStreamValues GetInterpolatedAtTimesWithHttpInfo(string webId, string times, bool includeFilteredValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string filterExpression = null, string nameFilter = null, string selectedFields = null, string sortOrder = null, string templateName = null, string timeZone = null)
+		public ApiResponsePIItemsStreamValues GetInterpolatedAtTimesWithHttpInfo(string webId, string times, bool includeFilteredValues, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string filterExpression = null, string nameFilter = null, string selectedFields = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
 			List<string> time = ExtensionMethods.ConvertToList(times);
 			if (string.IsNullOrEmpty(webId)==true)
@@ -562,6 +608,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(timeZone)==true)
 			{
 				timeZone = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -597,6 +647,7 @@ namespace PIWebAPIWrapper.Api
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -616,14 +667,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Returns values of attributes for an element, event frame or attribute over the specified time range suitable for plotting over the number of intervals (typically represents pixels).</summary>
-		public PIItemsStreamValues GetPlot(string webId, int intervals, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string endTime = null, string nameFilter = null, string selectedFields = null, string startTime = null, string templateName = null, string timeZone = null)
+		public PIItemsStreamValues GetPlot(string webId, int intervals, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string endTime = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponsePIItemsStreamValues localVarResponse = GetPlotWithHttpInfo(webId, intervals, searchFullHierarchy, showExcluded, showHidden, categoryName, endTime, nameFilter, selectedFields, startTime, templateName, timeZone);
+			ApiResponsePIItemsStreamValues localVarResponse = GetPlotWithHttpInfo(webId, intervals, searchFullHierarchy, showExcluded, showHidden, categoryName, endTime, nameFilter, selectedFields, sortField, sortOrder, startTime, templateName, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Returns values of attributes for an element, event frame or attribute over the specified time range suitable for plotting over the number of intervals (typically represents pixels).</summary>
-		public ApiResponsePIItemsStreamValues GetPlotWithHttpInfo(string webId, int intervals, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string endTime = null, string nameFilter = null, string selectedFields = null, string startTime = null, string templateName = null, string timeZone = null)
+		public ApiResponsePIItemsStreamValues GetPlotWithHttpInfo(string webId, int intervals, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string endTime = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -645,6 +696,14 @@ namespace PIWebAPIWrapper.Api
 			{
 				selectedFields = null;
 			}
+			if (string.IsNullOrEmpty(sortField)==true)
+			{
+				sortField = null;
+			}
+			if (string.IsNullOrEmpty(sortOrder)==true)
+			{
+				sortOrder = null;
+			}
 			if (string.IsNullOrEmpty(startTime)==true)
 			{
 				startTime = null;
@@ -656,6 +715,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(timeZone)==true)
 			{
 				timeZone = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -687,9 +750,12 @@ namespace PIWebAPIWrapper.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
 			localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -709,14 +775,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Returns recorded values of the attributes for an element, event frame, or attribute.</summary>
-		public PIItemsStreamValues GetRecorded(string webId, bool includeFilteredValues, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string selectedFields = null, string startTime = null, string templateName = null, string timeZone = null)
+		public PIItemsStreamValues GetRecorded(string webId, bool includeFilteredValues, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponsePIItemsStreamValues localVarResponse = GetRecordedWithHttpInfo(webId, includeFilteredValues, maxCount, searchFullHierarchy, showExcluded, showHidden, boundaryType, categoryName, endTime, filterExpression, nameFilter, selectedFields, startTime, templateName, timeZone);
+			ApiResponsePIItemsStreamValues localVarResponse = GetRecordedWithHttpInfo(webId, includeFilteredValues, maxCount, searchFullHierarchy, showExcluded, showHidden, boundaryType, categoryName, endTime, filterExpression, nameFilter, selectedFields, sortField, sortOrder, startTime, templateName, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Returns recorded values of the attributes for an element, event frame, or attribute.</summary>
-		public ApiResponsePIItemsStreamValues GetRecordedWithHttpInfo(string webId, bool includeFilteredValues, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string selectedFields = null, string startTime = null, string templateName = null, string timeZone = null)
+		public ApiResponsePIItemsStreamValues GetRecordedWithHttpInfo(string webId, bool includeFilteredValues, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, string boundaryType = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -746,6 +812,14 @@ namespace PIWebAPIWrapper.Api
 			{
 				selectedFields = null;
 			}
+			if (string.IsNullOrEmpty(sortField)==true)
+			{
+				sortField = null;
+			}
+			if (string.IsNullOrEmpty(sortOrder)==true)
+			{
+				sortOrder = null;
+			}
 			if (string.IsNullOrEmpty(startTime)==true)
 			{
 				startTime = null;
@@ -757,6 +831,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(timeZone)==true)
 			{
 				timeZone = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -791,9 +869,12 @@ namespace PIWebAPIWrapper.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
 			localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -887,14 +968,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Returns recorded values of the attributes for an element, event frame, or attribute.</summary>
-		public PIItemsStreamValues GetRecordedAtTime(string webId, string time, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string retrievalMode = null, string selectedFields = null, string templateName = null, string timeZone = null)
+		public PIItemsStreamValues GetRecordedAtTime(string webId, string time, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string retrievalMode = null, string selectedFields = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponsePIItemsStreamValues localVarResponse = GetRecordedAtTimeWithHttpInfo(webId, time, searchFullHierarchy, showExcluded, showHidden, categoryName, nameFilter, retrievalMode, selectedFields, templateName, timeZone);
+			ApiResponsePIItemsStreamValues localVarResponse = GetRecordedAtTimeWithHttpInfo(webId, time, searchFullHierarchy, showExcluded, showHidden, categoryName, nameFilter, retrievalMode, selectedFields, templateName, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Returns recorded values of the attributes for an element, event frame, or attribute.</summary>
-		public ApiResponsePIItemsStreamValues GetRecordedAtTimeWithHttpInfo(string webId, string time, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string retrievalMode = null, string selectedFields = null, string templateName = null, string timeZone = null)
+		public ApiResponsePIItemsStreamValues GetRecordedAtTimeWithHttpInfo(string webId, string time, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string retrievalMode = null, string selectedFields = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -927,6 +1008,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(timeZone)==true)
 			{
 				timeZone = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -962,6 +1047,7 @@ namespace PIWebAPIWrapper.Api
 			localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -981,14 +1067,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Returns recorded values of attributes for an element, event frame or attribute at the specified times.</summary>
-		public PIItemsStreamValues GetRecordedAtTimes(string webId, string times, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string templateName = null, string timeZone = null)
+		public PIItemsStreamValues GetRecordedAtTimes(string webId, string times, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponsePIItemsStreamValues localVarResponse = GetRecordedAtTimesWithHttpInfo(webId, times, searchFullHierarchy, showExcluded, showHidden, categoryName, nameFilter, retrievalMode, selectedFields, sortOrder, templateName, timeZone);
+			ApiResponsePIItemsStreamValues localVarResponse = GetRecordedAtTimesWithHttpInfo(webId, times, searchFullHierarchy, showExcluded, showHidden, categoryName, nameFilter, retrievalMode, selectedFields, sortOrder, templateName, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Returns recorded values of attributes for an element, event frame or attribute at the specified times.</summary>
-		public ApiResponsePIItemsStreamValues GetRecordedAtTimesWithHttpInfo(string webId, string times, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string templateName = null, string timeZone = null)
+		public ApiResponsePIItemsStreamValues GetRecordedAtTimesWithHttpInfo(string webId, string times, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string templateName = null, string timeZone = null, string webIdType = null)
 		{
 			List<string> time = ExtensionMethods.ConvertToList(times);
 			if (string.IsNullOrEmpty(webId)==true)
@@ -1023,6 +1109,10 @@ namespace PIWebAPIWrapper.Api
 			{
 				timeZone = null;
 			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
+			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
 
@@ -1056,6 +1146,7 @@ namespace PIWebAPIWrapper.Api
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1075,14 +1166,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Returns summary values of the attributes for an element, event frame or attribute.</summary>
-		public PIItemsStreamSummaries GetSummaries(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, string summaryTypes = null, string templateName = null, string timeType = null, string timeZone = null)
+		public PIItemsStreamSummaries GetSummaries(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, string summaryTypes = null, string templateName = null, string timeType = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponsePIItemsStreamSummaries localVarResponse = GetSummariesWithHttpInfo(webId, searchFullHierarchy, showExcluded, showHidden, calculationBasis, categoryName, endTime, filterExpression, nameFilter, sampleInterval, sampleType, selectedFields, startTime, summaryDuration, summaryTypes, templateName, timeType, timeZone);
+			ApiResponsePIItemsStreamSummaries localVarResponse = GetSummariesWithHttpInfo(webId, searchFullHierarchy, showExcluded, showHidden, calculationBasis, categoryName, endTime, filterExpression, nameFilter, sampleInterval, sampleType, selectedFields, startTime, summaryDuration, summaryTypes, templateName, timeType, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Returns summary values of the attributes for an element, event frame or attribute.</summary>
-		public ApiResponsePIItemsStreamSummaries GetSummariesWithHttpInfo(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, string summaryTypes = null, string templateName = null, string timeType = null, string timeZone = null)
+		public ApiResponsePIItemsStreamSummaries GetSummariesWithHttpInfo(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string calculationBasis = null, string categoryName = null, string endTime = null, string filterExpression = null, string nameFilter = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, string summaryTypes = null, string templateName = null, string timeType = null, string timeZone = null, string webIdType = null)
 		{
 			List<string> summaryType = ExtensionMethods.ConvertToList(summaryTypes);
 			if (string.IsNullOrEmpty(webId)==true)
@@ -1141,6 +1232,10 @@ namespace PIWebAPIWrapper.Api
 			{
 				timeZone = null;
 			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
+			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
 
@@ -1180,6 +1275,7 @@ namespace PIWebAPIWrapper.Api
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (timeType!= null) localVarQueryParams.Add("timeType", Configuration.ApiClient.ParameterToString(timeType));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1199,14 +1295,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Returns values of the attributes for an Element, Event Frame or Attribute at the specified time.</summary>
-		public PIItemsStreamValue GetValues(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string selectedFields = null, string templateName = null, string time = null, string timeZone = null)
+		public PIItemsStreamValue GetValues(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string time = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponsePIItemsStreamValue localVarResponse = GetValuesWithHttpInfo(webId, searchFullHierarchy, showExcluded, showHidden, categoryName, nameFilter, selectedFields, templateName, time, timeZone);
+			ApiResponsePIItemsStreamValue localVarResponse = GetValuesWithHttpInfo(webId, searchFullHierarchy, showExcluded, showHidden, categoryName, nameFilter, selectedFields, sortField, sortOrder, templateName, time, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Returns values of the attributes for an Element, Event Frame or Attribute at the specified time.</summary>
-		public ApiResponsePIItemsStreamValue GetValuesWithHttpInfo(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string selectedFields = null, string templateName = null, string time = null, string timeZone = null)
+		public ApiResponsePIItemsStreamValue GetValuesWithHttpInfo(string webId, bool searchFullHierarchy, bool showExcluded, bool showHidden, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string time = null, string timeZone = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -1224,6 +1320,14 @@ namespace PIWebAPIWrapper.Api
 			{
 				selectedFields = null;
 			}
+			if (string.IsNullOrEmpty(sortField)==true)
+			{
+				sortField = null;
+			}
+			if (string.IsNullOrEmpty(sortOrder)==true)
+			{
+				sortOrder = null;
+			}
 			if (string.IsNullOrEmpty(templateName)==true)
 			{
 				templateName = null;
@@ -1235,6 +1339,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(timeZone)==true)
 			{
 				timeZone = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -1264,9 +1372,12 @@ namespace PIWebAPIWrapper.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			localVarQueryParams.Add("showExcluded", Configuration.ApiClient.ParameterToString(showExcluded));
 			localVarQueryParams.Add("showHidden", Configuration.ApiClient.ParameterToString(showHidden));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1360,16 +1471,20 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Opens a channel that will send messages about any value changes for the specified streams.</summary>
-		public PIItemsStreamValue GetChannelAdHoc(string webIds, bool includeInitialValues)
+		public PIItemsStreamValue GetChannelAdHoc(string webIds, int heartbeatRate, bool includeInitialValues, string webIdType = null)
 		{
-			ApiResponsePIItemsStreamValue localVarResponse = GetChannelAdHocWithHttpInfo(webIds, includeInitialValues);
+			ApiResponsePIItemsStreamValue localVarResponse = GetChannelAdHocWithHttpInfo(webIds, heartbeatRate, includeInitialValues, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Opens a channel that will send messages about any value changes for the specified streams.</summary>
-		public ApiResponsePIItemsStreamValue GetChannelAdHocWithHttpInfo(string webIds, bool includeInitialValues)
+		public ApiResponsePIItemsStreamValue GetChannelAdHocWithHttpInfo(string webIds, int heartbeatRate, bool includeInitialValues, string webIdType = null)
 		{
 			List<string> webId = ExtensionMethods.ConvertToList(webIds);
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
+			}
 
 			var localVarPath = "/streamsets/channel";
 			var localVarPathParams = new Dictionary<String, String>();
@@ -1390,7 +1505,9 @@ namespace PIWebAPIWrapper.Api
 			localVarPathParams.Add("format", "json");
 
 			localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			localVarQueryParams.Add("heartbeatRate", Configuration.ApiClient.ParameterToString(heartbeatRate));
 			localVarQueryParams.Add("includeInitialValues", Configuration.ApiClient.ParameterToString(includeInitialValues));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1410,19 +1527,31 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Returns End Of Stream values for attributes of the specified streams</summary>
-		public PIItemsStreamValues GetEndAdHoc(string webIds, string selectedFields = null)
+		public PIItemsStreamValues GetEndAdHoc(string webIds, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
-			ApiResponsePIItemsStreamValues localVarResponse = GetEndAdHocWithHttpInfo(webIds, selectedFields);
+			ApiResponsePIItemsStreamValues localVarResponse = GetEndAdHocWithHttpInfo(webIds, selectedFields, sortField, sortOrder, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Returns End Of Stream values for attributes of the specified streams</summary>
-		public ApiResponsePIItemsStreamValues GetEndAdHocWithHttpInfo(string webIds, string selectedFields = null)
+		public ApiResponsePIItemsStreamValues GetEndAdHocWithHttpInfo(string webIds, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
 			List<string> webId = ExtensionMethods.ConvertToList(webIds);
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(sortField)==true)
+			{
+				sortField = null;
+			}
+			if (string.IsNullOrEmpty(sortOrder)==true)
+			{
+				sortOrder = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 
 			var localVarPath = "/streamsets/end";
@@ -1445,6 +1574,9 @@ namespace PIWebAPIWrapper.Api
 
 			localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1464,14 +1596,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Returns interpolated values of the specified streams over the specified time range at the specified sampling interval.</summary>
-		public PIItemsStreamValues GetInterpolatedAdHoc(string webIds, bool includeFilteredValues, string endTime = null, string filterExpression = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public PIItemsStreamValues GetInterpolatedAdHoc(string webIds, bool includeFilteredValues, string endTime = null, string filterExpression = null, string interval = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponsePIItemsStreamValues localVarResponse = GetInterpolatedAdHocWithHttpInfo(webIds, includeFilteredValues, endTime, filterExpression, interval, selectedFields, startTime, timeZone);
+			ApiResponsePIItemsStreamValues localVarResponse = GetInterpolatedAdHocWithHttpInfo(webIds, includeFilteredValues, endTime, filterExpression, interval, selectedFields, sortField, sortOrder, startTime, syncTime, syncTimeBoundaryType, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Returns interpolated values of the specified streams over the specified time range at the specified sampling interval.</summary>
-		public ApiResponsePIItemsStreamValues GetInterpolatedAdHocWithHttpInfo(string webIds, bool includeFilteredValues, string endTime = null, string filterExpression = null, string interval = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public ApiResponsePIItemsStreamValues GetInterpolatedAdHocWithHttpInfo(string webIds, bool includeFilteredValues, string endTime = null, string filterExpression = null, string interval = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string syncTime = null, string syncTimeBoundaryType = null, string timeZone = null, string webIdType = null)
 		{
 			List<string> webId = ExtensionMethods.ConvertToList(webIds);
 			if (string.IsNullOrEmpty(endTime)==true)
@@ -1490,13 +1622,33 @@ namespace PIWebAPIWrapper.Api
 			{
 				selectedFields = null;
 			}
+			if (string.IsNullOrEmpty(sortField)==true)
+			{
+				sortField = null;
+			}
+			if (string.IsNullOrEmpty(sortOrder)==true)
+			{
+				sortOrder = null;
+			}
 			if (string.IsNullOrEmpty(startTime)==true)
 			{
 				startTime = null;
 			}
+			if (string.IsNullOrEmpty(syncTime)==true)
+			{
+				syncTime = null;
+			}
+			if (string.IsNullOrEmpty(syncTimeBoundaryType)==true)
+			{
+				syncTimeBoundaryType = null;
+			}
 			if (string.IsNullOrEmpty(timeZone)==true)
 			{
 				timeZone = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 
 			var localVarPath = "/streamsets/interpolated";
@@ -1523,8 +1675,13 @@ namespace PIWebAPIWrapper.Api
 			localVarQueryParams.Add("includeFilteredValues", Configuration.ApiClient.ParameterToString(includeFilteredValues));
 			if (interval!= null) localVarQueryParams.Add("interval", Configuration.ApiClient.ParameterToString(interval));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
+			if (syncTime!= null) localVarQueryParams.Add("syncTime", Configuration.ApiClient.ParameterToString(syncTime));
+			if (syncTimeBoundaryType!= null) localVarQueryParams.Add("syncTimeBoundaryType", Configuration.ApiClient.ParameterToString(syncTimeBoundaryType));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1544,14 +1701,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Returns interpolated values of the specified streams at the specified times.</summary>
-		public PIItemsStreamValues GetInterpolatedAtTimesAdHoc(string times, string webIds, bool includeFilteredValues, string filterExpression = null, string selectedFields = null, string sortOrder = null, string timeZone = null)
+		public PIItemsStreamValues GetInterpolatedAtTimesAdHoc(string times, string webIds, bool includeFilteredValues, string filterExpression = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponsePIItemsStreamValues localVarResponse = GetInterpolatedAtTimesAdHocWithHttpInfo(times, webIds, includeFilteredValues, filterExpression, selectedFields, sortOrder, timeZone);
+			ApiResponsePIItemsStreamValues localVarResponse = GetInterpolatedAtTimesAdHocWithHttpInfo(times, webIds, includeFilteredValues, filterExpression, selectedFields, sortOrder, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Returns interpolated values of the specified streams at the specified times.</summary>
-		public ApiResponsePIItemsStreamValues GetInterpolatedAtTimesAdHocWithHttpInfo(string times, string webIds, bool includeFilteredValues, string filterExpression = null, string selectedFields = null, string sortOrder = null, string timeZone = null)
+		public ApiResponsePIItemsStreamValues GetInterpolatedAtTimesAdHocWithHttpInfo(string times, string webIds, bool includeFilteredValues, string filterExpression = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null)
 		{
 			List<string> time = ExtensionMethods.ConvertToList(times);
 			List<string> webId = ExtensionMethods.ConvertToList(webIds);
@@ -1570,6 +1727,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(timeZone)==true)
 			{
 				timeZone = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 
 			var localVarPath = "/streamsets/interpolatedattimes";
@@ -1597,6 +1758,7 @@ namespace PIWebAPIWrapper.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1616,14 +1778,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Returns values of attributes for the specified streams over the specified time range suitable for plotting over the number of intervals (typically represents pixels).</summary>
-		public PIItemsStreamValues GetPlotAdHoc(string webIds, int intervals, string endTime = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public PIItemsStreamValues GetPlotAdHoc(string webIds, int intervals, string endTime = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponsePIItemsStreamValues localVarResponse = GetPlotAdHocWithHttpInfo(webIds, intervals, endTime, selectedFields, startTime, timeZone);
+			ApiResponsePIItemsStreamValues localVarResponse = GetPlotAdHocWithHttpInfo(webIds, intervals, endTime, selectedFields, sortField, sortOrder, startTime, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Returns values of attributes for the specified streams over the specified time range suitable for plotting over the number of intervals (typically represents pixels).</summary>
-		public ApiResponsePIItemsStreamValues GetPlotAdHocWithHttpInfo(string webIds, int intervals, string endTime = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public ApiResponsePIItemsStreamValues GetPlotAdHocWithHttpInfo(string webIds, int intervals, string endTime = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null)
 		{
 			List<string> webId = ExtensionMethods.ConvertToList(webIds);
 			if (string.IsNullOrEmpty(endTime)==true)
@@ -1634,6 +1796,14 @@ namespace PIWebAPIWrapper.Api
 			{
 				selectedFields = null;
 			}
+			if (string.IsNullOrEmpty(sortField)==true)
+			{
+				sortField = null;
+			}
+			if (string.IsNullOrEmpty(sortOrder)==true)
+			{
+				sortOrder = null;
+			}
 			if (string.IsNullOrEmpty(startTime)==true)
 			{
 				startTime = null;
@@ -1641,6 +1811,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(timeZone)==true)
 			{
 				timeZone = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 
 			var localVarPath = "/streamsets/plot";
@@ -1665,8 +1839,11 @@ namespace PIWebAPIWrapper.Api
 			if (endTime!= null) localVarQueryParams.Add("endTime", Configuration.ApiClient.ParameterToString(endTime));
 			localVarQueryParams.Add("intervals", Configuration.ApiClient.ParameterToString(intervals));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1686,14 +1863,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Returns recorded values of the specified streams.</summary>
-		public PIItemsStreamValues GetRecordedAdHoc(string webIds, bool includeFilteredValues, int maxCount, string boundaryType = null, string endTime = null, string filterExpression = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public PIItemsStreamValues GetRecordedAdHoc(string webIds, bool includeFilteredValues, int maxCount, string boundaryType = null, string endTime = null, string filterExpression = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponsePIItemsStreamValues localVarResponse = GetRecordedAdHocWithHttpInfo(webIds, includeFilteredValues, maxCount, boundaryType, endTime, filterExpression, selectedFields, startTime, timeZone);
+			ApiResponsePIItemsStreamValues localVarResponse = GetRecordedAdHocWithHttpInfo(webIds, includeFilteredValues, maxCount, boundaryType, endTime, filterExpression, selectedFields, sortField, sortOrder, startTime, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Returns recorded values of the specified streams.</summary>
-		public ApiResponsePIItemsStreamValues GetRecordedAdHocWithHttpInfo(string webIds, bool includeFilteredValues, int maxCount, string boundaryType = null, string endTime = null, string filterExpression = null, string selectedFields = null, string startTime = null, string timeZone = null)
+		public ApiResponsePIItemsStreamValues GetRecordedAdHocWithHttpInfo(string webIds, bool includeFilteredValues, int maxCount, string boundaryType = null, string endTime = null, string filterExpression = null, string selectedFields = null, string sortField = null, string sortOrder = null, string startTime = null, string timeZone = null, string webIdType = null)
 		{
 			List<string> webId = ExtensionMethods.ConvertToList(webIds);
 			if (string.IsNullOrEmpty(boundaryType)==true)
@@ -1712,6 +1889,14 @@ namespace PIWebAPIWrapper.Api
 			{
 				selectedFields = null;
 			}
+			if (string.IsNullOrEmpty(sortField)==true)
+			{
+				sortField = null;
+			}
+			if (string.IsNullOrEmpty(sortOrder)==true)
+			{
+				sortOrder = null;
+			}
 			if (string.IsNullOrEmpty(startTime)==true)
 			{
 				startTime = null;
@@ -1719,6 +1904,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(timeZone)==true)
 			{
 				timeZone = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 
 			var localVarPath = "/streamsets/recorded";
@@ -1746,8 +1935,11 @@ namespace PIWebAPIWrapper.Api
 			localVarQueryParams.Add("includeFilteredValues", Configuration.ApiClient.ParameterToString(includeFilteredValues));
 			localVarQueryParams.Add("maxCount", Configuration.ApiClient.ParameterToString(maxCount));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1834,14 +2026,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Returns recorded values based on the passed time and retrieval mode.</summary>
-		public PIItemsStreamValue GetRecordedAtTimeAdHoc(string time, string webIds, string retrievalMode = null, string selectedFields = null, string timeZone = null)
+		public PIItemsStreamValue GetRecordedAtTimeAdHoc(string time, string webIds, string retrievalMode = null, string selectedFields = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponsePIItemsStreamValue localVarResponse = GetRecordedAtTimeAdHocWithHttpInfo(time, webIds, retrievalMode, selectedFields, timeZone);
+			ApiResponsePIItemsStreamValue localVarResponse = GetRecordedAtTimeAdHocWithHttpInfo(time, webIds, retrievalMode, selectedFields, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Returns recorded values based on the passed time and retrieval mode.</summary>
-		public ApiResponsePIItemsStreamValue GetRecordedAtTimeAdHocWithHttpInfo(string time, string webIds, string retrievalMode = null, string selectedFields = null, string timeZone = null)
+		public ApiResponsePIItemsStreamValue GetRecordedAtTimeAdHocWithHttpInfo(string time, string webIds, string retrievalMode = null, string selectedFields = null, string timeZone = null, string webIdType = null)
 		{
 			List<string> webId = ExtensionMethods.ConvertToList(webIds);
 			if (string.IsNullOrEmpty(time)==true)
@@ -1859,6 +2051,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(timeZone)==true)
 			{
 				timeZone = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (time == null)
 				throw new ApiException(400, "Missing required parameter 'time'");
@@ -1886,6 +2082,7 @@ namespace PIWebAPIWrapper.Api
 			if (retrievalMode!= null) localVarQueryParams.Add("retrievalMode", Configuration.ApiClient.ParameterToString(retrievalMode));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1905,14 +2102,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Returns recorded values of the specified streams at the specified times.</summary>
-		public PIItemsStreamValues GetRecordedAtTimesAdHoc(string times, string webIds, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null)
+		public PIItemsStreamValues GetRecordedAtTimesAdHoc(string times, string webIds, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponsePIItemsStreamValues localVarResponse = GetRecordedAtTimesAdHocWithHttpInfo(times, webIds, retrievalMode, selectedFields, sortOrder, timeZone);
+			ApiResponsePIItemsStreamValues localVarResponse = GetRecordedAtTimesAdHocWithHttpInfo(times, webIds, retrievalMode, selectedFields, sortOrder, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Returns recorded values of the specified streams at the specified times.</summary>
-		public ApiResponsePIItemsStreamValues GetRecordedAtTimesAdHocWithHttpInfo(string times, string webIds, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null)
+		public ApiResponsePIItemsStreamValues GetRecordedAtTimesAdHocWithHttpInfo(string times, string webIds, string retrievalMode = null, string selectedFields = null, string sortOrder = null, string timeZone = null, string webIdType = null)
 		{
 			List<string> time = ExtensionMethods.ConvertToList(times);
 			List<string> webId = ExtensionMethods.ConvertToList(webIds);
@@ -1931,6 +2128,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(timeZone)==true)
 			{
 				timeZone = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 
 			var localVarPath = "/streamsets/recordedattimes";
@@ -1957,6 +2158,7 @@ namespace PIWebAPIWrapper.Api
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1976,14 +2178,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Returns summary values of the specified streams.</summary>
-		public PIItemsStreamSummaries GetSummariesAdHoc(string webIds, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, string summaryTypes = null, string timeType = null, string timeZone = null)
+		public PIItemsStreamSummaries GetSummariesAdHoc(string webIds, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, string summaryTypes = null, string timeType = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponsePIItemsStreamSummaries localVarResponse = GetSummariesAdHocWithHttpInfo(webIds, calculationBasis, endTime, filterExpression, sampleInterval, sampleType, selectedFields, startTime, summaryDuration, summaryTypes, timeType, timeZone);
+			ApiResponsePIItemsStreamSummaries localVarResponse = GetSummariesAdHocWithHttpInfo(webIds, calculationBasis, endTime, filterExpression, sampleInterval, sampleType, selectedFields, startTime, summaryDuration, summaryTypes, timeType, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Returns summary values of the specified streams.</summary>
-		public ApiResponsePIItemsStreamSummaries GetSummariesAdHocWithHttpInfo(string webIds, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, string summaryTypes = null, string timeType = null, string timeZone = null)
+		public ApiResponsePIItemsStreamSummaries GetSummariesAdHocWithHttpInfo(string webIds, string calculationBasis = null, string endTime = null, string filterExpression = null, string sampleInterval = null, string sampleType = null, string selectedFields = null, string startTime = null, string summaryDuration = null, string summaryTypes = null, string timeType = null, string timeZone = null, string webIdType = null)
 		{
 			List<string> webId = ExtensionMethods.ConvertToList(webIds);
 			List<string> summaryType = ExtensionMethods.ConvertToList(summaryTypes);
@@ -2027,6 +2229,10 @@ namespace PIWebAPIWrapper.Api
 			{
 				timeZone = null;
 			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
+			}
 
 			var localVarPath = "/streamsets/summary";
 			var localVarPathParams = new Dictionary<String, String>();
@@ -2058,6 +2264,7 @@ namespace PIWebAPIWrapper.Api
 			localVarQueryParams.Add("summaryType", Configuration.ApiClient.ParameterToString(summaryType));
 			if (timeType!= null) localVarQueryParams.Add("timeType", Configuration.ApiClient.ParameterToString(timeType));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -2077,19 +2284,27 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Returns values of the specified streams.</summary>
-		public PIItemsStreamValue GetValuesAdHoc(string webIds, string selectedFields = null, string time = null, string timeZone = null)
+		public PIItemsStreamValue GetValuesAdHoc(string webIds, string selectedFields = null, string sortField = null, string sortOrder = null, string time = null, string timeZone = null, string webIdType = null)
 		{
-			ApiResponsePIItemsStreamValue localVarResponse = GetValuesAdHocWithHttpInfo(webIds, selectedFields, time, timeZone);
+			ApiResponsePIItemsStreamValue localVarResponse = GetValuesAdHocWithHttpInfo(webIds, selectedFields, sortField, sortOrder, time, timeZone, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Returns values of the specified streams.</summary>
-		public ApiResponsePIItemsStreamValue GetValuesAdHocWithHttpInfo(string webIds, string selectedFields = null, string time = null, string timeZone = null)
+		public ApiResponsePIItemsStreamValue GetValuesAdHocWithHttpInfo(string webIds, string selectedFields = null, string sortField = null, string sortOrder = null, string time = null, string timeZone = null, string webIdType = null)
 		{
 			List<string> webId = ExtensionMethods.ConvertToList(webIds);
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(sortField)==true)
+			{
+				sortField = null;
+			}
+			if (string.IsNullOrEmpty(sortOrder)==true)
+			{
+				sortOrder = null;
 			}
 			if (string.IsNullOrEmpty(time)==true)
 			{
@@ -2098,6 +2313,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(timeZone)==true)
 			{
 				timeZone = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 
 			var localVarPath = "/streamsets/value";
@@ -2120,8 +2339,11 @@ namespace PIWebAPIWrapper.Api
 
 			localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			if (time!= null) localVarQueryParams.Add("time", Configuration.ApiClient.ParameterToString(time));
 			if (timeZone!= null) localVarQueryParams.Add("timeZone", Configuration.ApiClient.ParameterToString(timeZone));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,

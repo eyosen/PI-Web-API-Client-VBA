@@ -24,7 +24,8 @@ Name | Type | Notes
 **AreValuesCaptured** | **bool**
 **RefElementWebIds** | **string[]**
 **Security** | **[**PISecurity**](../Model/PISecurity.md)**
-**Links** | **[**object**](../Model/Object.md)**
+**Links** | **[**PIEventFrameLinks**](../Model/PIEventFrameLinks.md)**
+**WebException** | **[**PIWebException**](../Model/PIWebException.md)**
 
 ## Methods
 [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)

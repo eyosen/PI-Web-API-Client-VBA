@@ -27,7 +27,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Api
 {
 
-	[Guid("039176FE-7F52-4EAA-BC4B-A10369C50EB1")]
+	[Guid("3EEBE7E4-9411-4BBA-98EC-741869422E2B")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -36,19 +36,19 @@ namespace PIWebAPIWrapper.Api
 		#region Synchronous Operations
 		/// <summary>Retrieve an enumeration set by path.</summary>
 		[DispId(1)]
-		PIEnumerationSet GetByPath(string path, string selectedFields = null);
+		PIEnumerationSet GetByPath(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an enumeration set by path.</summary>
 		[DispId(2)]
-		ApiResponsePIEnumerationSet GetByPathWithHttpInfo(string path, string selectedFields = null);
+		ApiResponsePIEnumerationSet GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an enumeration set.</summary>
 		[DispId(3)]
-		PIEnumerationSet Get(string webId, string selectedFields = null);
+		PIEnumerationSet Get(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an enumeration set.</summary>
 		[DispId(4)]
-		ApiResponsePIEnumerationSet GetWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponsePIEnumerationSet GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Update an enumeration set by replacing items in its definition.</summary>
 		[DispId(5)]
@@ -68,51 +68,51 @@ namespace PIWebAPIWrapper.Api
 
 		/// <summary>Retrieve an enumeration set's values.</summary>
 		[DispId(9)]
-		PIItemsEnumerationValue GetValues(string webId, string selectedFields = null);
+		PIItemsEnumerationValue GetValues(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an enumeration set's values.</summary>
 		[DispId(10)]
-		ApiResponsePIItemsEnumerationValue GetValuesWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponsePIItemsEnumerationValue GetValuesWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Create an enumeration value for a enumeration set.</summary>
 		[DispId(11)]
-		Object CreateValue(string webId, PIEnumerationValue enumerationValue);
+		Object CreateValue(string webId, PIEnumerationValue enumerationValue, string webIdType = null);
 
 		/// <summary>Create an enumeration value for a enumeration set.</summary>
 		[DispId(12)]
-		ApiResponseObject CreateValueWithHttpInfo(string webId, PIEnumerationValue enumerationValue);
+		ApiResponseObject CreateValueWithHttpInfo(string webId, PIEnumerationValue enumerationValue, string webIdType = null);
 
 		/// <summary>Get the security information of the specified security item associated with the enumeration set for a specified user.</summary>
 		[DispId(13)]
-		PIItemsSecurityRights GetSecurity(string webId, string userIdentities, bool forceRefresh, string selectedFields = null);
+		PIItemsSecurityRights GetSecurity(string webId, string userIdentities, bool forceRefresh, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Get the security information of the specified security item associated with the enumeration set for a specified user.</summary>
 		[DispId(14)]
-		ApiResponsePIItemsSecurityRights GetSecurityWithHttpInfo(string webId, string userIdentities, bool forceRefresh, string selectedFields = null);
+		ApiResponsePIItemsSecurityRights GetSecurityWithHttpInfo(string webId, string userIdentities, bool forceRefresh, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve the security entries associated with the enumeration set based on the specified criteria. By default, all security entries for this enumeration set are returned.</summary>
 		[DispId(15)]
-		PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null);
+		PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve the security entries associated with the enumeration set based on the specified criteria. By default, all security entries for this enumeration set are returned.</summary>
 		[DispId(16)]
-		ApiResponsePIItemsSecurityEntry GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null);
+		ApiResponsePIItemsSecurityEntry GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Create a security entry owned by the enumeration set.</summary>
 		[DispId(17)]
-		Object CreateSecurityEntry(string webId, PISecurityEntry securityEntry, bool applyToChildren);
+		Object CreateSecurityEntry(string webId, PISecurityEntry securityEntry, bool applyToChildren, string webIdType = null);
 
 		/// <summary>Create a security entry owned by the enumeration set.</summary>
 		[DispId(18)]
-		ApiResponseObject CreateSecurityEntryWithHttpInfo(string webId, PISecurityEntry securityEntry, bool applyToChildren);
+		ApiResponseObject CreateSecurityEntryWithHttpInfo(string webId, PISecurityEntry securityEntry, bool applyToChildren, string webIdType = null);
 
 		/// <summary>Retrieve the security entry associated with the enumeration set with the specified name.</summary>
 		[DispId(19)]
-		PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null);
+		PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve the security entry associated with the enumeration set with the specified name.</summary>
 		[DispId(20)]
-		ApiResponsePISecurityEntry GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null);
+		ApiResponsePISecurityEntry GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Update a security entry owned by the enumeration set.</summary>
 		[DispId(21)]
@@ -133,7 +133,7 @@ namespace PIWebAPIWrapper.Api
 		#endregion
 	}
 
-	[Guid("AD18B3A3-1DD7-43BC-98AA-3EB45B87ABD2")]
+	[Guid("AB5BC0AB-A25C-46FC-95B1-3A4FF5F96B2D")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IEnumerationSetApi))]
@@ -172,14 +172,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve an enumeration set by path.</summary>
-		public PIEnumerationSet GetByPath(string path, string selectedFields = null)
+		public PIEnumerationSet GetByPath(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIEnumerationSet localVarResponse = GetByPathWithHttpInfo(path, selectedFields);
+			ApiResponsePIEnumerationSet localVarResponse = GetByPathWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve an enumeration set by path.</summary>
-		public ApiResponsePIEnumerationSet GetByPathWithHttpInfo(string path, string selectedFields = null)
+		public ApiResponsePIEnumerationSet GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(path)==true)
 			{
@@ -188,6 +188,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (path == null)
 				throw new ApiException(400, "Missing required parameter 'path'");
@@ -212,6 +216,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -231,14 +236,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve an enumeration set.</summary>
-		public PIEnumerationSet Get(string webId, string selectedFields = null)
+		public PIEnumerationSet Get(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIEnumerationSet localVarResponse = GetWithHttpInfo(webId, selectedFields);
+			ApiResponsePIEnumerationSet localVarResponse = GetWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve an enumeration set.</summary>
-		public ApiResponsePIEnumerationSet GetWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponsePIEnumerationSet GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -247,6 +252,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -271,6 +280,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -408,14 +418,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve an enumeration set's values.</summary>
-		public PIItemsEnumerationValue GetValues(string webId, string selectedFields = null)
+		public PIItemsEnumerationValue GetValues(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIItemsEnumerationValue localVarResponse = GetValuesWithHttpInfo(webId, selectedFields);
+			ApiResponsePIItemsEnumerationValue localVarResponse = GetValuesWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve an enumeration set's values.</summary>
-		public ApiResponsePIItemsEnumerationValue GetValuesWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponsePIItemsEnumerationValue GetValuesWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -424,6 +434,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -448,6 +462,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -467,18 +482,22 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Create an enumeration value for a enumeration set.</summary>
-		public Object CreateValue(string webId, PIEnumerationValue enumerationValue)
+		public Object CreateValue(string webId, PIEnumerationValue enumerationValue, string webIdType = null)
 		{
-			ApiResponseObject localVarResponse = CreateValueWithHttpInfo(webId, enumerationValue);
+			ApiResponseObject localVarResponse = CreateValueWithHttpInfo(webId, enumerationValue, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Create an enumeration value for a enumeration set.</summary>
-		public ApiResponseObject CreateValueWithHttpInfo(string webId, PIEnumerationValue enumerationValue)
+		public ApiResponseObject CreateValueWithHttpInfo(string webId, PIEnumerationValue enumerationValue, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
 				webId = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -512,6 +531,7 @@ namespace PIWebAPIWrapper.Api
 			{
 				localVarPostBody = enumerationValue;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -531,14 +551,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Get the security information of the specified security item associated with the enumeration set for a specified user.</summary>
-		public PIItemsSecurityRights GetSecurity(string webId, string userIdentities, bool forceRefresh, string selectedFields = null)
+		public PIItemsSecurityRights GetSecurity(string webId, string userIdentities, bool forceRefresh, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIItemsSecurityRights localVarResponse = GetSecurityWithHttpInfo(webId, userIdentities, forceRefresh, selectedFields);
+			ApiResponsePIItemsSecurityRights localVarResponse = GetSecurityWithHttpInfo(webId, userIdentities, forceRefresh, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Get the security information of the specified security item associated with the enumeration set for a specified user.</summary>
-		public ApiResponsePIItemsSecurityRights GetSecurityWithHttpInfo(string webId, string userIdentities, bool forceRefresh, string selectedFields = null)
+		public ApiResponsePIItemsSecurityRights GetSecurityWithHttpInfo(string webId, string userIdentities, bool forceRefresh, string selectedFields = null, string webIdType = null)
 		{
 			List<string> userIdentity = ExtensionMethods.ConvertToList(userIdentities);
 			if (string.IsNullOrEmpty(webId)==true)
@@ -548,6 +568,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -574,6 +598,7 @@ namespace PIWebAPIWrapper.Api
 			localVarQueryParams.Add("userIdentity", Configuration.ApiClient.ParameterToString(userIdentity));
 			localVarQueryParams.Add("forceRefresh", Configuration.ApiClient.ParameterToString(forceRefresh));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -593,14 +618,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve the security entries associated with the enumeration set based on the specified criteria. By default, all security entries for this enumeration set are returned.</summary>
-		public PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null)
+		public PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIItemsSecurityEntry localVarResponse = GetSecurityEntriesWithHttpInfo(webId, nameFilter, selectedFields);
+			ApiResponsePIItemsSecurityEntry localVarResponse = GetSecurityEntriesWithHttpInfo(webId, nameFilter, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve the security entries associated with the enumeration set based on the specified criteria. By default, all security entries for this enumeration set are returned.</summary>
-		public ApiResponsePIItemsSecurityEntry GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null)
+		public ApiResponsePIItemsSecurityEntry GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -613,6 +638,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -638,6 +667,7 @@ namespace PIWebAPIWrapper.Api
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -657,18 +687,22 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Create a security entry owned by the enumeration set.</summary>
-		public Object CreateSecurityEntry(string webId, PISecurityEntry securityEntry, bool applyToChildren)
+		public Object CreateSecurityEntry(string webId, PISecurityEntry securityEntry, bool applyToChildren, string webIdType = null)
 		{
-			ApiResponseObject localVarResponse = CreateSecurityEntryWithHttpInfo(webId, securityEntry, applyToChildren);
+			ApiResponseObject localVarResponse = CreateSecurityEntryWithHttpInfo(webId, securityEntry, applyToChildren, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Create a security entry owned by the enumeration set.</summary>
-		public ApiResponseObject CreateSecurityEntryWithHttpInfo(string webId, PISecurityEntry securityEntry, bool applyToChildren)
+		public ApiResponseObject CreateSecurityEntryWithHttpInfo(string webId, PISecurityEntry securityEntry, bool applyToChildren, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
 				webId = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -703,6 +737,7 @@ namespace PIWebAPIWrapper.Api
 				localVarPostBody = securityEntry;
 			}
 			localVarQueryParams.Add("applyToChildren", Configuration.ApiClient.ParameterToString(applyToChildren));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -722,14 +757,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve the security entry associated with the enumeration set with the specified name.</summary>
-		public PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null)
+		public PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePISecurityEntry localVarResponse = GetSecurityEntryByNameWithHttpInfo(name, webId, selectedFields);
+			ApiResponsePISecurityEntry localVarResponse = GetSecurityEntryByNameWithHttpInfo(name, webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve the security entry associated with the enumeration set with the specified name.</summary>
-		public ApiResponsePISecurityEntry GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null)
+		public ApiResponsePISecurityEntry GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(name)==true)
 			{
@@ -742,6 +777,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (name == null)
 				throw new ApiException(400, "Missing required parameter 'name'");
@@ -769,6 +808,7 @@ namespace PIWebAPIWrapper.Api
 			if (name!= null) localVarPathParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,

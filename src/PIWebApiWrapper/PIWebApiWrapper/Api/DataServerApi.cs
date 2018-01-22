@@ -27,7 +27,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Api
 {
 
-	[Guid("89BF11B6-DB4C-4B40-B80A-42B149A52B58")]
+	[Guid("6A35DCEE-B87B-48AA-A248-F8F8AE59D005")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -36,72 +36,80 @@ namespace PIWebAPIWrapper.Api
 		#region Synchronous Operations
 		/// <summary>Retrieve a list of Data Servers known to this service.</summary>
 		[DispId(1)]
-		PIItemsDataServer List(string selectedFields = null);
+		PIItemsDataServer List(string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve a list of Data Servers known to this service.</summary>
 		[DispId(2)]
-		ApiResponsePIItemsDataServer ListWithHttpInfo(string selectedFields = null);
+		ApiResponsePIItemsDataServer ListWithHttpInfo(string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve a Data Server by name.</summary>
 		[DispId(3)]
-		PIDataServer GetByName(string name, string selectedFields = null);
+		PIDataServer GetByName(string name, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve a Data Server by name.</summary>
 		[DispId(4)]
-		ApiResponsePIDataServer GetByNameWithHttpInfo(string name, string selectedFields = null);
+		ApiResponsePIDataServer GetByNameWithHttpInfo(string name, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve a Data Server by path.</summary>
 		[DispId(5)]
-		PIDataServer GetByPath(string path, string selectedFields = null);
+		PIDataServer GetByPath(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve a Data Server by path.</summary>
 		[DispId(6)]
-		ApiResponsePIDataServer GetByPathWithHttpInfo(string path, string selectedFields = null);
+		ApiResponsePIDataServer GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve a Data Server.</summary>
 		[DispId(7)]
-		PIDataServer Get(string webId, string selectedFields = null);
+		PIDataServer Get(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve a Data Server.</summary>
 		[DispId(8)]
-		ApiResponsePIDataServer GetWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponsePIDataServer GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve enumeration sets for given Data Server.</summary>
 		[DispId(9)]
-		PIItemsEnumerationSet GetEnumerationSets(string webId, string selectedFields = null);
+		PIItemsEnumerationSet GetEnumerationSets(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve enumeration sets for given Data Server.</summary>
 		[DispId(10)]
-		ApiResponsePIItemsEnumerationSet GetEnumerationSetsWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponsePIItemsEnumerationSet GetEnumerationSetsWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Create an enumeration set on the Data Server.</summary>
 		[DispId(11)]
-		Object CreateEnumerationSet(string webId, PIEnumerationSet enumerationSet);
+		Object CreateEnumerationSet(string webId, PIEnumerationSet enumerationSet, string webIdType = null);
 
 		/// <summary>Create an enumeration set on the Data Server.</summary>
 		[DispId(12)]
-		ApiResponseObject CreateEnumerationSetWithHttpInfo(string webId, PIEnumerationSet enumerationSet);
+		ApiResponseObject CreateEnumerationSetWithHttpInfo(string webId, PIEnumerationSet enumerationSet, string webIdType = null);
 
-		/// <summary>Retrieve a list of points on a specified Data Server.</summary>
+		/// <summary>Retrieves the specified license for the given Data Server. The fields of the response object are string representations of the numerical values reported by the Data Server, with "Infinity" representing a license field with no limit.</summary>
 		[DispId(13)]
-		PIItemsPoint GetPoints(string webId, int maxCount, int startIndex, string nameFilter = null, string selectedFields = null);
+		PIDataServerLicense GetLicense(string webId, string module, string selectedFields = null, string webIdType = null);
+
+		/// <summary>Retrieves the specified license for the given Data Server. The fields of the response object are string representations of the numerical values reported by the Data Server, with "Infinity" representing a license field with no limit.</summary>
+		[DispId(14)]
+		ApiResponsePIDataServerLicense GetLicenseWithHttpInfo(string webId, string module, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve a list of points on a specified Data Server.</summary>
-		[DispId(14)]
-		ApiResponsePIItemsPoint GetPointsWithHttpInfo(string webId, int maxCount, int startIndex, string nameFilter = null, string selectedFields = null);
-
-		/// <summary>Create a point in the specified Data Server.</summary>
 		[DispId(15)]
-		Object CreatePoint(string webId, PIPoint pointDTO);
+		PIItemsPoint GetPoints(string webId, int maxCount, int startIndex, string nameFilter = null, string selectedFields = null, string webIdType = null);
+
+		/// <summary>Retrieve a list of points on a specified Data Server.</summary>
+		[DispId(16)]
+		ApiResponsePIItemsPoint GetPointsWithHttpInfo(string webId, int maxCount, int startIndex, string nameFilter = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Create a point in the specified Data Server.</summary>
-		[DispId(16)]
-		ApiResponseObject CreatePointWithHttpInfo(string webId, PIPoint pointDTO);
+		[DispId(17)]
+		Object CreatePoint(string webId, PIPoint pointDTO, string webIdType = null);
+
+		/// <summary>Create a point in the specified Data Server.</summary>
+		[DispId(18)]
+		ApiResponseObject CreatePointWithHttpInfo(string webId, PIPoint pointDTO, string webIdType = null);
 
 		#endregion
 	}
 
-	[Guid("C93C5F9A-E17C-4188-97DF-9A7402D55ACA")]
+	[Guid("8A465CDB-14FC-400B-BF87-9AB5AEE8D00A")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IDataServerApi))]
@@ -140,18 +148,22 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve a list of Data Servers known to this service.</summary>
-		public PIItemsDataServer List(string selectedFields = null)
+		public PIItemsDataServer List(string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIItemsDataServer localVarResponse = ListWithHttpInfo(selectedFields);
+			ApiResponsePIItemsDataServer localVarResponse = ListWithHttpInfo(selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve a list of Data Servers known to this service.</summary>
-		public ApiResponsePIItemsDataServer ListWithHttpInfo(string selectedFields = null)
+		public ApiResponsePIItemsDataServer ListWithHttpInfo(string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 
 			var localVarPath = "/dataservers";
@@ -173,6 +185,7 @@ namespace PIWebAPIWrapper.Api
 			localVarPathParams.Add("format", "json");
 
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -192,14 +205,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve a Data Server by name.</summary>
-		public PIDataServer GetByName(string name, string selectedFields = null)
+		public PIDataServer GetByName(string name, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIDataServer localVarResponse = GetByNameWithHttpInfo(name, selectedFields);
+			ApiResponsePIDataServer localVarResponse = GetByNameWithHttpInfo(name, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve a Data Server by name.</summary>
-		public ApiResponsePIDataServer GetByNameWithHttpInfo(string name, string selectedFields = null)
+		public ApiResponsePIDataServer GetByNameWithHttpInfo(string name, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(name)==true)
 			{
@@ -208,6 +221,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (name == null)
 				throw new ApiException(400, "Missing required parameter 'name'");
@@ -232,6 +249,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (name!= null) localVarQueryParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -251,14 +269,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve a Data Server by path.</summary>
-		public PIDataServer GetByPath(string path, string selectedFields = null)
+		public PIDataServer GetByPath(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIDataServer localVarResponse = GetByPathWithHttpInfo(path, selectedFields);
+			ApiResponsePIDataServer localVarResponse = GetByPathWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve a Data Server by path.</summary>
-		public ApiResponsePIDataServer GetByPathWithHttpInfo(string path, string selectedFields = null)
+		public ApiResponsePIDataServer GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(path)==true)
 			{
@@ -267,6 +285,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (path == null)
 				throw new ApiException(400, "Missing required parameter 'path'");
@@ -291,6 +313,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -310,14 +333,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve a Data Server.</summary>
-		public PIDataServer Get(string webId, string selectedFields = null)
+		public PIDataServer Get(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIDataServer localVarResponse = GetWithHttpInfo(webId, selectedFields);
+			ApiResponsePIDataServer localVarResponse = GetWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve a Data Server.</summary>
-		public ApiResponsePIDataServer GetWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponsePIDataServer GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -326,6 +349,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -350,6 +377,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -369,14 +397,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve enumeration sets for given Data Server.</summary>
-		public PIItemsEnumerationSet GetEnumerationSets(string webId, string selectedFields = null)
+		public PIItemsEnumerationSet GetEnumerationSets(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIItemsEnumerationSet localVarResponse = GetEnumerationSetsWithHttpInfo(webId, selectedFields);
+			ApiResponsePIItemsEnumerationSet localVarResponse = GetEnumerationSetsWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve enumeration sets for given Data Server.</summary>
-		public ApiResponsePIItemsEnumerationSet GetEnumerationSetsWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponsePIItemsEnumerationSet GetEnumerationSetsWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -385,6 +413,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -409,6 +441,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -428,18 +461,22 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Create an enumeration set on the Data Server.</summary>
-		public Object CreateEnumerationSet(string webId, PIEnumerationSet enumerationSet)
+		public Object CreateEnumerationSet(string webId, PIEnumerationSet enumerationSet, string webIdType = null)
 		{
-			ApiResponseObject localVarResponse = CreateEnumerationSetWithHttpInfo(webId, enumerationSet);
+			ApiResponseObject localVarResponse = CreateEnumerationSetWithHttpInfo(webId, enumerationSet, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Create an enumeration set on the Data Server.</summary>
-		public ApiResponseObject CreateEnumerationSetWithHttpInfo(string webId, PIEnumerationSet enumerationSet)
+		public ApiResponseObject CreateEnumerationSetWithHttpInfo(string webId, PIEnumerationSet enumerationSet, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
 				webId = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -473,6 +510,7 @@ namespace PIWebAPIWrapper.Api
 			{
 				localVarPostBody = enumerationSet;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -491,15 +529,86 @@ namespace PIWebAPIWrapper.Api
 				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
 		}
 
-		/// <summary>Retrieve a list of points on a specified Data Server.</summary>
-		public PIItemsPoint GetPoints(string webId, int maxCount, int startIndex, string nameFilter = null, string selectedFields = null)
+		/// <summary>Retrieves the specified license for the given Data Server. The fields of the response object are string representations of the numerical values reported by the Data Server, with "Infinity" representing a license field with no limit.</summary>
+		public PIDataServerLicense GetLicense(string webId, string module, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIItemsPoint localVarResponse = GetPointsWithHttpInfo(webId, maxCount, startIndex, nameFilter, selectedFields);
+			ApiResponsePIDataServerLicense localVarResponse = GetLicenseWithHttpInfo(webId, module, selectedFields, webIdType);
+			return localVarResponse.Data;
+		}
+
+		/// <summary>Retrieves the specified license for the given Data Server. The fields of the response object are string representations of the numerical values reported by the Data Server, with "Infinity" representing a license field with no limit.</summary>
+		public ApiResponsePIDataServerLicense GetLicenseWithHttpInfo(string webId, string module, string selectedFields = null, string webIdType = null)
+		{
+			if (string.IsNullOrEmpty(webId)==true)
+			{
+				webId = null;
+			}
+			if (string.IsNullOrEmpty(module)==true)
+			{
+				module = null;
+			}
+			if (string.IsNullOrEmpty(selectedFields)==true)
+			{
+				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
+			}
+			if (webId == null)
+				throw new ApiException(400, "Missing required parameter 'webId'");
+			if (module == null)
+				throw new ApiException(400, "Missing required parameter 'module'");
+
+			var localVarPath = "/dataservers/{webId}/license";
+			var localVarPathParams = new Dictionary<String, String>();
+			var localVarQueryParams = new CustomDictionaryForQueryString();
+			var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+			var localVarFormParams = new Dictionary<String, String>();
+			var localVarFileParams = new Dictionary<String, FileParameter>();
+			Object localVarPostBody = null;
+
+			String[] localVarHttpContentTypes = new String[] { }; 
+			String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+			String[] localVarHttpHeaderAccepts = new String[] { "application/json", "text/json", "text/xml" };
+			String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+
+			if (localVarHttpHeaderAccept != null)
+				localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+			localVarPathParams.Add("format", "json");
+
+			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (module!= null) localVarQueryParams.Add("module", Configuration.ApiClient.ParameterToString(module));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+
+			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
+				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+				localVarPathParams, localVarHttpContentType);
+
+			int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+			if (ExceptionFactory != null)
+			{
+				Exception exception = ExceptionFactory("GetLicense", localVarResponse);
+				if (exception != null) throw exception;
+			}
+
+			return new ApiResponsePIDataServerLicense(localVarStatusCode,
+				localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+				(PIDataServerLicense)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIDataServerLicense)));
+		}
+
+		/// <summary>Retrieve a list of points on a specified Data Server.</summary>
+		public PIItemsPoint GetPoints(string webId, int maxCount, int startIndex, string nameFilter = null, string selectedFields = null, string webIdType = null)
+		{
+			ApiResponsePIItemsPoint localVarResponse = GetPointsWithHttpInfo(webId, maxCount, startIndex, nameFilter, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve a list of points on a specified Data Server.</summary>
-		public ApiResponsePIItemsPoint GetPointsWithHttpInfo(string webId, int maxCount, int startIndex, string nameFilter = null, string selectedFields = null)
+		public ApiResponsePIItemsPoint GetPointsWithHttpInfo(string webId, int maxCount, int startIndex, string nameFilter = null, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -512,6 +621,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -539,6 +652,7 @@ namespace PIWebAPIWrapper.Api
 			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -558,18 +672,22 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Create a point in the specified Data Server.</summary>
-		public Object CreatePoint(string webId, PIPoint pointDTO)
+		public Object CreatePoint(string webId, PIPoint pointDTO, string webIdType = null)
 		{
-			ApiResponseObject localVarResponse = CreatePointWithHttpInfo(webId, pointDTO);
+			ApiResponseObject localVarResponse = CreatePointWithHttpInfo(webId, pointDTO, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Create a point in the specified Data Server.</summary>
-		public ApiResponseObject CreatePointWithHttpInfo(string webId, PIPoint pointDTO)
+		public ApiResponseObject CreatePointWithHttpInfo(string webId, PIPoint pointDTO, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
 				webId = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -603,6 +721,7 @@ namespace PIWebAPIWrapper.Api
 			{
 				localVarPostBody = pointDTO;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,

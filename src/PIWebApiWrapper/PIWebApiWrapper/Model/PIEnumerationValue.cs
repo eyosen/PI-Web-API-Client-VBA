@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Model
 {
 
-	[Guid("55AAE668-6C4D-4F5D-A1AC-1EAB613CE66C")]
+	[Guid("D2A77685-E4F1-45BC-AD4A-E67964E37B73")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -57,26 +57,32 @@ namespace PIWebAPIWrapper.Model
 		string Path { get; set; }
 
 		[DispId(7)]
-		object Links { get; set; }
+		string Parent { get; set; }
 
 		[DispId(8)]
-		bool SerializeWebId { get; set; }
+		PIEnumerationValueLinks Links { get; set; }
 
 		[DispId(9)]
-		bool SerializeId { get; set; }
+		bool SerializeWebId { get; set; }
 
 		[DispId(10)]
-		bool SerializeDescription { get; set; }
+		bool SerializeId { get; set; }
 
 		[DispId(11)]
-		bool SerializePath { get; set; }
+		bool SerializeDescription { get; set; }
 
 		[DispId(12)]
+		bool SerializePath { get; set; }
+
+		[DispId(13)]
 		bool SerializeLinks { get; set; }
+
+		[DispId(14)]
+		PIWebException WebException { get; set; }
 
 	}
 
-	[Guid("A87E29E5-1673-435D-8F6A-EA932CC6056C")]
+	[Guid("F8AC211B-F439-4D05-A3D0-14BD3AF3FEE5")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IPIEnumerationValue))]
@@ -107,8 +113,11 @@ namespace PIWebAPIWrapper.Model
 		[DataMember(Name = "Path", EmitDefaultValue = false)]
 		public string Path { get; set; }
 
+		[DataMember(Name = "Parent", EmitDefaultValue = false)]
+		public string Parent { get; set; }
+
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
-		public object Links { get; set; }
+		public PIEnumerationValueLinks Links { get; set; }
 
 		[DataMember(Name = "SerializeWebId", EmitDefaultValue = false)]
 		public bool SerializeWebId { get; set; }
@@ -124,6 +133,9 @@ namespace PIWebAPIWrapper.Model
 
 		[DataMember(Name = "SerializeLinks", EmitDefaultValue = false)]
 		public bool SerializeLinks { get; set; }
+
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

@@ -27,7 +27,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Api
 {
 
-	[Guid("C8D2C65B-B6B8-40C1-BE86-017ED8D4A956")]
+	[Guid("2F87847B-697D-42F9-8530-FFBE2F0DF9B6")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -36,19 +36,19 @@ namespace PIWebAPIWrapper.Api
 		#region Synchronous Operations
 		/// <summary>Retrieve an analysis category by path.</summary>
 		[DispId(1)]
-		PIAnalysisCategory GetByPath(string path, string selectedFields = null);
+		PIAnalysisCategory GetByPath(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an analysis category by path.</summary>
 		[DispId(2)]
-		ApiResponsePIAnalysisCategory GetByPathWithHttpInfo(string path, string selectedFields = null);
+		ApiResponsePIAnalysisCategory GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an analysis category.</summary>
 		[DispId(3)]
-		PIAnalysisCategory Get(string webId, string selectedFields = null);
+		PIAnalysisCategory Get(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an analysis category.</summary>
 		[DispId(4)]
-		ApiResponsePIAnalysisCategory GetWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponsePIAnalysisCategory GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Update an analysis category by replacing items in its definition.</summary>
 		[DispId(5)]
@@ -68,35 +68,35 @@ namespace PIWebAPIWrapper.Api
 
 		/// <summary>Get the security information of the specified security item associated with the analysis category for a specified user.</summary>
 		[DispId(9)]
-		PIItemsSecurityRights GetSecurity(string webId, string userIdentities, bool forceRefresh, string selectedFields = null);
+		PIItemsSecurityRights GetSecurity(string webId, string userIdentities, bool forceRefresh, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Get the security information of the specified security item associated with the analysis category for a specified user.</summary>
 		[DispId(10)]
-		ApiResponsePIItemsSecurityRights GetSecurityWithHttpInfo(string webId, string userIdentities, bool forceRefresh, string selectedFields = null);
+		ApiResponsePIItemsSecurityRights GetSecurityWithHttpInfo(string webId, string userIdentities, bool forceRefresh, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve the security entries associated with the analysis category based on the specified criteria. By default, all security entries for this analysis category are returned.</summary>
 		[DispId(11)]
-		PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null);
+		PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve the security entries associated with the analysis category based on the specified criteria. By default, all security entries for this analysis category are returned.</summary>
 		[DispId(12)]
-		ApiResponsePIItemsSecurityEntry GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null);
+		ApiResponsePIItemsSecurityEntry GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Create a security entry owned by the analysis category.</summary>
 		[DispId(13)]
-		Object CreateSecurityEntry(string webId, PISecurityEntry securityEntry, bool applyToChildren);
+		Object CreateSecurityEntry(string webId, PISecurityEntry securityEntry, bool applyToChildren, string webIdType = null);
 
 		/// <summary>Create a security entry owned by the analysis category.</summary>
 		[DispId(14)]
-		ApiResponseObject CreateSecurityEntryWithHttpInfo(string webId, PISecurityEntry securityEntry, bool applyToChildren);
+		ApiResponseObject CreateSecurityEntryWithHttpInfo(string webId, PISecurityEntry securityEntry, bool applyToChildren, string webIdType = null);
 
 		/// <summary>Retrieve the security entry associated with the analysis category with the specified name.</summary>
 		[DispId(15)]
-		PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null);
+		PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve the security entry associated with the analysis category with the specified name.</summary>
 		[DispId(16)]
-		ApiResponsePISecurityEntry GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null);
+		ApiResponsePISecurityEntry GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Update a security entry owned by the analysis category.</summary>
 		[DispId(17)]
@@ -117,7 +117,7 @@ namespace PIWebAPIWrapper.Api
 		#endregion
 	}
 
-	[Guid("F9B51E72-7039-4D65-AF4F-219808118ABB")]
+	[Guid("50174A5D-63F4-4D31-BC3D-5306EF59CE67")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IAnalysisCategoryApi))]
@@ -156,14 +156,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve an analysis category by path.</summary>
-		public PIAnalysisCategory GetByPath(string path, string selectedFields = null)
+		public PIAnalysisCategory GetByPath(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIAnalysisCategory localVarResponse = GetByPathWithHttpInfo(path, selectedFields);
+			ApiResponsePIAnalysisCategory localVarResponse = GetByPathWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve an analysis category by path.</summary>
-		public ApiResponsePIAnalysisCategory GetByPathWithHttpInfo(string path, string selectedFields = null)
+		public ApiResponsePIAnalysisCategory GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(path)==true)
 			{
@@ -172,6 +172,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (path == null)
 				throw new ApiException(400, "Missing required parameter 'path'");
@@ -196,6 +200,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -215,14 +220,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve an analysis category.</summary>
-		public PIAnalysisCategory Get(string webId, string selectedFields = null)
+		public PIAnalysisCategory Get(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIAnalysisCategory localVarResponse = GetWithHttpInfo(webId, selectedFields);
+			ApiResponsePIAnalysisCategory localVarResponse = GetWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve an analysis category.</summary>
-		public ApiResponsePIAnalysisCategory GetWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponsePIAnalysisCategory GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -231,6 +236,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -255,6 +264,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -392,14 +402,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Get the security information of the specified security item associated with the analysis category for a specified user.</summary>
-		public PIItemsSecurityRights GetSecurity(string webId, string userIdentities, bool forceRefresh, string selectedFields = null)
+		public PIItemsSecurityRights GetSecurity(string webId, string userIdentities, bool forceRefresh, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIItemsSecurityRights localVarResponse = GetSecurityWithHttpInfo(webId, userIdentities, forceRefresh, selectedFields);
+			ApiResponsePIItemsSecurityRights localVarResponse = GetSecurityWithHttpInfo(webId, userIdentities, forceRefresh, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Get the security information of the specified security item associated with the analysis category for a specified user.</summary>
-		public ApiResponsePIItemsSecurityRights GetSecurityWithHttpInfo(string webId, string userIdentities, bool forceRefresh, string selectedFields = null)
+		public ApiResponsePIItemsSecurityRights GetSecurityWithHttpInfo(string webId, string userIdentities, bool forceRefresh, string selectedFields = null, string webIdType = null)
 		{
 			List<string> userIdentity = ExtensionMethods.ConvertToList(userIdentities);
 			if (string.IsNullOrEmpty(webId)==true)
@@ -409,6 +419,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -435,6 +449,7 @@ namespace PIWebAPIWrapper.Api
 			localVarQueryParams.Add("userIdentity", Configuration.ApiClient.ParameterToString(userIdentity));
 			localVarQueryParams.Add("forceRefresh", Configuration.ApiClient.ParameterToString(forceRefresh));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -454,14 +469,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve the security entries associated with the analysis category based on the specified criteria. By default, all security entries for this analysis category are returned.</summary>
-		public PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null)
+		public PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIItemsSecurityEntry localVarResponse = GetSecurityEntriesWithHttpInfo(webId, nameFilter, selectedFields);
+			ApiResponsePIItemsSecurityEntry localVarResponse = GetSecurityEntriesWithHttpInfo(webId, nameFilter, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve the security entries associated with the analysis category based on the specified criteria. By default, all security entries for this analysis category are returned.</summary>
-		public ApiResponsePIItemsSecurityEntry GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null)
+		public ApiResponsePIItemsSecurityEntry GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -474,6 +489,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -499,6 +518,7 @@ namespace PIWebAPIWrapper.Api
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -518,18 +538,22 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Create a security entry owned by the analysis category.</summary>
-		public Object CreateSecurityEntry(string webId, PISecurityEntry securityEntry, bool applyToChildren)
+		public Object CreateSecurityEntry(string webId, PISecurityEntry securityEntry, bool applyToChildren, string webIdType = null)
 		{
-			ApiResponseObject localVarResponse = CreateSecurityEntryWithHttpInfo(webId, securityEntry, applyToChildren);
+			ApiResponseObject localVarResponse = CreateSecurityEntryWithHttpInfo(webId, securityEntry, applyToChildren, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Create a security entry owned by the analysis category.</summary>
-		public ApiResponseObject CreateSecurityEntryWithHttpInfo(string webId, PISecurityEntry securityEntry, bool applyToChildren)
+		public ApiResponseObject CreateSecurityEntryWithHttpInfo(string webId, PISecurityEntry securityEntry, bool applyToChildren, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
 				webId = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -564,6 +588,7 @@ namespace PIWebAPIWrapper.Api
 				localVarPostBody = securityEntry;
 			}
 			localVarQueryParams.Add("applyToChildren", Configuration.ApiClient.ParameterToString(applyToChildren));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -583,14 +608,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve the security entry associated with the analysis category with the specified name.</summary>
-		public PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null)
+		public PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePISecurityEntry localVarResponse = GetSecurityEntryByNameWithHttpInfo(name, webId, selectedFields);
+			ApiResponsePISecurityEntry localVarResponse = GetSecurityEntryByNameWithHttpInfo(name, webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve the security entry associated with the analysis category with the specified name.</summary>
-		public ApiResponsePISecurityEntry GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null)
+		public ApiResponsePISecurityEntry GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(name)==true)
 			{
@@ -603,6 +628,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (name == null)
 				throw new ApiException(400, "Missing required parameter 'name'");
@@ -630,6 +659,7 @@ namespace PIWebAPIWrapper.Api
 			if (name!= null) localVarPathParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,

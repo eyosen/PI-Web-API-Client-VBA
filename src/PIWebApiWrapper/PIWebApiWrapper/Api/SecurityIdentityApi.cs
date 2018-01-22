@@ -27,7 +27,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Api
 {
 
-	[Guid("C22A9989-A176-4D92-99A9-4EF11995B351")]
+	[Guid("802B5585-CA97-4AF9-9C0D-6D30ABE2D1B2")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -36,19 +36,19 @@ namespace PIWebAPIWrapper.Api
 		#region Synchronous Operations
 		/// <summary>Retrieve a security identity by path.</summary>
 		[DispId(1)]
-		PISecurityIdentity GetByPath(string path, string selectedFields = null);
+		PISecurityIdentity GetByPath(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve a security identity by path.</summary>
 		[DispId(2)]
-		ApiResponsePISecurityIdentity GetByPathWithHttpInfo(string path, string selectedFields = null);
+		ApiResponsePISecurityIdentity GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve a security identity.</summary>
 		[DispId(3)]
-		PISecurityIdentity Get(string webId, string selectedFields = null);
+		PISecurityIdentity Get(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve a security identity.</summary>
 		[DispId(4)]
-		ApiResponsePISecurityIdentity GetWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponsePISecurityIdentity GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Update a security identity by replacing items in its definition.</summary>
 		[DispId(5)]
@@ -68,40 +68,40 @@ namespace PIWebAPIWrapper.Api
 
 		/// <summary>Get the security information of the specified security item associated with the security identity for a specified user.</summary>
 		[DispId(9)]
-		PIItemsSecurityRights GetSecurity(string webId, string userIdentities, bool forceRefresh, string selectedFields = null);
+		PIItemsSecurityRights GetSecurity(string webId, string userIdentities, bool forceRefresh, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Get the security information of the specified security item associated with the security identity for a specified user.</summary>
 		[DispId(10)]
-		ApiResponsePIItemsSecurityRights GetSecurityWithHttpInfo(string webId, string userIdentities, bool forceRefresh, string selectedFields = null);
+		ApiResponsePIItemsSecurityRights GetSecurityWithHttpInfo(string webId, string userIdentities, bool forceRefresh, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve the security entries associated with the security identity based on the specified criteria. By default, all security entries for this security identity are returned.</summary>
 		[DispId(11)]
-		PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null);
+		PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve the security entries associated with the security identity based on the specified criteria. By default, all security entries for this security identity are returned.</summary>
 		[DispId(12)]
-		ApiResponsePIItemsSecurityEntry GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null);
+		ApiResponsePIItemsSecurityEntry GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve the security entry associated with the security identity with the specified name.</summary>
 		[DispId(13)]
-		PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null);
+		PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve the security entry associated with the security identity with the specified name.</summary>
 		[DispId(14)]
-		ApiResponsePISecurityEntry GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null);
+		ApiResponsePISecurityEntry GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Get security mappings for the specified security identity.</summary>
 		[DispId(15)]
-		PIItemsSecurityMapping GetSecurityMappings(string webId, string selectedFields = null);
+		PIItemsSecurityMapping GetSecurityMappings(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Get security mappings for the specified security identity.</summary>
 		[DispId(16)]
-		ApiResponsePIItemsSecurityMapping GetSecurityMappingsWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponsePIItemsSecurityMapping GetSecurityMappingsWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		#endregion
 	}
 
-	[Guid("7FBC2FFD-47B0-4F01-84F5-D0920847CEB3")]
+	[Guid("D4E1814D-F69F-40D9-8E6F-8E2F23D5A337")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(ISecurityIdentityApi))]
@@ -140,14 +140,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve a security identity by path.</summary>
-		public PISecurityIdentity GetByPath(string path, string selectedFields = null)
+		public PISecurityIdentity GetByPath(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePISecurityIdentity localVarResponse = GetByPathWithHttpInfo(path, selectedFields);
+			ApiResponsePISecurityIdentity localVarResponse = GetByPathWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve a security identity by path.</summary>
-		public ApiResponsePISecurityIdentity GetByPathWithHttpInfo(string path, string selectedFields = null)
+		public ApiResponsePISecurityIdentity GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(path)==true)
 			{
@@ -156,6 +156,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (path == null)
 				throw new ApiException(400, "Missing required parameter 'path'");
@@ -180,6 +184,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -199,14 +204,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve a security identity.</summary>
-		public PISecurityIdentity Get(string webId, string selectedFields = null)
+		public PISecurityIdentity Get(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePISecurityIdentity localVarResponse = GetWithHttpInfo(webId, selectedFields);
+			ApiResponsePISecurityIdentity localVarResponse = GetWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve a security identity.</summary>
-		public ApiResponsePISecurityIdentity GetWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponsePISecurityIdentity GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -215,6 +220,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -239,6 +248,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -376,14 +386,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Get the security information of the specified security item associated with the security identity for a specified user.</summary>
-		public PIItemsSecurityRights GetSecurity(string webId, string userIdentities, bool forceRefresh, string selectedFields = null)
+		public PIItemsSecurityRights GetSecurity(string webId, string userIdentities, bool forceRefresh, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIItemsSecurityRights localVarResponse = GetSecurityWithHttpInfo(webId, userIdentities, forceRefresh, selectedFields);
+			ApiResponsePIItemsSecurityRights localVarResponse = GetSecurityWithHttpInfo(webId, userIdentities, forceRefresh, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Get the security information of the specified security item associated with the security identity for a specified user.</summary>
-		public ApiResponsePIItemsSecurityRights GetSecurityWithHttpInfo(string webId, string userIdentities, bool forceRefresh, string selectedFields = null)
+		public ApiResponsePIItemsSecurityRights GetSecurityWithHttpInfo(string webId, string userIdentities, bool forceRefresh, string selectedFields = null, string webIdType = null)
 		{
 			List<string> userIdentity = ExtensionMethods.ConvertToList(userIdentities);
 			if (string.IsNullOrEmpty(webId)==true)
@@ -393,6 +403,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -419,6 +433,7 @@ namespace PIWebAPIWrapper.Api
 			localVarQueryParams.Add("userIdentity", Configuration.ApiClient.ParameterToString(userIdentity));
 			localVarQueryParams.Add("forceRefresh", Configuration.ApiClient.ParameterToString(forceRefresh));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -438,14 +453,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve the security entries associated with the security identity based on the specified criteria. By default, all security entries for this security identity are returned.</summary>
-		public PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null)
+		public PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIItemsSecurityEntry localVarResponse = GetSecurityEntriesWithHttpInfo(webId, nameFilter, selectedFields);
+			ApiResponsePIItemsSecurityEntry localVarResponse = GetSecurityEntriesWithHttpInfo(webId, nameFilter, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve the security entries associated with the security identity based on the specified criteria. By default, all security entries for this security identity are returned.</summary>
-		public ApiResponsePIItemsSecurityEntry GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null)
+		public ApiResponsePIItemsSecurityEntry GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -458,6 +473,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -483,6 +502,7 @@ namespace PIWebAPIWrapper.Api
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -502,14 +522,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve the security entry associated with the security identity with the specified name.</summary>
-		public PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null)
+		public PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePISecurityEntry localVarResponse = GetSecurityEntryByNameWithHttpInfo(name, webId, selectedFields);
+			ApiResponsePISecurityEntry localVarResponse = GetSecurityEntryByNameWithHttpInfo(name, webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve the security entry associated with the security identity with the specified name.</summary>
-		public ApiResponsePISecurityEntry GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null)
+		public ApiResponsePISecurityEntry GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(name)==true)
 			{
@@ -522,6 +542,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (name == null)
 				throw new ApiException(400, "Missing required parameter 'name'");
@@ -549,6 +573,7 @@ namespace PIWebAPIWrapper.Api
 			if (name!= null) localVarPathParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -568,14 +593,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Get security mappings for the specified security identity.</summary>
-		public PIItemsSecurityMapping GetSecurityMappings(string webId, string selectedFields = null)
+		public PIItemsSecurityMapping GetSecurityMappings(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIItemsSecurityMapping localVarResponse = GetSecurityMappingsWithHttpInfo(webId, selectedFields);
+			ApiResponsePIItemsSecurityMapping localVarResponse = GetSecurityMappingsWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Get security mappings for the specified security identity.</summary>
-		public ApiResponsePIItemsSecurityMapping GetSecurityMappingsWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponsePIItemsSecurityMapping GetSecurityMappingsWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -584,6 +609,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -608,6 +637,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,

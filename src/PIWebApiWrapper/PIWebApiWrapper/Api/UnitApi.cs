@@ -27,7 +27,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Api
 {
 
-	[Guid("E50D4D35-61E5-4D51-89BE-8C8106A0C6FE")]
+	[Guid("0E35AFB4-A6EF-4E00-8D4A-B20D31F2C6C3")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -36,19 +36,19 @@ namespace PIWebAPIWrapper.Api
 		#region Synchronous Operations
 		/// <summary>Retrieve a unit by path.</summary>
 		[DispId(1)]
-		PIUnit GetByPath(string path, string selectedFields = null);
+		PIUnit GetByPath(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve a unit by path.</summary>
 		[DispId(2)]
-		ApiResponsePIUnit GetByPathWithHttpInfo(string path, string selectedFields = null);
+		ApiResponsePIUnit GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve a unit.</summary>
 		[DispId(3)]
-		PIUnit Get(string webId, string selectedFields = null);
+		PIUnit Get(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve a unit.</summary>
 		[DispId(4)]
-		ApiResponsePIUnit GetWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponsePIUnit GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Update a unit.</summary>
 		[DispId(5)]
@@ -69,7 +69,7 @@ namespace PIWebAPIWrapper.Api
 		#endregion
 	}
 
-	[Guid("A5819DC9-5404-4E31-B81C-C307DB1AABDF")]
+	[Guid("6C6FEEE1-9D46-49E9-AAE2-FA3C2890D6A0")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IUnitApi))]
@@ -108,14 +108,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve a unit by path.</summary>
-		public PIUnit GetByPath(string path, string selectedFields = null)
+		public PIUnit GetByPath(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIUnit localVarResponse = GetByPathWithHttpInfo(path, selectedFields);
+			ApiResponsePIUnit localVarResponse = GetByPathWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve a unit by path.</summary>
-		public ApiResponsePIUnit GetByPathWithHttpInfo(string path, string selectedFields = null)
+		public ApiResponsePIUnit GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(path)==true)
 			{
@@ -124,6 +124,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (path == null)
 				throw new ApiException(400, "Missing required parameter 'path'");
@@ -148,6 +152,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -167,14 +172,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve a unit.</summary>
-		public PIUnit Get(string webId, string selectedFields = null)
+		public PIUnit Get(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIUnit localVarResponse = GetWithHttpInfo(webId, selectedFields);
+			ApiResponsePIUnit localVarResponse = GetWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve a unit.</summary>
-		public ApiResponsePIUnit GetWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponsePIUnit GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -183,6 +188,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -207,6 +216,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,

@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Model
 {
 
-	[Guid("515C4BDF-F98D-4C22-A5D8-485F195FB55C")]
+	[Guid("FF82BE8E-0E36-4663-88DA-65B021BBB660")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -57,11 +57,14 @@ namespace PIWebAPIWrapper.Model
 		object ExtendedProperties { get; set; }
 
 		[DispId(7)]
-		object Links { get; set; }
+		PIAssetDatabaseLinks Links { get; set; }
+
+		[DispId(8)]
+		PIWebException WebException { get; set; }
 
 	}
 
-	[Guid("8C8F4E1F-AFD4-482A-B067-AACDCEAE5009")]
+	[Guid("F37EBD9E-8E36-4DF4-8DC3-87E99F7C6C84")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IPIAssetDatabase))]
@@ -93,7 +96,10 @@ namespace PIWebAPIWrapper.Model
 		public object ExtendedProperties { get; set; }
 
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
-		public object Links { get; set; }
+		public PIAssetDatabaseLinks Links { get; set; }
+
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

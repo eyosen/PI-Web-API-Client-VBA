@@ -11,7 +11,8 @@ Name | Type | Notes
 **CreationDate** | **string**
 **Modifier** | **string**
 **ModifyDate** | **string**
-**Links** | **[**object**](../Model/Object.md)**
+**Links** | **[**PIAnnotationLinks**](../Model/PIAnnotationLinks.md)**
+**WebException** | **[**PIWebException**](../Model/PIWebException.md)**
 
 ## Methods
 

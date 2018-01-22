@@ -27,7 +27,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Api
 {
 
-	[Guid("C1A7FFA6-1EEA-4DDE-8F5F-B6DB813DD239")]
+	[Guid("E7986D96-3ECA-4E59-BC43-8A35438087CE")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -36,19 +36,19 @@ namespace PIWebAPIWrapper.Api
 		#region Synchronous Operations
 		/// <summary>Retrieve an element by path.</summary>
 		[DispId(1)]
-		PIElement GetByPath(string path, string selectedFields = null);
+		PIElement GetByPath(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an element by path.</summary>
 		[DispId(2)]
-		ApiResponsePIElement GetByPathWithHttpInfo(string path, string selectedFields = null);
+		ApiResponsePIElement GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an element.</summary>
 		[DispId(3)]
-		PIElement Get(string webId, string selectedFields = null);
+		PIElement Get(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an element.</summary>
 		[DispId(4)]
-		ApiResponsePIElement GetWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponsePIElement GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Update an element by replacing items in its definition.</summary>
 		[DispId(5)]
@@ -68,43 +68,43 @@ namespace PIWebAPIWrapper.Api
 
 		/// <summary>Retrieve analyses based on the specified conditions.</summary>
 		[DispId(9)]
-		PIItemsAnalysis GetAnalyses(string webId, int maxCount, int startIndex, string selectedFields = null, string sortField = null, string sortOrder = null);
+		PIItemsAnalysis GetAnalyses(string webId, int maxCount, int startIndex, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>Retrieve analyses based on the specified conditions.</summary>
 		[DispId(10)]
-		ApiResponsePIItemsAnalysis GetAnalysesWithHttpInfo(string webId, int maxCount, int startIndex, string selectedFields = null, string sortField = null, string sortOrder = null);
+		ApiResponsePIItemsAnalysis GetAnalysesWithHttpInfo(string webId, int maxCount, int startIndex, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>Create an Analysis.</summary>
 		[DispId(11)]
-		Object CreateAnalysis(string webId, PIAnalysis analysis);
+		Object CreateAnalysis(string webId, PIAnalysis analysis, string webIdType = null);
 
 		/// <summary>Create an Analysis.</summary>
 		[DispId(12)]
-		ApiResponseObject CreateAnalysisWithHttpInfo(string webId, PIAnalysis analysis);
+		ApiResponseObject CreateAnalysisWithHttpInfo(string webId, PIAnalysis analysis, string webIdType = null);
 
 		/// <summary>Get the attributes of the specified element.</summary>
 		[DispId(13)]
-		PIItemsAttribute GetAttributes(string webId, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, int startIndex, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string valueType = null);
+		PIItemsAttribute GetAttributes(string webId, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, int startIndex, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string valueType = null, string webIdType = null);
 
 		/// <summary>Get the attributes of the specified element.</summary>
 		[DispId(14)]
-		ApiResponsePIItemsAttribute GetAttributesWithHttpInfo(string webId, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, int startIndex, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string valueType = null);
+		ApiResponsePIItemsAttribute GetAttributesWithHttpInfo(string webId, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, int startIndex, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string valueType = null, string webIdType = null);
 
 		/// <summary>Create a new attribute of the specified element.</summary>
 		[DispId(15)]
-		Object CreateAttribute(string webId, PIAttribute attribute);
+		Object CreateAttribute(string webId, PIAttribute attribute, string webIdType = null);
 
 		/// <summary>Create a new attribute of the specified element.</summary>
 		[DispId(16)]
-		ApiResponseObject CreateAttributeWithHttpInfo(string webId, PIAttribute attribute);
+		ApiResponseObject CreateAttributeWithHttpInfo(string webId, PIAttribute attribute, string webIdType = null);
 
 		/// <summary>Get an element's categories.</summary>
 		[DispId(17)]
-		PIItemsElementCategory GetCategories(string webId, string selectedFields = null);
+		PIItemsElementCategory GetCategories(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Get an element's categories.</summary>
 		[DispId(18)]
-		ApiResponsePIItemsElementCategory GetCategoriesWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponsePIItemsElementCategory GetCategoriesWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Executes the create configuration function of the data references found within the attributes of the element, and optionally, its children.</summary>
 		[DispId(19)]
@@ -116,43 +116,43 @@ namespace PIWebAPIWrapper.Api
 
 		/// <summary>Retrieves a list of element attributes matching the specified filters from the specified element.</summary>
 		[DispId(21)]
-		PIItemsAttribute FindElementAttributes(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string elementCategory = null, string elementDescriptionFilter = null, string elementNameFilter = null, string elementTemplate = null, string elementType = null, string selectedFields = null, string sortField = null, string sortOrder = null);
+		PIItemsAttribute FindElementAttributes(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string elementCategory = null, string elementDescriptionFilter = null, string elementNameFilter = null, string elementTemplate = null, string elementType = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>Retrieves a list of element attributes matching the specified filters from the specified element.</summary>
 		[DispId(22)]
-		ApiResponsePIItemsAttribute FindElementAttributesWithHttpInfo(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string elementCategory = null, string elementDescriptionFilter = null, string elementNameFilter = null, string elementTemplate = null, string elementType = null, string selectedFields = null, string sortField = null, string sortOrder = null);
+		ApiResponsePIItemsAttribute FindElementAttributesWithHttpInfo(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string elementCategory = null, string elementDescriptionFilter = null, string elementNameFilter = null, string elementTemplate = null, string elementType = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>Retrieve elements based on the specified conditions. By default, this method selects immediate children of the specified element.</summary>
 		[DispId(23)]
-		PIItemsElement GetElements(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string categoryName = null, string descriptionFilter = null, string elementType = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null);
+		PIItemsElement GetElements(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string categoryName = null, string descriptionFilter = null, string elementType = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string webIdType = null);
 
 		/// <summary>Retrieve elements based on the specified conditions. By default, this method selects immediate children of the specified element.</summary>
 		[DispId(24)]
-		ApiResponsePIItemsElement GetElementsWithHttpInfo(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string categoryName = null, string descriptionFilter = null, string elementType = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null);
+		ApiResponsePIItemsElement GetElementsWithHttpInfo(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string categoryName = null, string descriptionFilter = null, string elementType = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string webIdType = null);
 
 		/// <summary>Create a child element.</summary>
 		[DispId(25)]
-		Object CreateElement(string webId, PIElement element);
+		Object CreateElement(string webId, PIElement element, string webIdType = null);
 
 		/// <summary>Create a child element.</summary>
 		[DispId(26)]
-		ApiResponseObject CreateElementWithHttpInfo(string webId, PIElement element);
+		ApiResponseObject CreateElementWithHttpInfo(string webId, PIElement element, string webIdType = null);
 
-		/// <summary>Retrieve event frames that reference this element based on the specified conditions. By default, returns all event frames that reference this element with a start time in the past 8 hours.</summary>
+		/// <summary>Retrieve event frames that reference this element based on the specified conditions. By default, returns all event frames that reference this element that have been active in the past 8 hours.</summary>
 		[DispId(27)]
-		PIItemsEventFrame GetEventFrames(string webId, bool canBeAcknowledged, bool isAcknowledged, int maxCount, int startIndex, string categoryName = null, string endTime = null, string nameFilter = null, string searchMode = null, string selectedFields = null, string severities = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null);
+		PIItemsEventFrame GetEventFrames(string webId, bool canBeAcknowledged, bool isAcknowledged, int maxCount, int startIndex, string categoryName = null, string endTime = null, string nameFilter = null, string searchMode = null, string selectedFields = null, string severities = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string webIdType = null);
 
-		/// <summary>Retrieve event frames that reference this element based on the specified conditions. By default, returns all event frames that reference this element with a start time in the past 8 hours.</summary>
+		/// <summary>Retrieve event frames that reference this element based on the specified conditions. By default, returns all event frames that reference this element that have been active in the past 8 hours.</summary>
 		[DispId(28)]
-		ApiResponsePIItemsEventFrame GetEventFramesWithHttpInfo(string webId, bool canBeAcknowledged, bool isAcknowledged, int maxCount, int startIndex, string categoryName = null, string endTime = null, string nameFilter = null, string searchMode = null, string selectedFields = null, string severities = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null);
+		ApiResponsePIItemsEventFrame GetEventFramesWithHttpInfo(string webId, bool canBeAcknowledged, bool isAcknowledged, int maxCount, int startIndex, string categoryName = null, string endTime = null, string nameFilter = null, string searchMode = null, string selectedFields = null, string severities = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string webIdType = null);
 
 		/// <summary>Retrieve referenced elements based on the specified conditions. By default, this method selects all referenced elements of the current resource.</summary>
 		[DispId(29)]
-		PIItemsElement GetReferencedElements(string webId, int maxCount, int startIndex, string categoryName = null, string descriptionFilter = null, string elementType = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null);
+		PIItemsElement GetReferencedElements(string webId, int maxCount, int startIndex, string categoryName = null, string descriptionFilter = null, string elementType = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string webIdType = null);
 
 		/// <summary>Retrieve referenced elements based on the specified conditions. By default, this method selects all referenced elements of the current resource.</summary>
 		[DispId(30)]
-		ApiResponsePIItemsElement GetReferencedElementsWithHttpInfo(string webId, int maxCount, int startIndex, string categoryName = null, string descriptionFilter = null, string elementType = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null);
+		ApiResponsePIItemsElement GetReferencedElementsWithHttpInfo(string webId, int maxCount, int startIndex, string categoryName = null, string descriptionFilter = null, string elementType = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string webIdType = null);
 
 		/// <summary>Add a reference to an existing element to the child elements collection.</summary>
 		[DispId(31)]
@@ -172,35 +172,35 @@ namespace PIWebAPIWrapper.Api
 
 		/// <summary>Get the security information of the specified security item associated with the element for a specified user.</summary>
 		[DispId(35)]
-		PIItemsSecurityRights GetSecurity(string webId, string userIdentities, bool forceRefresh, string selectedFields = null);
+		PIItemsSecurityRights GetSecurity(string webId, string userIdentities, bool forceRefresh, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Get the security information of the specified security item associated with the element for a specified user.</summary>
 		[DispId(36)]
-		ApiResponsePIItemsSecurityRights GetSecurityWithHttpInfo(string webId, string userIdentities, bool forceRefresh, string selectedFields = null);
+		ApiResponsePIItemsSecurityRights GetSecurityWithHttpInfo(string webId, string userIdentities, bool forceRefresh, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve the security entries associated with the element based on the specified criteria. By default, all security entries for this element are returned.</summary>
 		[DispId(37)]
-		PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null);
+		PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve the security entries associated with the element based on the specified criteria. By default, all security entries for this element are returned.</summary>
 		[DispId(38)]
-		ApiResponsePIItemsSecurityEntry GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null);
+		ApiResponsePIItemsSecurityEntry GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Create a security entry owned by the element.</summary>
 		[DispId(39)]
-		Object CreateSecurityEntry(string webId, PISecurityEntry securityEntry, bool applyToChildren);
+		Object CreateSecurityEntry(string webId, PISecurityEntry securityEntry, bool applyToChildren, string webIdType = null);
 
 		/// <summary>Create a security entry owned by the element.</summary>
 		[DispId(40)]
-		ApiResponseObject CreateSecurityEntryWithHttpInfo(string webId, PISecurityEntry securityEntry, bool applyToChildren);
+		ApiResponseObject CreateSecurityEntryWithHttpInfo(string webId, PISecurityEntry securityEntry, bool applyToChildren, string webIdType = null);
 
 		/// <summary>Retrieve the security entry associated with the element with the specified name.</summary>
 		[DispId(41)]
-		PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null);
+		PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve the security entry associated with the element with the specified name.</summary>
 		[DispId(42)]
-		ApiResponsePISecurityEntry GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null);
+		ApiResponsePISecurityEntry GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Update a security entry owned by the element.</summary>
 		[DispId(43)]
@@ -220,32 +220,40 @@ namespace PIWebAPIWrapper.Api
 
 		/// <summary>Retrieve multiple elements by web id or path.</summary>
 		[DispId(47)]
-		PIItemsItemElement GetMultiple(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null);
+		PIItemsItemElement GetMultiple(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null, string webIdType = null);
 
 		/// <summary>Retrieve multiple elements by web id or path.</summary>
 		[DispId(48)]
-		ApiResponsePIItemsItemElement GetMultipleWithHttpInfo(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null);
+		ApiResponsePIItemsItemElement GetMultipleWithHttpInfo(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null, string webIdType = null);
 
-		/// <summary>Create a link for a "Search Elements By Attribute Value" operation, whose queries are specified in the request content. The SearchRoot is specified by the Web Id of the root Element. If the SearchRoot is not specified, then the search starts at the Asset Database. ElementTemplate must be provided as the Web ID of the ElementTemplate, which are used to create the Elements. All the attributes in the queries must be defined as AttributeTemplates on the ElementTemplate. An array of attribute value queries are ANDed together to find the desired Element objects. At least one value query must be specified. There are limitations on SearchOperators.</summary>
+		/// <summary>Retrieve elements based on the specified conditions. By default, returns all the elements.</summary>
 		[DispId(49)]
-		Object CreateSearchByAttribute(PISearchByAttributeElement search);
+		PIItemsElement GetElementsQuery(int maxCount, int startIndex, string databaseWebId = null, string query = null, string selectedFields = null, string webIdType = null);
+
+		/// <summary>Retrieve elements based on the specified conditions. By default, returns all the elements.</summary>
+		[DispId(50)]
+		ApiResponsePIItemsElement GetElementsQueryWithHttpInfo(int maxCount, int startIndex, string databaseWebId = null, string query = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Create a link for a "Search Elements By Attribute Value" operation, whose queries are specified in the request content. The SearchRoot is specified by the Web Id of the root Element. If the SearchRoot is not specified, then the search starts at the Asset Database. ElementTemplate must be provided as the Web ID of the ElementTemplate, which are used to create the Elements. All the attributes in the queries must be defined as AttributeTemplates on the ElementTemplate. An array of attribute value queries are ANDed together to find the desired Element objects. At least one value query must be specified. There are limitations on SearchOperators.</summary>
-		[DispId(50)]
-		ApiResponseObject CreateSearchByAttributeWithHttpInfo(PISearchByAttributeElement search);
-
-		/// <summary>Execute a "Search Elements By Attribute Value" operation.</summary>
 		[DispId(51)]
-		Object ExecuteSearchByAttribute(string searchId, int maxCount, bool searchFullHierarchy, int startIndex, string categoryName = null, string descriptionFilter = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null);
+		PIItemsElement CreateSearchByAttribute(PISearchByAttribute query, bool noResults, string webIdType = null);
+
+		/// <summary>Create a link for a "Search Elements By Attribute Value" operation, whose queries are specified in the request content. The SearchRoot is specified by the Web Id of the root Element. If the SearchRoot is not specified, then the search starts at the Asset Database. ElementTemplate must be provided as the Web ID of the ElementTemplate, which are used to create the Elements. All the attributes in the queries must be defined as AttributeTemplates on the ElementTemplate. An array of attribute value queries are ANDed together to find the desired Element objects. At least one value query must be specified. There are limitations on SearchOperators.</summary>
+		[DispId(52)]
+		ApiResponsePIItemsElement CreateSearchByAttributeWithHttpInfo(PISearchByAttribute query, bool noResults, string webIdType = null);
 
 		/// <summary>Execute a "Search Elements By Attribute Value" operation.</summary>
-		[DispId(52)]
-		ApiResponseObject ExecuteSearchByAttributeWithHttpInfo(string searchId, int maxCount, bool searchFullHierarchy, int startIndex, string categoryName = null, string descriptionFilter = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null);
+		[DispId(53)]
+		PIItemsElement ExecuteSearchByAttribute(string searchId, int maxCount, bool searchFullHierarchy, int startIndex, string categoryName = null, string descriptionFilter = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
+
+		/// <summary>Execute a "Search Elements By Attribute Value" operation.</summary>
+		[DispId(54)]
+		ApiResponsePIItemsElement ExecuteSearchByAttributeWithHttpInfo(string searchId, int maxCount, bool searchFullHierarchy, int startIndex, string categoryName = null, string descriptionFilter = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		#endregion
 	}
 
-	[Guid("CBF31483-479C-40CB-A4CF-D25249196943")]
+	[Guid("DA00DD6A-948C-4136-AAA9-1CAE29373F25")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IElementApi))]
@@ -284,14 +292,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve an element by path.</summary>
-		public PIElement GetByPath(string path, string selectedFields = null)
+		public PIElement GetByPath(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIElement localVarResponse = GetByPathWithHttpInfo(path, selectedFields);
+			ApiResponsePIElement localVarResponse = GetByPathWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve an element by path.</summary>
-		public ApiResponsePIElement GetByPathWithHttpInfo(string path, string selectedFields = null)
+		public ApiResponsePIElement GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(path)==true)
 			{
@@ -300,6 +308,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (path == null)
 				throw new ApiException(400, "Missing required parameter 'path'");
@@ -324,6 +336,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -343,14 +356,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve an element.</summary>
-		public PIElement Get(string webId, string selectedFields = null)
+		public PIElement Get(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIElement localVarResponse = GetWithHttpInfo(webId, selectedFields);
+			ApiResponsePIElement localVarResponse = GetWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve an element.</summary>
-		public ApiResponsePIElement GetWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponsePIElement GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -359,6 +372,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -383,6 +400,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -520,14 +538,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve analyses based on the specified conditions.</summary>
-		public PIItemsAnalysis GetAnalyses(string webId, int maxCount, int startIndex, string selectedFields = null, string sortField = null, string sortOrder = null)
+		public PIItemsAnalysis GetAnalyses(string webId, int maxCount, int startIndex, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
-			ApiResponsePIItemsAnalysis localVarResponse = GetAnalysesWithHttpInfo(webId, maxCount, startIndex, selectedFields, sortField, sortOrder);
+			ApiResponsePIItemsAnalysis localVarResponse = GetAnalysesWithHttpInfo(webId, maxCount, startIndex, selectedFields, sortField, sortOrder, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve analyses based on the specified conditions.</summary>
-		public ApiResponsePIItemsAnalysis GetAnalysesWithHttpInfo(string webId, int maxCount, int startIndex, string selectedFields = null, string sortField = null, string sortOrder = null)
+		public ApiResponsePIItemsAnalysis GetAnalysesWithHttpInfo(string webId, int maxCount, int startIndex, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -544,6 +562,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(sortOrder)==true)
 			{
 				sortOrder = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -572,6 +594,7 @@ namespace PIWebAPIWrapper.Api
 			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -591,18 +614,22 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Create an Analysis.</summary>
-		public Object CreateAnalysis(string webId, PIAnalysis analysis)
+		public Object CreateAnalysis(string webId, PIAnalysis analysis, string webIdType = null)
 		{
-			ApiResponseObject localVarResponse = CreateAnalysisWithHttpInfo(webId, analysis);
+			ApiResponseObject localVarResponse = CreateAnalysisWithHttpInfo(webId, analysis, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Create an Analysis.</summary>
-		public ApiResponseObject CreateAnalysisWithHttpInfo(string webId, PIAnalysis analysis)
+		public ApiResponseObject CreateAnalysisWithHttpInfo(string webId, PIAnalysis analysis, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
 				webId = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -636,6 +663,7 @@ namespace PIWebAPIWrapper.Api
 			{
 				localVarPostBody = analysis;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -655,14 +683,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Get the attributes of the specified element.</summary>
-		public PIItemsAttribute GetAttributes(string webId, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, int startIndex, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string valueType = null)
+		public PIItemsAttribute GetAttributes(string webId, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, int startIndex, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string valueType = null, string webIdType = null)
 		{
-			ApiResponsePIItemsAttribute localVarResponse = GetAttributesWithHttpInfo(webId, maxCount, searchFullHierarchy, showExcluded, showHidden, startIndex, categoryName, nameFilter, selectedFields, sortField, sortOrder, templateName, valueType);
+			ApiResponsePIItemsAttribute localVarResponse = GetAttributesWithHttpInfo(webId, maxCount, searchFullHierarchy, showExcluded, showHidden, startIndex, categoryName, nameFilter, selectedFields, sortField, sortOrder, templateName, valueType, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Get the attributes of the specified element.</summary>
-		public ApiResponsePIItemsAttribute GetAttributesWithHttpInfo(string webId, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, int startIndex, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string valueType = null)
+		public ApiResponsePIItemsAttribute GetAttributesWithHttpInfo(string webId, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, int startIndex, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string valueType = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -695,6 +723,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(valueType)==true)
 			{
 				valueType = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -730,6 +762,7 @@ namespace PIWebAPIWrapper.Api
 			localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (valueType!= null) localVarQueryParams.Add("valueType", Configuration.ApiClient.ParameterToString(valueType));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -749,18 +782,22 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Create a new attribute of the specified element.</summary>
-		public Object CreateAttribute(string webId, PIAttribute attribute)
+		public Object CreateAttribute(string webId, PIAttribute attribute, string webIdType = null)
 		{
-			ApiResponseObject localVarResponse = CreateAttributeWithHttpInfo(webId, attribute);
+			ApiResponseObject localVarResponse = CreateAttributeWithHttpInfo(webId, attribute, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Create a new attribute of the specified element.</summary>
-		public ApiResponseObject CreateAttributeWithHttpInfo(string webId, PIAttribute attribute)
+		public ApiResponseObject CreateAttributeWithHttpInfo(string webId, PIAttribute attribute, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
 				webId = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -794,6 +831,7 @@ namespace PIWebAPIWrapper.Api
 			{
 				localVarPostBody = attribute;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -813,14 +851,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Get an element's categories.</summary>
-		public PIItemsElementCategory GetCategories(string webId, string selectedFields = null)
+		public PIItemsElementCategory GetCategories(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIItemsElementCategory localVarResponse = GetCategoriesWithHttpInfo(webId, selectedFields);
+			ApiResponsePIItemsElementCategory localVarResponse = GetCategoriesWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Get an element's categories.</summary>
-		public ApiResponsePIItemsElementCategory GetCategoriesWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponsePIItemsElementCategory GetCategoriesWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -829,6 +867,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -853,6 +895,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -927,14 +970,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieves a list of element attributes matching the specified filters from the specified element.</summary>
-		public PIItemsAttribute FindElementAttributes(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string elementCategory = null, string elementDescriptionFilter = null, string elementNameFilter = null, string elementTemplate = null, string elementType = null, string selectedFields = null, string sortField = null, string sortOrder = null)
+		public PIItemsAttribute FindElementAttributes(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string elementCategory = null, string elementDescriptionFilter = null, string elementNameFilter = null, string elementTemplate = null, string elementType = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
-			ApiResponsePIItemsAttribute localVarResponse = FindElementAttributesWithHttpInfo(webId, maxCount, searchFullHierarchy, startIndex, attributeCategory, attributeDescriptionFilter, attributeNameFilter, attributeType, elementCategory, elementDescriptionFilter, elementNameFilter, elementTemplate, elementType, selectedFields, sortField, sortOrder);
+			ApiResponsePIItemsAttribute localVarResponse = FindElementAttributesWithHttpInfo(webId, maxCount, searchFullHierarchy, startIndex, attributeCategory, attributeDescriptionFilter, attributeNameFilter, attributeType, elementCategory, elementDescriptionFilter, elementNameFilter, elementTemplate, elementType, selectedFields, sortField, sortOrder, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieves a list of element attributes matching the specified filters from the specified element.</summary>
-		public ApiResponsePIItemsAttribute FindElementAttributesWithHttpInfo(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string elementCategory = null, string elementDescriptionFilter = null, string elementNameFilter = null, string elementTemplate = null, string elementType = null, string selectedFields = null, string sortField = null, string sortOrder = null)
+		public ApiResponsePIItemsAttribute FindElementAttributesWithHttpInfo(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string attributeCategory = null, string attributeDescriptionFilter = null, string attributeNameFilter = null, string attributeType = null, string elementCategory = null, string elementDescriptionFilter = null, string elementNameFilter = null, string elementTemplate = null, string elementType = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -988,6 +1031,10 @@ namespace PIWebAPIWrapper.Api
 			{
 				sortOrder = null;
 			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
+			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
 
@@ -1025,6 +1072,7 @@ namespace PIWebAPIWrapper.Api
 			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1044,14 +1092,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve elements based on the specified conditions. By default, this method selects immediate children of the specified element.</summary>
-		public PIItemsElement GetElements(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string categoryName = null, string descriptionFilter = null, string elementType = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null)
+		public PIItemsElement GetElements(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string categoryName = null, string descriptionFilter = null, string elementType = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string webIdType = null)
 		{
-			ApiResponsePIItemsElement localVarResponse = GetElementsWithHttpInfo(webId, maxCount, searchFullHierarchy, startIndex, categoryName, descriptionFilter, elementType, nameFilter, selectedFields, sortField, sortOrder, templateName);
+			ApiResponsePIItemsElement localVarResponse = GetElementsWithHttpInfo(webId, maxCount, searchFullHierarchy, startIndex, categoryName, descriptionFilter, elementType, nameFilter, selectedFields, sortField, sortOrder, templateName, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve elements based on the specified conditions. By default, this method selects immediate children of the specified element.</summary>
-		public ApiResponsePIItemsElement GetElementsWithHttpInfo(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string categoryName = null, string descriptionFilter = null, string elementType = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null)
+		public ApiResponsePIItemsElement GetElementsWithHttpInfo(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string categoryName = null, string descriptionFilter = null, string elementType = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -1089,6 +1137,10 @@ namespace PIWebAPIWrapper.Api
 			{
 				templateName = null;
 			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
+			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
 
@@ -1122,6 +1174,7 @@ namespace PIWebAPIWrapper.Api
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1141,18 +1194,22 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Create a child element.</summary>
-		public Object CreateElement(string webId, PIElement element)
+		public Object CreateElement(string webId, PIElement element, string webIdType = null)
 		{
-			ApiResponseObject localVarResponse = CreateElementWithHttpInfo(webId, element);
+			ApiResponseObject localVarResponse = CreateElementWithHttpInfo(webId, element, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Create a child element.</summary>
-		public ApiResponseObject CreateElementWithHttpInfo(string webId, PIElement element)
+		public ApiResponseObject CreateElementWithHttpInfo(string webId, PIElement element, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
 				webId = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -1186,6 +1243,7 @@ namespace PIWebAPIWrapper.Api
 			{
 				localVarPostBody = element;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1204,15 +1262,15 @@ namespace PIWebAPIWrapper.Api
 				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
 		}
 
-		/// <summary>Retrieve event frames that reference this element based on the specified conditions. By default, returns all event frames that reference this element with a start time in the past 8 hours.</summary>
-		public PIItemsEventFrame GetEventFrames(string webId, bool canBeAcknowledged, bool isAcknowledged, int maxCount, int startIndex, string categoryName = null, string endTime = null, string nameFilter = null, string searchMode = null, string selectedFields = null, string severities = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null)
+		/// <summary>Retrieve event frames that reference this element based on the specified conditions. By default, returns all event frames that reference this element that have been active in the past 8 hours.</summary>
+		public PIItemsEventFrame GetEventFrames(string webId, bool canBeAcknowledged, bool isAcknowledged, int maxCount, int startIndex, string categoryName = null, string endTime = null, string nameFilter = null, string searchMode = null, string selectedFields = null, string severities = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string webIdType = null)
 		{
-			ApiResponsePIItemsEventFrame localVarResponse = GetEventFramesWithHttpInfo(webId, canBeAcknowledged, isAcknowledged, maxCount, startIndex, categoryName, endTime, nameFilter, searchMode, selectedFields, severities, sortField, sortOrder, startTime, templateName);
+			ApiResponsePIItemsEventFrame localVarResponse = GetEventFramesWithHttpInfo(webId, canBeAcknowledged, isAcknowledged, maxCount, startIndex, categoryName, endTime, nameFilter, searchMode, selectedFields, severities, sortField, sortOrder, startTime, templateName, webIdType);
 			return localVarResponse.Data;
 		}
 
-		/// <summary>Retrieve event frames that reference this element based on the specified conditions. By default, returns all event frames that reference this element with a start time in the past 8 hours.</summary>
-		public ApiResponsePIItemsEventFrame GetEventFramesWithHttpInfo(string webId, bool canBeAcknowledged, bool isAcknowledged, int maxCount, int startIndex, string categoryName = null, string endTime = null, string nameFilter = null, string searchMode = null, string selectedFields = null, string severities = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null)
+		/// <summary>Retrieve event frames that reference this element based on the specified conditions. By default, returns all event frames that reference this element that have been active in the past 8 hours.</summary>
+		public ApiResponsePIItemsEventFrame GetEventFramesWithHttpInfo(string webId, bool canBeAcknowledged, bool isAcknowledged, int maxCount, int startIndex, string categoryName = null, string endTime = null, string nameFilter = null, string searchMode = null, string selectedFields = null, string severities = null, string sortField = null, string sortOrder = null, string startTime = null, string templateName = null, string webIdType = null)
 		{
 			List<string> severity = ExtensionMethods.ConvertToList(severities);
 			if (string.IsNullOrEmpty(webId)==true)
@@ -1255,6 +1313,10 @@ namespace PIWebAPIWrapper.Api
 			{
 				templateName = null;
 			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
+			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
 
@@ -1291,6 +1353,7 @@ namespace PIWebAPIWrapper.Api
 			localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
 			if (startTime!= null) localVarQueryParams.Add("startTime", Configuration.ApiClient.ParameterToString(startTime));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1310,14 +1373,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve referenced elements based on the specified conditions. By default, this method selects all referenced elements of the current resource.</summary>
-		public PIItemsElement GetReferencedElements(string webId, int maxCount, int startIndex, string categoryName = null, string descriptionFilter = null, string elementType = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null)
+		public PIItemsElement GetReferencedElements(string webId, int maxCount, int startIndex, string categoryName = null, string descriptionFilter = null, string elementType = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string webIdType = null)
 		{
-			ApiResponsePIItemsElement localVarResponse = GetReferencedElementsWithHttpInfo(webId, maxCount, startIndex, categoryName, descriptionFilter, elementType, nameFilter, selectedFields, sortField, sortOrder, templateName);
+			ApiResponsePIItemsElement localVarResponse = GetReferencedElementsWithHttpInfo(webId, maxCount, startIndex, categoryName, descriptionFilter, elementType, nameFilter, selectedFields, sortField, sortOrder, templateName, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve referenced elements based on the specified conditions. By default, this method selects all referenced elements of the current resource.</summary>
-		public ApiResponsePIItemsElement GetReferencedElementsWithHttpInfo(string webId, int maxCount, int startIndex, string categoryName = null, string descriptionFilter = null, string elementType = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null)
+		public ApiResponsePIItemsElement GetReferencedElementsWithHttpInfo(string webId, int maxCount, int startIndex, string categoryName = null, string descriptionFilter = null, string elementType = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -1355,6 +1418,10 @@ namespace PIWebAPIWrapper.Api
 			{
 				templateName = null;
 			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
+			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
 
@@ -1387,6 +1454,7 @@ namespace PIWebAPIWrapper.Api
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1523,14 +1591,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Get the security information of the specified security item associated with the element for a specified user.</summary>
-		public PIItemsSecurityRights GetSecurity(string webId, string userIdentities, bool forceRefresh, string selectedFields = null)
+		public PIItemsSecurityRights GetSecurity(string webId, string userIdentities, bool forceRefresh, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIItemsSecurityRights localVarResponse = GetSecurityWithHttpInfo(webId, userIdentities, forceRefresh, selectedFields);
+			ApiResponsePIItemsSecurityRights localVarResponse = GetSecurityWithHttpInfo(webId, userIdentities, forceRefresh, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Get the security information of the specified security item associated with the element for a specified user.</summary>
-		public ApiResponsePIItemsSecurityRights GetSecurityWithHttpInfo(string webId, string userIdentities, bool forceRefresh, string selectedFields = null)
+		public ApiResponsePIItemsSecurityRights GetSecurityWithHttpInfo(string webId, string userIdentities, bool forceRefresh, string selectedFields = null, string webIdType = null)
 		{
 			List<string> userIdentity = ExtensionMethods.ConvertToList(userIdentities);
 			if (string.IsNullOrEmpty(webId)==true)
@@ -1540,6 +1608,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -1566,6 +1638,7 @@ namespace PIWebAPIWrapper.Api
 			localVarQueryParams.Add("userIdentity", Configuration.ApiClient.ParameterToString(userIdentity));
 			localVarQueryParams.Add("forceRefresh", Configuration.ApiClient.ParameterToString(forceRefresh));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1585,14 +1658,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve the security entries associated with the element based on the specified criteria. By default, all security entries for this element are returned.</summary>
-		public PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null)
+		public PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIItemsSecurityEntry localVarResponse = GetSecurityEntriesWithHttpInfo(webId, nameFilter, selectedFields);
+			ApiResponsePIItemsSecurityEntry localVarResponse = GetSecurityEntriesWithHttpInfo(webId, nameFilter, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve the security entries associated with the element based on the specified criteria. By default, all security entries for this element are returned.</summary>
-		public ApiResponsePIItemsSecurityEntry GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null)
+		public ApiResponsePIItemsSecurityEntry GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -1605,6 +1678,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -1630,6 +1707,7 @@ namespace PIWebAPIWrapper.Api
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1649,18 +1727,22 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Create a security entry owned by the element.</summary>
-		public Object CreateSecurityEntry(string webId, PISecurityEntry securityEntry, bool applyToChildren)
+		public Object CreateSecurityEntry(string webId, PISecurityEntry securityEntry, bool applyToChildren, string webIdType = null)
 		{
-			ApiResponseObject localVarResponse = CreateSecurityEntryWithHttpInfo(webId, securityEntry, applyToChildren);
+			ApiResponseObject localVarResponse = CreateSecurityEntryWithHttpInfo(webId, securityEntry, applyToChildren, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Create a security entry owned by the element.</summary>
-		public ApiResponseObject CreateSecurityEntryWithHttpInfo(string webId, PISecurityEntry securityEntry, bool applyToChildren)
+		public ApiResponseObject CreateSecurityEntryWithHttpInfo(string webId, PISecurityEntry securityEntry, bool applyToChildren, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
 				webId = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -1695,6 +1777,7 @@ namespace PIWebAPIWrapper.Api
 				localVarPostBody = securityEntry;
 			}
 			localVarQueryParams.Add("applyToChildren", Configuration.ApiClient.ParameterToString(applyToChildren));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1714,14 +1797,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve the security entry associated with the element with the specified name.</summary>
-		public PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null)
+		public PISecurityEntry GetSecurityEntryByName(string name, string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePISecurityEntry localVarResponse = GetSecurityEntryByNameWithHttpInfo(name, webId, selectedFields);
+			ApiResponsePISecurityEntry localVarResponse = GetSecurityEntryByNameWithHttpInfo(name, webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve the security entry associated with the element with the specified name.</summary>
-		public ApiResponsePISecurityEntry GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null)
+		public ApiResponsePISecurityEntry GetSecurityEntryByNameWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(name)==true)
 			{
@@ -1734,6 +1817,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (name == null)
 				throw new ApiException(400, "Missing required parameter 'name'");
@@ -1761,6 +1848,7 @@ namespace PIWebAPIWrapper.Api
 			if (name!= null) localVarPathParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1914,14 +2002,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve multiple elements by web id or path.</summary>
-		public PIItemsItemElement GetMultiple(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null)
+		public PIItemsItemElement GetMultiple(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null, string webIdType = null)
 		{
-			ApiResponsePIItemsItemElement localVarResponse = GetMultipleWithHttpInfo(asParallel, includeMode, paths, selectedFields, webIds);
+			ApiResponsePIItemsItemElement localVarResponse = GetMultipleWithHttpInfo(asParallel, includeMode, paths, selectedFields, webIds, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve multiple elements by web id or path.</summary>
-		public ApiResponsePIItemsItemElement GetMultipleWithHttpInfo(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null)
+		public ApiResponsePIItemsItemElement GetMultipleWithHttpInfo(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null, string webIdType = null)
 		{
 			List<string> path = ExtensionMethods.ConvertToList(paths);
 			List<string> webId = ExtensionMethods.ConvertToList(webIds);
@@ -1932,6 +2020,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 
 			var localVarPath = "/elements/multiple";
@@ -1957,6 +2049,7 @@ namespace PIWebAPIWrapper.Api
 			localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1975,18 +2068,91 @@ namespace PIWebAPIWrapper.Api
 				(PIItemsItemElement)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsItemElement)));
 		}
 
-		/// <summary>Create a link for a "Search Elements By Attribute Value" operation, whose queries are specified in the request content. The SearchRoot is specified by the Web Id of the root Element. If the SearchRoot is not specified, then the search starts at the Asset Database. ElementTemplate must be provided as the Web ID of the ElementTemplate, which are used to create the Elements. All the attributes in the queries must be defined as AttributeTemplates on the ElementTemplate. An array of attribute value queries are ANDed together to find the desired Element objects. At least one value query must be specified. There are limitations on SearchOperators.</summary>
-		public Object CreateSearchByAttribute(PISearchByAttributeElement search)
+		/// <summary>Retrieve elements based on the specified conditions. By default, returns all the elements.</summary>
+		public PIItemsElement GetElementsQuery(int maxCount, int startIndex, string databaseWebId = null, string query = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponseObject localVarResponse = CreateSearchByAttributeWithHttpInfo(search);
+			ApiResponsePIItemsElement localVarResponse = GetElementsQueryWithHttpInfo(maxCount, startIndex, databaseWebId, query, selectedFields, webIdType);
+			return localVarResponse.Data;
+		}
+
+		/// <summary>Retrieve elements based on the specified conditions. By default, returns all the elements.</summary>
+		public ApiResponsePIItemsElement GetElementsQueryWithHttpInfo(int maxCount, int startIndex, string databaseWebId = null, string query = null, string selectedFields = null, string webIdType = null)
+		{
+			if (string.IsNullOrEmpty(databaseWebId)==true)
+			{
+				databaseWebId = null;
+			}
+			if (string.IsNullOrEmpty(query)==true)
+			{
+				query = null;
+			}
+			if (string.IsNullOrEmpty(selectedFields)==true)
+			{
+				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
+			}
+
+			var localVarPath = "/elements/search";
+			var localVarPathParams = new Dictionary<String, String>();
+			var localVarQueryParams = new CustomDictionaryForQueryString();
+			var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+			var localVarFormParams = new Dictionary<String, String>();
+			var localVarFileParams = new Dictionary<String, FileParameter>();
+			Object localVarPostBody = null;
+
+			String[] localVarHttpContentTypes = new String[] { }; 
+			String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+			String[] localVarHttpHeaderAccepts = new String[] { "application/json", "text/json", "text/xml" };
+			String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+
+			if (localVarHttpHeaderAccept != null)
+				localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+			localVarPathParams.Add("format", "json");
+
+			if (databaseWebId!= null) localVarQueryParams.Add("databaseWebId", Configuration.ApiClient.ParameterToString(databaseWebId));
+			localVarQueryParams.Add("maxCount", Configuration.ApiClient.ParameterToString(maxCount));
+			if (query!= null) localVarQueryParams.Add("query", Configuration.ApiClient.ParameterToString(query));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+
+			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
+				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+				localVarPathParams, localVarHttpContentType);
+
+			int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+			if (ExceptionFactory != null)
+			{
+				Exception exception = ExceptionFactory("GetElementsQuery", localVarResponse);
+				if (exception != null) throw exception;
+			}
+
+			return new ApiResponsePIItemsElement(localVarStatusCode,
+				localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+				(PIItemsElement)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsElement)));
+		}
+
+		/// <summary>Create a link for a "Search Elements By Attribute Value" operation, whose queries are specified in the request content. The SearchRoot is specified by the Web Id of the root Element. If the SearchRoot is not specified, then the search starts at the Asset Database. ElementTemplate must be provided as the Web ID of the ElementTemplate, which are used to create the Elements. All the attributes in the queries must be defined as AttributeTemplates on the ElementTemplate. An array of attribute value queries are ANDed together to find the desired Element objects. At least one value query must be specified. There are limitations on SearchOperators.</summary>
+		public PIItemsElement CreateSearchByAttribute(PISearchByAttribute query, bool noResults, string webIdType = null)
+		{
+			ApiResponsePIItemsElement localVarResponse = CreateSearchByAttributeWithHttpInfo(query, noResults, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Create a link for a "Search Elements By Attribute Value" operation, whose queries are specified in the request content. The SearchRoot is specified by the Web Id of the root Element. If the SearchRoot is not specified, then the search starts at the Asset Database. ElementTemplate must be provided as the Web ID of the ElementTemplate, which are used to create the Elements. All the attributes in the queries must be defined as AttributeTemplates on the ElementTemplate. An array of attribute value queries are ANDed together to find the desired Element objects. At least one value query must be specified. There are limitations on SearchOperators.</summary>
-		public ApiResponseObject CreateSearchByAttributeWithHttpInfo(PISearchByAttributeElement search)
+		public ApiResponsePIItemsElement CreateSearchByAttributeWithHttpInfo(PISearchByAttribute query, bool noResults, string webIdType = null)
 		{
-			if (search == null)
-				throw new ApiException(400, "Missing required parameter 'search'");
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
+			}
+			if (query == null)
+				throw new ApiException(400, "Missing required parameter 'query'");
 
 			var localVarPath = "/elements/searchbyattribute";
 			var localVarPathParams = new Dictionary<String, String>();
@@ -2006,14 +2172,16 @@ namespace PIWebAPIWrapper.Api
 
 			localVarPathParams.Add("format", "json");
 
-			if (search != null && search.GetType() != typeof(byte[]))
+			if (query != null && query.GetType() != typeof(byte[]))
 			{
-				localVarPostBody = Configuration.ApiClient.Serialize(search);
+				localVarPostBody = Configuration.ApiClient.Serialize(query);
 			}
 			else
 			{
-				localVarPostBody = search;
+				localVarPostBody = query;
 			}
+			localVarQueryParams.Add("noResults", Configuration.ApiClient.ParameterToString(noResults));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -2027,20 +2195,20 @@ namespace PIWebAPIWrapper.Api
 				if (exception != null) throw exception;
 			}
 
-			return new ApiResponseObject(localVarStatusCode,
+			return new ApiResponsePIItemsElement(localVarStatusCode,
 				localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+				(PIItemsElement)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsElement)));
 		}
 
 		/// <summary>Execute a "Search Elements By Attribute Value" operation.</summary>
-		public Object ExecuteSearchByAttribute(string searchId, int maxCount, bool searchFullHierarchy, int startIndex, string categoryName = null, string descriptionFilter = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null)
+		public PIItemsElement ExecuteSearchByAttribute(string searchId, int maxCount, bool searchFullHierarchy, int startIndex, string categoryName = null, string descriptionFilter = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
-			ApiResponseObject localVarResponse = ExecuteSearchByAttributeWithHttpInfo(searchId, maxCount, searchFullHierarchy, startIndex, categoryName, descriptionFilter, nameFilter, selectedFields, sortField, sortOrder);
+			ApiResponsePIItemsElement localVarResponse = ExecuteSearchByAttributeWithHttpInfo(searchId, maxCount, searchFullHierarchy, startIndex, categoryName, descriptionFilter, nameFilter, selectedFields, sortField, sortOrder, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Execute a "Search Elements By Attribute Value" operation.</summary>
-		public ApiResponseObject ExecuteSearchByAttributeWithHttpInfo(string searchId, int maxCount, bool searchFullHierarchy, int startIndex, string categoryName = null, string descriptionFilter = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null)
+		public ApiResponsePIItemsElement ExecuteSearchByAttributeWithHttpInfo(string searchId, int maxCount, bool searchFullHierarchy, int startIndex, string categoryName = null, string descriptionFilter = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(searchId)==true)
 			{
@@ -2069,6 +2237,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(sortOrder)==true)
 			{
 				sortOrder = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (searchId == null)
 				throw new ApiException(400, "Missing required parameter 'searchId'");
@@ -2101,6 +2273,7 @@ namespace PIWebAPIWrapper.Api
 			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -2114,9 +2287,9 @@ namespace PIWebAPIWrapper.Api
 				if (exception != null) throw exception;
 			}
 
-			return new ApiResponseObject(localVarStatusCode,
+			return new ApiResponsePIItemsElement(localVarStatusCode,
 				localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+				(PIItemsElement)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsElement)));
 		}
 
 	}

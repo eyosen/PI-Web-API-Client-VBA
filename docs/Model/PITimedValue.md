@@ -9,7 +9,8 @@ Name | Type | Notes
 **Questionable** | **bool**
 **Substituted** | **bool**
 **Value** | **[**object**](../Model/Object.md)**
-**Exception** | **[**PIErrors**](../Model/PIErrors.md)**
+**Errors** | **[**PIPropertyError[]**](../Model/PIPropertyError.md)**
+**WebException** | **[**PIWebException**](../Model/PIWebException.md)**
 
 ## Methods
 

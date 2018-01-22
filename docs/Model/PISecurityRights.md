@@ -6,7 +6,19 @@ Name | Type | Notes
 **OwnerWebId** | **string**
 **SecurityItem** | **string**
 **UserIdentity** | **string**
-**Links** | **[**object**](../Model/Object.md)**
+**Links** | **[**PISecurityRightsLinks**](../Model/PISecurityRightsLinks.md)**
+**CanAnnotate** | **bool**
+**CanDelete** | **bool**
+**CanExecute** | **bool**
+**CanRead** | **bool**
+**CanReadData** | **bool**
+**CanSubscribe** | **bool**
+**CanSubscribeOthers** | **bool**
+**CanWrite** | **bool**
+**CanWriteData** | **bool**
+**HasAdmin** | **bool**
+**Rights** | **string[]**
+**WebException** | **[**PIWebException**](../Model/PIWebException.md)**
 
 ## Methods
 [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)

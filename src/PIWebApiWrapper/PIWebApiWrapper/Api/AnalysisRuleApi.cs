@@ -27,7 +27,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Api
 {
 
-	[Guid("2D9FF7EF-99AC-4A85-9A30-83AEE1A17D36")]
+	[Guid("ECE0FBA0-9FA2-4863-AFA9-456019A4750E")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -36,19 +36,19 @@ namespace PIWebAPIWrapper.Api
 		#region Synchronous Operations
 		/// <summary>Retrieve an Analysis Rule by path.</summary>
 		[DispId(1)]
-		PIAnalysisRule GetByPath(string path, string selectedFields = null);
+		PIAnalysisRule GetByPath(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an Analysis Rule by path.</summary>
 		[DispId(2)]
-		ApiResponsePIAnalysisRule GetByPathWithHttpInfo(string path, string selectedFields = null);
+		ApiResponsePIAnalysisRule GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an Analysis Rule.</summary>
 		[DispId(3)]
-		PIAnalysisRule Get(string webId, string selectedFields = null);
+		PIAnalysisRule Get(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an Analysis Rule.</summary>
 		[DispId(4)]
-		ApiResponsePIAnalysisRule GetWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponsePIAnalysisRule GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Update an Analysis Rule by replacing items in its definition.</summary>
 		[DispId(5)]
@@ -68,24 +68,24 @@ namespace PIWebAPIWrapper.Api
 
 		/// <summary>Get the child Analysis Rules of the Analysis Rule.</summary>
 		[DispId(9)]
-		PIItemsAnalysisRule GetAnalysisRules(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null);
+		PIItemsAnalysisRule GetAnalysisRules(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>Get the child Analysis Rules of the Analysis Rule.</summary>
 		[DispId(10)]
-		ApiResponsePIItemsAnalysisRule GetAnalysisRulesWithHttpInfo(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null);
+		ApiResponsePIItemsAnalysisRule GetAnalysisRulesWithHttpInfo(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>Create a new Analysis Rule as a child of an existing Analysis Rule.</summary>
 		[DispId(11)]
-		Object CreateAnalysisRule(string webId, PIAnalysisRule analysisRule);
+		Object CreateAnalysisRule(string webId, PIAnalysisRule analysisRule, string webIdType = null);
 
 		/// <summary>Create a new Analysis Rule as a child of an existing Analysis Rule.</summary>
 		[DispId(12)]
-		ApiResponseObject CreateAnalysisRuleWithHttpInfo(string webId, PIAnalysisRule analysisRule);
+		ApiResponseObject CreateAnalysisRuleWithHttpInfo(string webId, PIAnalysisRule analysisRule, string webIdType = null);
 
 		#endregion
 	}
 
-	[Guid("20A0F5B6-9B19-46C6-8174-F4A56794C071")]
+	[Guid("07B953B2-E4C2-4B7D-8AB7-57A7291F28DC")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IAnalysisRuleApi))]
@@ -124,14 +124,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve an Analysis Rule by path.</summary>
-		public PIAnalysisRule GetByPath(string path, string selectedFields = null)
+		public PIAnalysisRule GetByPath(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIAnalysisRule localVarResponse = GetByPathWithHttpInfo(path, selectedFields);
+			ApiResponsePIAnalysisRule localVarResponse = GetByPathWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve an Analysis Rule by path.</summary>
-		public ApiResponsePIAnalysisRule GetByPathWithHttpInfo(string path, string selectedFields = null)
+		public ApiResponsePIAnalysisRule GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(path)==true)
 			{
@@ -140,6 +140,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (path == null)
 				throw new ApiException(400, "Missing required parameter 'path'");
@@ -164,6 +168,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -183,14 +188,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve an Analysis Rule.</summary>
-		public PIAnalysisRule Get(string webId, string selectedFields = null)
+		public PIAnalysisRule Get(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIAnalysisRule localVarResponse = GetWithHttpInfo(webId, selectedFields);
+			ApiResponsePIAnalysisRule localVarResponse = GetWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve an Analysis Rule.</summary>
-		public ApiResponsePIAnalysisRule GetWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponsePIAnalysisRule GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -199,6 +204,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -223,6 +232,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -360,14 +370,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Get the child Analysis Rules of the Analysis Rule.</summary>
-		public PIItemsAnalysisRule GetAnalysisRules(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null)
+		public PIItemsAnalysisRule GetAnalysisRules(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
-			ApiResponsePIItemsAnalysisRule localVarResponse = GetAnalysisRulesWithHttpInfo(webId, maxCount, searchFullHierarchy, startIndex, nameFilter, selectedFields, sortField, sortOrder);
+			ApiResponsePIItemsAnalysisRule localVarResponse = GetAnalysisRulesWithHttpInfo(webId, maxCount, searchFullHierarchy, startIndex, nameFilter, selectedFields, sortField, sortOrder, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Get the child Analysis Rules of the Analysis Rule.</summary>
-		public ApiResponsePIItemsAnalysisRule GetAnalysisRulesWithHttpInfo(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null)
+		public ApiResponsePIItemsAnalysisRule GetAnalysisRulesWithHttpInfo(string webId, int maxCount, bool searchFullHierarchy, int startIndex, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -388,6 +398,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(sortOrder)==true)
 			{
 				sortOrder = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -418,6 +432,7 @@ namespace PIWebAPIWrapper.Api
 			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
 			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
 			localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -437,18 +452,22 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Create a new Analysis Rule as a child of an existing Analysis Rule.</summary>
-		public Object CreateAnalysisRule(string webId, PIAnalysisRule analysisRule)
+		public Object CreateAnalysisRule(string webId, PIAnalysisRule analysisRule, string webIdType = null)
 		{
-			ApiResponseObject localVarResponse = CreateAnalysisRuleWithHttpInfo(webId, analysisRule);
+			ApiResponseObject localVarResponse = CreateAnalysisRuleWithHttpInfo(webId, analysisRule, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Create a new Analysis Rule as a child of an existing Analysis Rule.</summary>
-		public ApiResponseObject CreateAnalysisRuleWithHttpInfo(string webId, PIAnalysisRule analysisRule)
+		public ApiResponseObject CreateAnalysisRuleWithHttpInfo(string webId, PIAnalysisRule analysisRule, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
 				webId = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -482,6 +501,7 @@ namespace PIWebAPIWrapper.Api
 			{
 				localVarPostBody = analysisRule;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,

@@ -5,7 +5,8 @@ Name | Type | Notes
 ------------ | ------------- | -------------
 **Name** | **string**
 **Value** | **[**object**](../Model/Object.md)**
-**Links** | **[**object**](../Model/Object.md)**
+**Links** | **[**PIPointAttributeLinks**](../Model/PIPointAttributeLinks.md)**
+**WebException** | **[**PIWebException**](../Model/PIWebException.md)**
 
 ## Methods
 

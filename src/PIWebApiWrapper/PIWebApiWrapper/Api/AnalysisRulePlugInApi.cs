@@ -27,7 +27,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Api
 {
 
-	[Guid("D23E1236-96A9-4835-B98F-442FFD0C0CBE")]
+	[Guid("A9571DB2-321D-4645-88DB-BE50B80B06B1")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -36,24 +36,24 @@ namespace PIWebAPIWrapper.Api
 		#region Synchronous Operations
 		/// <summary>Retrieve an Analysis Rule Plug-in by path.</summary>
 		[DispId(1)]
-		PIAnalysisRulePlugIn GetByPath(string path, string selectedFields = null);
+		PIAnalysisRulePlugIn GetByPath(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an Analysis Rule Plug-in by path.</summary>
 		[DispId(2)]
-		ApiResponsePIAnalysisRulePlugIn GetByPathWithHttpInfo(string path, string selectedFields = null);
+		ApiResponsePIAnalysisRulePlugIn GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an Analysis Rule Plug-in.</summary>
 		[DispId(3)]
-		PIAnalysisRulePlugIn Get(string webId, string selectedFields = null);
+		PIAnalysisRulePlugIn Get(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an Analysis Rule Plug-in.</summary>
 		[DispId(4)]
-		ApiResponsePIAnalysisRulePlugIn GetWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponsePIAnalysisRulePlugIn GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		#endregion
 	}
 
-	[Guid("FCA2C320-BD2F-43BF-98C7-CB6DEFD549D5")]
+	[Guid("37EDA830-4A9F-4CA3-94EE-147DBBD8EAB1")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IAnalysisRulePlugInApi))]
@@ -92,14 +92,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve an Analysis Rule Plug-in by path.</summary>
-		public PIAnalysisRulePlugIn GetByPath(string path, string selectedFields = null)
+		public PIAnalysisRulePlugIn GetByPath(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIAnalysisRulePlugIn localVarResponse = GetByPathWithHttpInfo(path, selectedFields);
+			ApiResponsePIAnalysisRulePlugIn localVarResponse = GetByPathWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve an Analysis Rule Plug-in by path.</summary>
-		public ApiResponsePIAnalysisRulePlugIn GetByPathWithHttpInfo(string path, string selectedFields = null)
+		public ApiResponsePIAnalysisRulePlugIn GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(path)==true)
 			{
@@ -108,6 +108,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (path == null)
 				throw new ApiException(400, "Missing required parameter 'path'");
@@ -132,6 +136,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -151,14 +156,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve an Analysis Rule Plug-in.</summary>
-		public PIAnalysisRulePlugIn Get(string webId, string selectedFields = null)
+		public PIAnalysisRulePlugIn Get(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIAnalysisRulePlugIn localVarResponse = GetWithHttpInfo(webId, selectedFields);
+			ApiResponsePIAnalysisRulePlugIn localVarResponse = GetWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve an Analysis Rule Plug-in.</summary>
-		public ApiResponsePIAnalysisRulePlugIn GetWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponsePIAnalysisRulePlugIn GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -167,6 +172,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -191,6 +200,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,

@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Model
 {
 
-	[Guid("19BE8345-7429-4C45-8455-0A5B714DC4E8")]
+	[Guid("3053C8E7-9F9A-4C95-94E1-4FAE6A44F31B")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -63,11 +63,14 @@ namespace PIWebAPIWrapper.Model
 		void CreateItemsArray(int i);
 
 		[DispId(9)]
-		object Links { get; set; }
+		PIStreamSummariesLinks Links { get; set; }
+
+		[DispId(10)]
+		PIWebException WebException { get; set; }
 
 	}
 
-	[Guid("E9C3A6F2-DCB1-4CFE-8726-6D3A59E0350A")]
+	[Guid("7CBB7AFE-2D11-402A-B8AF-76237F745F0F")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IPIStreamSummaries))]
@@ -113,7 +116,10 @@ namespace PIWebAPIWrapper.Model
 		}
 
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
-		public object Links { get; set; }
+		public PIStreamSummariesLinks Links { get; set; }
+
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

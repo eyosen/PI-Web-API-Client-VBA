@@ -27,7 +27,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Api
 {
 
-	[Guid("F96DF7F8-339E-4091-8364-4C4A8CD2A13B")]
+	[Guid("F64A8453-8AC8-4954-B1E3-CC8BCCA0C953")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -36,24 +36,24 @@ namespace PIWebAPIWrapper.Api
 		#region Synchronous Operations
 		/// <summary>Retrieve a Time Rule Plug-in by path.</summary>
 		[DispId(1)]
-		PITimeRulePlugIn GetByPath(string path, string selectedFields = null);
+		PITimeRulePlugIn GetByPath(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve a Time Rule Plug-in by path.</summary>
 		[DispId(2)]
-		ApiResponsePITimeRulePlugIn GetByPathWithHttpInfo(string path, string selectedFields = null);
+		ApiResponsePITimeRulePlugIn GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve a Time Rule Plug-in.</summary>
 		[DispId(3)]
-		PITimeRulePlugIn Get(string webId, string selectedFields = null);
+		PITimeRulePlugIn Get(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve a Time Rule Plug-in.</summary>
 		[DispId(4)]
-		ApiResponsePITimeRulePlugIn GetWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponsePITimeRulePlugIn GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		#endregion
 	}
 
-	[Guid("1ED3559B-39C4-470C-B9FA-B8982ADE363F")]
+	[Guid("A618C3B6-151E-43A8-83B7-DEF7921BBB29")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(ITimeRulePlugInApi))]
@@ -92,14 +92,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve a Time Rule Plug-in by path.</summary>
-		public PITimeRulePlugIn GetByPath(string path, string selectedFields = null)
+		public PITimeRulePlugIn GetByPath(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePITimeRulePlugIn localVarResponse = GetByPathWithHttpInfo(path, selectedFields);
+			ApiResponsePITimeRulePlugIn localVarResponse = GetByPathWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve a Time Rule Plug-in by path.</summary>
-		public ApiResponsePITimeRulePlugIn GetByPathWithHttpInfo(string path, string selectedFields = null)
+		public ApiResponsePITimeRulePlugIn GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(path)==true)
 			{
@@ -108,6 +108,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (path == null)
 				throw new ApiException(400, "Missing required parameter 'path'");
@@ -132,6 +136,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -151,14 +156,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve a Time Rule Plug-in.</summary>
-		public PITimeRulePlugIn Get(string webId, string selectedFields = null)
+		public PITimeRulePlugIn Get(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePITimeRulePlugIn localVarResponse = GetWithHttpInfo(webId, selectedFields);
+			ApiResponsePITimeRulePlugIn localVarResponse = GetWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve a Time Rule Plug-in.</summary>
-		public ApiResponsePITimeRulePlugIn GetWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponsePITimeRulePlugIn GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -167,6 +172,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -191,6 +200,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,

@@ -5,6 +5,7 @@ Name | Type | Notes
 ------------ | ------------- | -------------
 **Value** | **[**object**](../Model/Object.md)**
 **Exception** | **[**PIErrors**](../Model/PIErrors.md)**
+**WebException** | **[**PIWebException**](../Model/PIWebException.md)**
 
 ## Methods
 

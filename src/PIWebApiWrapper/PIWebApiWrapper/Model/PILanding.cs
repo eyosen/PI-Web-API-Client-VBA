@@ -32,18 +32,21 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Model
 {
 
-	[Guid("A4A761E3-97C8-4B8E-A39B-7CD745551AC4")]
+	[Guid("D0F05D46-49EE-476A-ACB5-416AC1A7A42F")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
 	public interface IPILanding
 	{
 		[DispId(1)]
-		object Links { get; set; }
+		PILandingLinks Links { get; set; }
+
+		[DispId(2)]
+		PIWebException WebException { get; set; }
 
 	}
 
-	[Guid("F9E84436-7871-4B00-A5CE-E161176A529E")]
+	[Guid("6E6A9844-F65F-4248-9E72-465D2B76B7C9")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IPILanding))]
@@ -57,7 +60,10 @@ namespace PIWebAPIWrapper.Model
 		}
 
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
-		public object Links { get; set; }
+		public PILandingLinks Links { get; set; }
+
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

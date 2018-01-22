@@ -8,7 +8,8 @@ Name | Type | Notes
 **Path** | **string**
 **Items** | **[**PITimedValue[]**](../Model/PITimedValue.md)**
 **UnitsAbbreviation** | **string**
-**Links** | **[**object**](../Model/Object.md)**
+**Links** | **[**PIStreamValuesLinks**](../Model/PIStreamValuesLinks.md)**
+**WebException** | **[**PIWebException**](../Model/PIWebException.md)**
 
 ## Methods
 

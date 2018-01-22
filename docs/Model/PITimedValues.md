@@ -5,6 +5,7 @@ Name | Type | Notes
 ------------ | ------------- | -------------
 **Items** | **[**PITimedValue[]**](../Model/PITimedValue.md)**
 **UnitsAbbreviation** | **string**
+**WebException** | **[**PIWebException**](../Model/PIWebException.md)**
 
 ## Methods
 

@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Model
 {
 
-	[Guid("8FEADC3F-4A47-4BD4-8782-B404C00002DF")]
+	[Guid("50A8D441-4214-40CD-91E1-A3ED1BF2DEBA")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -63,11 +63,14 @@ namespace PIWebAPIWrapper.Model
 		bool ConvertToLocalTime { get; set; }
 
 		[DispId(9)]
-		object Links { get; set; }
+		PITableLinks Links { get; set; }
+
+		[DispId(10)]
+		PIWebException WebException { get; set; }
 
 	}
 
-	[Guid("64C9168C-320F-4139-B7C0-34F7AE67F821")]
+	[Guid("B29689A5-C5F1-4F17-AF01-4031B8757DE6")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IPITable))]
@@ -105,7 +108,10 @@ namespace PIWebAPIWrapper.Model
 		public bool ConvertToLocalTime { get; set; }
 
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
-		public object Links { get; set; }
+		public PITableLinks Links { get; set; }
+
+		[DataMember(Name = "WebException", EmitDefaultValue = false)]
+		public PIWebException WebException { get; set; }
 
 	}
 }

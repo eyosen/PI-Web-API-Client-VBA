@@ -27,7 +27,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Api
 {
 
-	[Guid("00C01B95-F248-4DE7-98BF-2AFEE7ABA472")]
+	[Guid("1949DE15-ED10-46D5-8881-D7664A1A91D5")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -36,19 +36,19 @@ namespace PIWebAPIWrapper.Api
 		#region Synchronous Operations
 		/// <summary>Retrieve an enumeration value by path.</summary>
 		[DispId(1)]
-		PIEnumerationValue GetByPath(string path, string selectedFields = null);
+		PIEnumerationValue GetByPath(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an enumeration value by path.</summary>
 		[DispId(2)]
-		ApiResponsePIEnumerationValue GetByPathWithHttpInfo(string path, string selectedFields = null);
+		ApiResponsePIEnumerationValue GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an enumeration value mapping</summary>
 		[DispId(3)]
-		PIEnumerationValue Get(string webId, string selectedFields = null);
+		PIEnumerationValue Get(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an enumeration value mapping</summary>
 		[DispId(4)]
-		ApiResponsePIEnumerationValue GetWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponsePIEnumerationValue GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Update an enumeration value by replacing items in its definition.</summary>
 		[DispId(5)]
@@ -69,7 +69,7 @@ namespace PIWebAPIWrapper.Api
 		#endregion
 	}
 
-	[Guid("99C96C87-8784-4F68-B9BA-480CF7DFDD9D")]
+	[Guid("96EFD171-3E34-4325-9A8A-7646AD96D53B")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IEnumerationValueApi))]
@@ -108,14 +108,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve an enumeration value by path.</summary>
-		public PIEnumerationValue GetByPath(string path, string selectedFields = null)
+		public PIEnumerationValue GetByPath(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIEnumerationValue localVarResponse = GetByPathWithHttpInfo(path, selectedFields);
+			ApiResponsePIEnumerationValue localVarResponse = GetByPathWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve an enumeration value by path.</summary>
-		public ApiResponsePIEnumerationValue GetByPathWithHttpInfo(string path, string selectedFields = null)
+		public ApiResponsePIEnumerationValue GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(path)==true)
 			{
@@ -124,6 +124,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (path == null)
 				throw new ApiException(400, "Missing required parameter 'path'");
@@ -148,6 +152,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -167,14 +172,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve an enumeration value mapping</summary>
-		public PIEnumerationValue Get(string webId, string selectedFields = null)
+		public PIEnumerationValue Get(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIEnumerationValue localVarResponse = GetWithHttpInfo(webId, selectedFields);
+			ApiResponsePIEnumerationValue localVarResponse = GetWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve an enumeration value mapping</summary>
-		public ApiResponsePIEnumerationValue GetWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponsePIEnumerationValue GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -183,6 +188,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -207,6 +216,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,

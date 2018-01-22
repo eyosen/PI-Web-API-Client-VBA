@@ -27,7 +27,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Api
 {
 
-	[Guid("0822DC42-76BE-485F-ACE6-88DE12C163F7")]
+	[Guid("E30367BB-B050-4C00-BAC7-B218B0A1C9B8")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -36,19 +36,19 @@ namespace PIWebAPIWrapper.Api
 		#region Synchronous Operations
 		/// <summary>Retrieve an attribute by path.</summary>
 		[DispId(1)]
-		PIAttribute GetByPath(string path, string selectedFields = null);
+		PIAttribute GetByPath(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an attribute by path.</summary>
 		[DispId(2)]
-		ApiResponsePIAttribute GetByPathWithHttpInfo(string path, string selectedFields = null);
+		ApiResponsePIAttribute GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an attribute.</summary>
 		[DispId(3)]
-		PIAttribute Get(string webId, string selectedFields = null);
+		PIAttribute Get(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve an attribute.</summary>
 		[DispId(4)]
-		ApiResponsePIAttribute GetWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponsePIAttribute GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Update an attribute by replacing items in its definition.</summary>
 		[DispId(5)]
@@ -68,35 +68,35 @@ namespace PIWebAPIWrapper.Api
 
 		/// <summary>Get the child attributes of the specified attribute.</summary>
 		[DispId(9)]
-		PIItemsAttribute GetAttributes(string webId, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, int startIndex, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string valueType = null);
+		PIItemsAttribute GetAttributes(string webId, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, int startIndex, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string valueType = null, string webIdType = null);
 
 		/// <summary>Get the child attributes of the specified attribute.</summary>
 		[DispId(10)]
-		ApiResponsePIItemsAttribute GetAttributesWithHttpInfo(string webId, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, int startIndex, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string valueType = null);
+		ApiResponsePIItemsAttribute GetAttributesWithHttpInfo(string webId, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, int startIndex, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string valueType = null, string webIdType = null);
 
 		/// <summary>Create a new attribute as a child of the specified attribute.</summary>
 		[DispId(11)]
-		Object CreateAttribute(string webId, PIAttribute attribute);
+		Object CreateAttribute(string webId, PIAttribute attribute, string webIdType = null);
 
 		/// <summary>Create a new attribute as a child of the specified attribute.</summary>
 		[DispId(12)]
-		ApiResponseObject CreateAttributeWithHttpInfo(string webId, PIAttribute attribute);
+		ApiResponseObject CreateAttributeWithHttpInfo(string webId, PIAttribute attribute, string webIdType = null);
 
 		/// <summary>Get an attribute's categories.</summary>
 		[DispId(13)]
-		PIItemsAttributeCategory GetCategories(string webId, string selectedFields = null);
+		PIItemsAttributeCategory GetCategories(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Get an attribute's categories.</summary>
 		[DispId(14)]
-		ApiResponsePIItemsAttributeCategory GetCategoriesWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponsePIItemsAttributeCategory GetCategoriesWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Create or update an attribute's DataReference configuration (Create/Update PI point for PI Point DataReference).</summary>
 		[DispId(15)]
-		Object CreateConfig(string webId);
+		Object CreateConfig(string webId, string webIdType = null);
 
 		/// <summary>Create or update an attribute's DataReference configuration (Create/Update PI point for PI Point DataReference).</summary>
 		[DispId(16)]
-		ApiResponseObject CreateConfigWithHttpInfo(string webId);
+		ApiResponseObject CreateConfigWithHttpInfo(string webId, string webIdType = null);
 
 		/// <summary>Get the attribute's value. This call is intended for use with attributes that have no data reference only. For attributes with a data reference, consult the documentation for Streams.</summary>
 		[DispId(17)]
@@ -116,16 +116,24 @@ namespace PIWebAPIWrapper.Api
 
 		/// <summary>Retrieve multiple attributes by web id or path.</summary>
 		[DispId(21)]
-		PIItemsItemAttribute GetMultiple(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null);
+		PIItemsItemAttribute GetMultiple(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null, string webIdType = null);
 
 		/// <summary>Retrieve multiple attributes by web id or path.</summary>
 		[DispId(22)]
-		ApiResponsePIItemsItemAttribute GetMultipleWithHttpInfo(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null);
+		ApiResponsePIItemsItemAttribute GetMultipleWithHttpInfo(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null, string webIdType = null);
+
+		/// <summary>Retrieve attributes based on the specified conditions. Returns attributes using the specified search query string.</summary>
+		[DispId(23)]
+		PIItemsAttribute GetAttributesQuery(int maxCount, int startIndex, string databaseWebId = null, string query = null, string selectedFields = null, string webIdType = null);
+
+		/// <summary>Retrieve attributes based on the specified conditions. Returns attributes using the specified search query string.</summary>
+		[DispId(24)]
+		ApiResponsePIItemsAttribute GetAttributesQueryWithHttpInfo(int maxCount, int startIndex, string databaseWebId = null, string query = null, string selectedFields = null, string webIdType = null);
 
 		#endregion
 	}
 
-	[Guid("C94E5B3F-A5E4-4640-808C-8297A88B653D")]
+	[Guid("F60254FF-B700-4B00-83E1-53542AC9A402")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IAttributeApi))]
@@ -164,14 +172,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve an attribute by path.</summary>
-		public PIAttribute GetByPath(string path, string selectedFields = null)
+		public PIAttribute GetByPath(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIAttribute localVarResponse = GetByPathWithHttpInfo(path, selectedFields);
+			ApiResponsePIAttribute localVarResponse = GetByPathWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve an attribute by path.</summary>
-		public ApiResponsePIAttribute GetByPathWithHttpInfo(string path, string selectedFields = null)
+		public ApiResponsePIAttribute GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(path)==true)
 			{
@@ -180,6 +188,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (path == null)
 				throw new ApiException(400, "Missing required parameter 'path'");
@@ -204,6 +216,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -223,14 +236,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve an attribute.</summary>
-		public PIAttribute Get(string webId, string selectedFields = null)
+		public PIAttribute Get(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIAttribute localVarResponse = GetWithHttpInfo(webId, selectedFields);
+			ApiResponsePIAttribute localVarResponse = GetWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve an attribute.</summary>
-		public ApiResponsePIAttribute GetWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponsePIAttribute GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -239,6 +252,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -263,6 +280,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -400,14 +418,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Get the child attributes of the specified attribute.</summary>
-		public PIItemsAttribute GetAttributes(string webId, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, int startIndex, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string valueType = null)
+		public PIItemsAttribute GetAttributes(string webId, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, int startIndex, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string valueType = null, string webIdType = null)
 		{
-			ApiResponsePIItemsAttribute localVarResponse = GetAttributesWithHttpInfo(webId, maxCount, searchFullHierarchy, showExcluded, showHidden, startIndex, categoryName, nameFilter, selectedFields, sortField, sortOrder, templateName, valueType);
+			ApiResponsePIItemsAttribute localVarResponse = GetAttributesWithHttpInfo(webId, maxCount, searchFullHierarchy, showExcluded, showHidden, startIndex, categoryName, nameFilter, selectedFields, sortField, sortOrder, templateName, valueType, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Get the child attributes of the specified attribute.</summary>
-		public ApiResponsePIItemsAttribute GetAttributesWithHttpInfo(string webId, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, int startIndex, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string valueType = null)
+		public ApiResponsePIItemsAttribute GetAttributesWithHttpInfo(string webId, int maxCount, bool searchFullHierarchy, bool showExcluded, bool showHidden, int startIndex, string categoryName = null, string nameFilter = null, string selectedFields = null, string sortField = null, string sortOrder = null, string templateName = null, string valueType = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -440,6 +458,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(valueType)==true)
 			{
 				valueType = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -475,6 +497,7 @@ namespace PIWebAPIWrapper.Api
 			localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
 			if (templateName!= null) localVarQueryParams.Add("templateName", Configuration.ApiClient.ParameterToString(templateName));
 			if (valueType!= null) localVarQueryParams.Add("valueType", Configuration.ApiClient.ParameterToString(valueType));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -494,18 +517,22 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Create a new attribute as a child of the specified attribute.</summary>
-		public Object CreateAttribute(string webId, PIAttribute attribute)
+		public Object CreateAttribute(string webId, PIAttribute attribute, string webIdType = null)
 		{
-			ApiResponseObject localVarResponse = CreateAttributeWithHttpInfo(webId, attribute);
+			ApiResponseObject localVarResponse = CreateAttributeWithHttpInfo(webId, attribute, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Create a new attribute as a child of the specified attribute.</summary>
-		public ApiResponseObject CreateAttributeWithHttpInfo(string webId, PIAttribute attribute)
+		public ApiResponseObject CreateAttributeWithHttpInfo(string webId, PIAttribute attribute, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
 				webId = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -539,6 +566,7 @@ namespace PIWebAPIWrapper.Api
 			{
 				localVarPostBody = attribute;
 			}
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -558,14 +586,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Get an attribute's categories.</summary>
-		public PIItemsAttributeCategory GetCategories(string webId, string selectedFields = null)
+		public PIItemsAttributeCategory GetCategories(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIItemsAttributeCategory localVarResponse = GetCategoriesWithHttpInfo(webId, selectedFields);
+			ApiResponsePIItemsAttributeCategory localVarResponse = GetCategoriesWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Get an attribute's categories.</summary>
-		public ApiResponsePIItemsAttributeCategory GetCategoriesWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponsePIItemsAttributeCategory GetCategoriesWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -574,6 +602,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -598,6 +630,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -617,18 +650,22 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Create or update an attribute's DataReference configuration (Create/Update PI point for PI Point DataReference).</summary>
-		public Object CreateConfig(string webId)
+		public Object CreateConfig(string webId, string webIdType = null)
 		{
-			ApiResponseObject localVarResponse = CreateConfigWithHttpInfo(webId);
+			ApiResponseObject localVarResponse = CreateConfigWithHttpInfo(webId, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Create or update an attribute's DataReference configuration (Create/Update PI point for PI Point DataReference).</summary>
-		public ApiResponseObject CreateConfigWithHttpInfo(string webId)
+		public ApiResponseObject CreateConfigWithHttpInfo(string webId, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
 				webId = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -652,6 +689,7 @@ namespace PIWebAPIWrapper.Api
 			localVarPathParams.Add("format", "json");
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -794,14 +832,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Retrieve multiple attributes by web id or path.</summary>
-		public PIItemsItemAttribute GetMultiple(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null)
+		public PIItemsItemAttribute GetMultiple(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null, string webIdType = null)
 		{
-			ApiResponsePIItemsItemAttribute localVarResponse = GetMultipleWithHttpInfo(asParallel, includeMode, paths, selectedFields, webIds);
+			ApiResponsePIItemsItemAttribute localVarResponse = GetMultipleWithHttpInfo(asParallel, includeMode, paths, selectedFields, webIds, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve multiple attributes by web id or path.</summary>
-		public ApiResponsePIItemsItemAttribute GetMultipleWithHttpInfo(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null)
+		public ApiResponsePIItemsItemAttribute GetMultipleWithHttpInfo(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null, string webIdType = null)
 		{
 			List<string> path = ExtensionMethods.ConvertToList(paths);
 			List<string> webId = ExtensionMethods.ConvertToList(webIds);
@@ -812,6 +850,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 
 			var localVarPath = "/attributes/multiple";
@@ -837,6 +879,7 @@ namespace PIWebAPIWrapper.Api
 			localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -853,6 +896,75 @@ namespace PIWebAPIWrapper.Api
 			return new ApiResponsePIItemsItemAttribute(localVarStatusCode,
 				localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
 				(PIItemsItemAttribute)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsItemAttribute)));
+		}
+
+		/// <summary>Retrieve attributes based on the specified conditions. Returns attributes using the specified search query string.</summary>
+		public PIItemsAttribute GetAttributesQuery(int maxCount, int startIndex, string databaseWebId = null, string query = null, string selectedFields = null, string webIdType = null)
+		{
+			ApiResponsePIItemsAttribute localVarResponse = GetAttributesQueryWithHttpInfo(maxCount, startIndex, databaseWebId, query, selectedFields, webIdType);
+			return localVarResponse.Data;
+		}
+
+		/// <summary>Retrieve attributes based on the specified conditions. Returns attributes using the specified search query string.</summary>
+		public ApiResponsePIItemsAttribute GetAttributesQueryWithHttpInfo(int maxCount, int startIndex, string databaseWebId = null, string query = null, string selectedFields = null, string webIdType = null)
+		{
+			if (string.IsNullOrEmpty(databaseWebId)==true)
+			{
+				databaseWebId = null;
+			}
+			if (string.IsNullOrEmpty(query)==true)
+			{
+				query = null;
+			}
+			if (string.IsNullOrEmpty(selectedFields)==true)
+			{
+				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
+			}
+
+			var localVarPath = "/attributes/search";
+			var localVarPathParams = new Dictionary<String, String>();
+			var localVarQueryParams = new CustomDictionaryForQueryString();
+			var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+			var localVarFormParams = new Dictionary<String, String>();
+			var localVarFileParams = new Dictionary<String, FileParameter>();
+			Object localVarPostBody = null;
+
+			String[] localVarHttpContentTypes = new String[] { }; 
+			String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+			String[] localVarHttpHeaderAccepts = new String[] { "application/json", "text/json", "text/xml" };
+			String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+
+			if (localVarHttpHeaderAccept != null)
+				localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+			localVarPathParams.Add("format", "json");
+
+			if (databaseWebId!= null) localVarQueryParams.Add("databaseWebId", Configuration.ApiClient.ParameterToString(databaseWebId));
+			localVarQueryParams.Add("maxCount", Configuration.ApiClient.ParameterToString(maxCount));
+			if (query!= null) localVarQueryParams.Add("query", Configuration.ApiClient.ParameterToString(query));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			localVarQueryParams.Add("startIndex", Configuration.ApiClient.ParameterToString(startIndex));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+
+			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
+				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+				localVarPathParams, localVarHttpContentType);
+
+			int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+			if (ExceptionFactory != null)
+			{
+				Exception exception = ExceptionFactory("GetAttributesQuery", localVarResponse);
+				if (exception != null) throw exception;
+			}
+
+			return new ApiResponsePIItemsAttribute(localVarStatusCode,
+				localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+				(PIItemsAttribute)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsAttribute)));
 		}
 
 	}

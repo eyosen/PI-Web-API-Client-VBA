@@ -7,7 +7,8 @@ Name | Type | Notes
 **Name** | **string**
 **Path** | **string**
 **Items** | **[**PISummaryValue[]**](../Model/PISummaryValue.md)**
-**Links** | **[**object**](../Model/Object.md)**
+**Links** | **[**PIStreamSummariesLinks**](../Model/PIStreamSummariesLinks.md)**
+**WebException** | **[**PIWebException**](../Model/PIWebException.md)**
 
 ## Methods
 

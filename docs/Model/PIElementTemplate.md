@@ -16,7 +16,8 @@ Name | Type | Notes
 **ExtendedProperties** | **[**object**](../Model/Object.md)**
 **Severity** | **string**
 **CanBeAcknowledged** | **bool**
-**Links** | **[**object**](../Model/Object.md)**
+**Links** | **[**PIElementTemplateLinks**](../Model/PIElementTemplateLinks.md)**
+**WebException** | **[**PIWebException**](../Model/PIWebException.md)**
 
 ## Methods
 [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)

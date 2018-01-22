@@ -8,8 +8,9 @@ Name | Type | Notes
 **Name** | **string**
 **Description** | **string**
 **Path** | **string**
-**Links** | **[**object**](../Model/Object.md)**
+**Links** | **[**PIEnumerationSetLinks**](../Model/PIEnumerationSetLinks.md)**
 **SerializeDescription** | **bool**
+**WebException** | **[**PIWebException**](../Model/PIWebException.md)**
 
 ## Methods
 [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)

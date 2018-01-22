@@ -1,12 +1,12 @@
-PI Web API Wrapper for VBA
+PI Web API Wrapper for VBA (2017 R2)
 ===
 
 ## Overview
-This repository has the source code package of the PI Web API Wrapper for VBA.
+This repository has the source code package of the PI Web API Wrapper for VBA. This version was developed on top of the PI Web API 2017 R2 swagger specification. 
 
 ## Requirements
 
- - PI Web API 2017 installed within your domain using Kerberos or Basic Authentication.
+ - PI Web API 2017 R2 installed within your domain using Kerberos or Basic Authentication. If you are using an older version, some methods might not work.
  - PI ProcessBook 2012 SP1+
  - .NET Framework 3.5  
 
@@ -42,7 +42,9 @@ As this is a .NET library with COM objects and methods exposed to be able be con
  - When working with data transfer objects (models) with an Items property (such as PIItemsElement), do not access or modify this property directly. Use CreateItemsArray(), GetItem(), SetItem() and GetItemsLength() instead.
  - For models that have the Value property, use SetValueWithString(), SetValueWithInt(), SetValueWithDouble() methods to set this property.
  - For the Api methods, all variables whose type are not a string must be defined. If a string variable is optional, define it as an empty string instead of Null. 
-
+ - Is is highly recommended to turn debug mode on in case you are using PI Web API 2017 R2+ in order to receive more detailed exception errors. This can be achieved by creating or editing the DebugMode attribute's value to TRUE from the System Configuration element.
+ - The X-Requested-With header is added to work with CSRF defences.
+ 
 ## Feedback 
 
 Plese provide feedback by commenting the related [PI Developer Club blog post](https://pisquare.osisoft.com/community/developers-club/blog/2017/07/10/announcing-pi-web-api-wrapper-for-vba).
@@ -180,7 +182,7 @@ If you want to use basic authentication instead of Kerberos, set useKerberos to 
 
 ```vb# 
     Set db = client.AssetDatabase.GetByPath(dbPath)
-    Set efs = client.AssetDatabase.GetEventFrames(db.webId, False, False, 100, True, 0, "", "*", "", elem.Name, elem.templateName, "", "", "None", "", "", "*-900", "*")
+    Set efs = client.AssetDatabase.GetEventFrames(db.webId, False, False, 100, True, 0, "", "*", "", elem.Name, elem.templateName, "", "", "None", "", "", "*-900", "", "")
 ```
 
 

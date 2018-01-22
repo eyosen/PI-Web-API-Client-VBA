@@ -27,7 +27,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Api
 {
 
-	[Guid("C5183286-ED86-4829-9062-50E659574A3A")]
+	[Guid("5EDEF010-8492-4124-AC56-869F977181DA")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -36,19 +36,19 @@ namespace PIWebAPIWrapper.Api
 		#region Synchronous Operations
 		/// <summary>Get a point by path.</summary>
 		[DispId(1)]
-		PIPoint GetByPath(string path, string selectedFields = null);
+		PIPoint GetByPath(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Get a point by path.</summary>
 		[DispId(2)]
-		ApiResponsePIPoint GetByPathWithHttpInfo(string path, string selectedFields = null);
+		ApiResponsePIPoint GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Get a point.</summary>
 		[DispId(3)]
-		PIPoint Get(string webId, string selectedFields = null);
+		PIPoint Get(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Get a point.</summary>
 		[DispId(4)]
-		ApiResponsePIPoint GetWithHttpInfo(string webId, string selectedFields = null);
+		ApiResponsePIPoint GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Update a point.</summary>
 		[DispId(5)]
@@ -68,40 +68,32 @@ namespace PIWebAPIWrapper.Api
 
 		/// <summary>Get point attributes.</summary>
 		[DispId(9)]
-		PIItemsPointAttribute GetAttributes(string webId, string names = null, string nameFilter = null, string selectedFields = null);
+		PIItemsPointAttribute GetAttributes(string webId, string names = null, string nameFilter = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Get point attributes.</summary>
 		[DispId(10)]
-		ApiResponsePIItemsPointAttribute GetAttributesWithHttpInfo(string webId, string names = null, string nameFilter = null, string selectedFields = null);
+		ApiResponsePIItemsPointAttribute GetAttributesWithHttpInfo(string webId, string names = null, string nameFilter = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Get a point attribute by name.</summary>
 		[DispId(11)]
-		PIPointAttribute GetAttributeByName(string name, string webId, string selectedFields = null);
+		PIPointAttribute GetAttributeByName(string name, string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Get a point attribute by name.</summary>
 		[DispId(12)]
-		ApiResponsePIPointAttribute GetAttributeByNameWithHttpInfo(string name, string webId, string selectedFields = null);
+		ApiResponsePIPointAttribute GetAttributeByNameWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null);
 
-		/// <summary>Update a point attribute value.</summary>
+		/// <summary>Retrieve multiple points by web id or path.</summary>
 		[DispId(13)]
-		Object UpdateAttributeValue(string webId, string name, string value);
+		PIItemsItemPoint GetMultiple(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null, string webIdType = null);
 
-		/// <summary>Update a point attribute value.</summary>
+		/// <summary>Retrieve multiple points by web id or path.</summary>
 		[DispId(14)]
-		ApiResponseObject UpdateAttributeValueWithHttpInfo(string webId, string name, string value);
-
-		/// <summary>Retrieve multiple points by web id or path.</summary>
-		[DispId(15)]
-		PIItemsItemPoint GetMultiple(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null);
-
-		/// <summary>Retrieve multiple points by web id or path.</summary>
-		[DispId(16)]
-		ApiResponsePIItemsItemPoint GetMultipleWithHttpInfo(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null);
+		ApiResponsePIItemsItemPoint GetMultipleWithHttpInfo(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null, string webIdType = null);
 
 		#endregion
 	}
 
-	[Guid("63015201-FA25-4DD8-809B-477080FE9578")]
+	[Guid("D3A29E7F-6556-4D5A-9604-EC506C08C65E")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IPointApi))]
@@ -140,14 +132,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Get a point by path.</summary>
-		public PIPoint GetByPath(string path, string selectedFields = null)
+		public PIPoint GetByPath(string path, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIPoint localVarResponse = GetByPathWithHttpInfo(path, selectedFields);
+			ApiResponsePIPoint localVarResponse = GetByPathWithHttpInfo(path, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Get a point by path.</summary>
-		public ApiResponsePIPoint GetByPathWithHttpInfo(string path, string selectedFields = null)
+		public ApiResponsePIPoint GetByPathWithHttpInfo(string path, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(path)==true)
 			{
@@ -156,6 +148,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (path == null)
 				throw new ApiException(400, "Missing required parameter 'path'");
@@ -180,6 +176,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -199,14 +196,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Get a point.</summary>
-		public PIPoint Get(string webId, string selectedFields = null)
+		public PIPoint Get(string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIPoint localVarResponse = GetWithHttpInfo(webId, selectedFields);
+			ApiResponsePIPoint localVarResponse = GetWithHttpInfo(webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Get a point.</summary>
-		public ApiResponsePIPoint GetWithHttpInfo(string webId, string selectedFields = null)
+		public ApiResponsePIPoint GetWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(webId)==true)
 			{
@@ -215,6 +212,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -239,6 +240,7 @@ namespace PIWebAPIWrapper.Api
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -376,14 +378,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Get point attributes.</summary>
-		public PIItemsPointAttribute GetAttributes(string webId, string names = null, string nameFilter = null, string selectedFields = null)
+		public PIItemsPointAttribute GetAttributes(string webId, string names = null, string nameFilter = null, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIItemsPointAttribute localVarResponse = GetAttributesWithHttpInfo(webId, names, nameFilter, selectedFields);
+			ApiResponsePIItemsPointAttribute localVarResponse = GetAttributesWithHttpInfo(webId, names, nameFilter, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Get point attributes.</summary>
-		public ApiResponsePIItemsPointAttribute GetAttributesWithHttpInfo(string webId, string names = null, string nameFilter = null, string selectedFields = null)
+		public ApiResponsePIItemsPointAttribute GetAttributesWithHttpInfo(string webId, string names = null, string nameFilter = null, string selectedFields = null, string webIdType = null)
 		{
 			List<string> name = ExtensionMethods.ConvertToList(names);
 			if (string.IsNullOrEmpty(webId)==true)
@@ -397,6 +399,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (webId == null)
 				throw new ApiException(400, "Missing required parameter 'webId'");
@@ -423,6 +429,7 @@ namespace PIWebAPIWrapper.Api
 			localVarQueryParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -442,14 +449,14 @@ namespace PIWebAPIWrapper.Api
 		}
 
 		/// <summary>Get a point attribute by name.</summary>
-		public PIPointAttribute GetAttributeByName(string name, string webId, string selectedFields = null)
+		public PIPointAttribute GetAttributeByName(string name, string webId, string selectedFields = null, string webIdType = null)
 		{
-			ApiResponsePIPointAttribute localVarResponse = GetAttributeByNameWithHttpInfo(name, webId, selectedFields);
+			ApiResponsePIPointAttribute localVarResponse = GetAttributeByNameWithHttpInfo(name, webId, selectedFields, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Get a point attribute by name.</summary>
-		public ApiResponsePIPointAttribute GetAttributeByNameWithHttpInfo(string name, string webId, string selectedFields = null)
+		public ApiResponsePIPointAttribute GetAttributeByNameWithHttpInfo(string name, string webId, string selectedFields = null, string webIdType = null)
 		{
 			if (string.IsNullOrEmpty(name)==true)
 			{
@@ -462,6 +469,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 			if (name == null)
 				throw new ApiException(400, "Missing required parameter 'name'");
@@ -489,6 +500,7 @@ namespace PIWebAPIWrapper.Api
 			if (name!= null) localVarPathParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -507,86 +519,15 @@ namespace PIWebAPIWrapper.Api
 				(PIPointAttribute)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIPointAttribute)));
 		}
 
-		/// <summary>Update a point attribute value.</summary>
-		public Object UpdateAttributeValue(string webId, string name, string value)
-		{
-			ApiResponseObject localVarResponse = UpdateAttributeValueWithHttpInfo(webId, name, value);
-			return localVarResponse.Data;
-		}
-
-		/// <summary>Update a point attribute value.</summary>
-		public ApiResponseObject UpdateAttributeValueWithHttpInfo(string webId, string name, string value)
-		{
-			if (string.IsNullOrEmpty(webId)==true)
-			{
-				webId = null;
-			}
-			if (string.IsNullOrEmpty(name)==true)
-			{
-				name = null;
-			}
-			if (webId == null)
-				throw new ApiException(400, "Missing required parameter 'webId'");
-			if (name == null)
-				throw new ApiException(400, "Missing required parameter 'name'");
-			if (value == null)
-				throw new ApiException(400, "Missing required parameter 'value'");
-
-			var localVarPath = "/points/{webId}/attributes/{name}";
-			var localVarPathParams = new Dictionary<String, String>();
-			var localVarQueryParams = new CustomDictionaryForQueryString();
-			var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-			var localVarFormParams = new Dictionary<String, String>();
-			var localVarFileParams = new Dictionary<String, FileParameter>();
-			Object localVarPostBody = null;
-
-			String[] localVarHttpContentTypes = new String[] { }; 
-			String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-			String[] localVarHttpHeaderAccepts = new String[] { "application/json", "text/json", "text/xml" };
-			String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-
-			if (localVarHttpHeaderAccept != null)
-				localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-			localVarPathParams.Add("format", "json");
-
-			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (name!= null) localVarPathParams.Add("name", Configuration.ApiClient.ParameterToString(name));
-			if (value != null && value.GetType() != typeof(byte[]))
-			{
-				localVarPostBody = Configuration.ApiClient.Serialize(value);
-			}
-			else
-			{
-				localVarPostBody = value;
-			}
-
-			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
-				Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-				localVarPathParams, localVarHttpContentType);
-
-			int localVarStatusCode = (int)localVarResponse.StatusCode;
-
-			if (ExceptionFactory != null)
-			{
-				Exception exception = ExceptionFactory("UpdateAttributeValue", localVarResponse);
-				if (exception != null) throw exception;
-			}
-
-			return new ApiResponseObject(localVarStatusCode,
-				localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
-		}
-
 		/// <summary>Retrieve multiple points by web id or path.</summary>
-		public PIItemsItemPoint GetMultiple(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null)
+		public PIItemsItemPoint GetMultiple(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null, string webIdType = null)
 		{
-			ApiResponsePIItemsItemPoint localVarResponse = GetMultipleWithHttpInfo(asParallel, includeMode, paths, selectedFields, webIds);
+			ApiResponsePIItemsItemPoint localVarResponse = GetMultipleWithHttpInfo(asParallel, includeMode, paths, selectedFields, webIds, webIdType);
 			return localVarResponse.Data;
 		}
 
 		/// <summary>Retrieve multiple points by web id or path.</summary>
-		public ApiResponsePIItemsItemPoint GetMultipleWithHttpInfo(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null)
+		public ApiResponsePIItemsItemPoint GetMultipleWithHttpInfo(bool asParallel, string includeMode = null, string paths = null, string selectedFields = null, string webIds = null, string webIdType = null)
 		{
 			List<string> path = ExtensionMethods.ConvertToList(paths);
 			List<string> webId = ExtensionMethods.ConvertToList(webIds);
@@ -597,6 +538,10 @@ namespace PIWebAPIWrapper.Api
 			if (string.IsNullOrEmpty(selectedFields)==true)
 			{
 				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
 			}
 
 			var localVarPath = "/points/multiple";
@@ -622,6 +567,7 @@ namespace PIWebAPIWrapper.Api
 			localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
 			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
 			localVarQueryParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
