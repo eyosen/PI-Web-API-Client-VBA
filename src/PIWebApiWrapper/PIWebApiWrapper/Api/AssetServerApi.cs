@@ -27,7 +27,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Api
 {
 
-	[Guid("EC864E3E-96CF-450E-A122-2B8E484538AB")]
+	[Guid("CB28C9AC-1AA3-49EF-A1AA-1D82666EC0A1")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -90,122 +90,130 @@ namespace PIWebAPIWrapper.Api
 		[DispId(14)]
 		ApiResponseObject CreateAssetDatabaseWithHttpInfo(string webId, PIAssetDatabase database, string webIdType = null);
 
-		/// <summary>Get the security information of the specified security item associated with the asset server for a specified user.</summary>
+		/// <summary>Retrieve a list of all notification contact templates on the specified Asset Server.</summary>
 		[DispId(15)]
+		PIItemsNotificationContactTemplate GetNotificationContactTemplates(string webId, string selectedFields = null, string webIdType = null);
+
+		/// <summary>Retrieve a list of all notification contact templates on the specified Asset Server.</summary>
+		[DispId(16)]
+		ApiResponsePIItemsNotificationContactTemplate GetNotificationContactTemplatesWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
+
+		/// <summary>Get the security information of the specified security item associated with the asset server for a specified user.</summary>
+		[DispId(17)]
 		PIItemsSecurityRights GetSecurity(string webId, string securityItems, string userIdentities, bool forceRefresh, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Get the security information of the specified security item associated with the asset server for a specified user.</summary>
-		[DispId(16)]
+		[DispId(18)]
 		ApiResponsePIItemsSecurityRights GetSecurityWithHttpInfo(string webId, string securityItems, string userIdentities, bool forceRefresh, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve the security entries of the specified security item associated with the asset server based on the specified criteria. By default, all security entries for this asset server are returned.</summary>
-		[DispId(17)]
+		[DispId(19)]
 		PIItemsSecurityEntry GetSecurityEntries(string webId, string nameFilter = null, string securityItem = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve the security entries of the specified security item associated with the asset server based on the specified criteria. By default, all security entries for this asset server are returned.</summary>
-		[DispId(18)]
+		[DispId(20)]
 		ApiResponsePIItemsSecurityEntry GetSecurityEntriesWithHttpInfo(string webId, string nameFilter = null, string securityItem = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Create a security entry owned by the asset server.</summary>
-		[DispId(19)]
+		[DispId(21)]
 		Object CreateSecurityEntry(string webId, PISecurityEntry securityEntry, bool applyToChildren, string securityItem = null, string webIdType = null);
 
 		/// <summary>Create a security entry owned by the asset server.</summary>
-		[DispId(20)]
+		[DispId(22)]
 		ApiResponseObject CreateSecurityEntryWithHttpInfo(string webId, PISecurityEntry securityEntry, bool applyToChildren, string securityItem = null, string webIdType = null);
 
 		/// <summary>Retrieve the security entry of the specified security item associated with the asset server with the specified name.</summary>
-		[DispId(21)]
+		[DispId(23)]
 		PISecurityEntry GetSecurityEntryByName(string name, string webId, string securityItem = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve the security entry of the specified security item associated with the asset server with the specified name.</summary>
-		[DispId(22)]
+		[DispId(24)]
 		ApiResponsePISecurityEntry GetSecurityEntryByNameWithHttpInfo(string name, string webId, string securityItem = null, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Update a security entry owned by the asset server.</summary>
-		[DispId(23)]
+		[DispId(25)]
 		Object UpdateSecurityEntry(string name, string webId, PISecurityEntry securityEntry, bool applyToChildren, string securityItem = null);
 
 		/// <summary>Update a security entry owned by the asset server.</summary>
-		[DispId(24)]
+		[DispId(26)]
 		ApiResponseObject UpdateSecurityEntryWithHttpInfo(string name, string webId, PISecurityEntry securityEntry, bool applyToChildren, string securityItem = null);
 
 		/// <summary>Delete a security entry owned by the asset server.</summary>
-		[DispId(25)]
+		[DispId(27)]
 		Object DeleteSecurityEntry(string name, string webId, bool applyToChildren, string securityItem = null);
 
 		/// <summary>Delete a security entry owned by the asset server.</summary>
-		[DispId(26)]
+		[DispId(28)]
 		ApiResponseObject DeleteSecurityEntryWithHttpInfo(string name, string webId, bool applyToChildren, string securityItem = null);
 
 		/// <summary>Retrieve security identities based on the specified criteria. By default, all security identities in the specified Asset Server are returned.</summary>
-		[DispId(27)]
+		[DispId(29)]
 		PIItemsSecurityIdentity GetSecurityIdentities(string webId, int maxCount, string field = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>Retrieve security identities based on the specified criteria. By default, all security identities in the specified Asset Server are returned.</summary>
-		[DispId(28)]
+		[DispId(30)]
 		ApiResponsePIItemsSecurityIdentity GetSecurityIdentitiesWithHttpInfo(string webId, int maxCount, string field = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>Create a security identity.</summary>
-		[DispId(29)]
+		[DispId(31)]
 		Object CreateSecurityIdentity(string webId, PISecurityIdentity securityIdentity, string webIdType = null);
 
 		/// <summary>Create a security identity.</summary>
-		[DispId(30)]
+		[DispId(32)]
 		ApiResponseObject CreateSecurityIdentityWithHttpInfo(string webId, PISecurityIdentity securityIdentity, string webIdType = null);
 
 		/// <summary>Retrieve security identities for a specific user.</summary>
-		[DispId(31)]
+		[DispId(33)]
 		PIItemsSecurityIdentity GetSecurityIdentitiesForUser(string webId, string userIdentity, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve security identities for a specific user.</summary>
-		[DispId(32)]
+		[DispId(34)]
 		ApiResponsePIItemsSecurityIdentity GetSecurityIdentitiesForUserWithHttpInfo(string webId, string userIdentity, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve security mappings based on the specified criteria. By default, all security mappings in the specified Asset Server are returned.</summary>
-		[DispId(33)]
+		[DispId(35)]
 		PIItemsSecurityMapping GetSecurityMappings(string webId, int maxCount, string field = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>Retrieve security mappings based on the specified criteria. By default, all security mappings in the specified Asset Server are returned.</summary>
-		[DispId(34)]
+		[DispId(36)]
 		ApiResponsePIItemsSecurityMapping GetSecurityMappingsWithHttpInfo(string webId, int maxCount, string field = null, string query = null, string selectedFields = null, string sortField = null, string sortOrder = null, string webIdType = null);
 
 		/// <summary>Create a security mapping.</summary>
-		[DispId(35)]
+		[DispId(37)]
 		Object CreateSecurityMapping(string webId, PISecurityMapping securityMapping, string webIdType = null);
 
 		/// <summary>Create a security mapping.</summary>
-		[DispId(36)]
+		[DispId(38)]
 		ApiResponseObject CreateSecurityMappingWithHttpInfo(string webId, PISecurityMapping securityMapping, string webIdType = null);
 
 		/// <summary>Retrieve a list of all Time Rule Plug-in's.</summary>
-		[DispId(37)]
+		[DispId(39)]
 		PIItemsTimeRulePlugIn GetTimeRulePlugIns(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve a list of all Time Rule Plug-in's.</summary>
-		[DispId(38)]
+		[DispId(40)]
 		ApiResponsePIItemsTimeRulePlugIn GetTimeRulePlugInsWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve a list of all unit classes on the specified Asset Server.</summary>
-		[DispId(39)]
+		[DispId(41)]
 		PIItemsUnitClass GetUnitClasses(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Retrieve a list of all unit classes on the specified Asset Server.</summary>
-		[DispId(40)]
+		[DispId(42)]
 		ApiResponsePIItemsUnitClass GetUnitClassesWithHttpInfo(string webId, string selectedFields = null, string webIdType = null);
 
 		/// <summary>Create a unit class in the specified Asset Server.</summary>
-		[DispId(41)]
+		[DispId(43)]
 		Object CreateUnitClass(string webId, PIUnitClass unitClass, string webIdType = null);
 
 		/// <summary>Create a unit class in the specified Asset Server.</summary>
-		[DispId(42)]
+		[DispId(44)]
 		ApiResponseObject CreateUnitClassWithHttpInfo(string webId, PIUnitClass unitClass, string webIdType = null);
 
 		#endregion
 	}
 
-	[Guid("FF06E227-2443-4364-9F8C-531530F3373B")]
+	[Guid("8F4C0F6B-7AA4-4DED-80D7-2E8889D71E0A")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IAssetServerApi))]
@@ -280,8 +288,8 @@ namespace PIWebAPIWrapper.Api
 
 			localVarPathParams.Add("format", "json");
 
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields), false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType), false);
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -343,9 +351,9 @@ namespace PIWebAPIWrapper.Api
 
 			localVarPathParams.Add("format", "json");
 
-			if (name!= null) localVarQueryParams.Add("name", Configuration.ApiClient.ParameterToString(name));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (name!= null) localVarQueryParams.Add("name", Configuration.ApiClient.ParameterToString(name), false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields), false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType), false);
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -407,9 +415,9 @@ namespace PIWebAPIWrapper.Api
 
 			localVarPathParams.Add("format", "json");
 
-			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (path!= null) localVarQueryParams.Add("path", Configuration.ApiClient.ParameterToString(path), false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields), false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType), false);
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -472,8 +480,8 @@ namespace PIWebAPIWrapper.Api
 			localVarPathParams.Add("format", "json");
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields), false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType), false);
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -536,8 +544,8 @@ namespace PIWebAPIWrapper.Api
 			localVarPathParams.Add("format", "json");
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields), false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType), false);
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -600,8 +608,8 @@ namespace PIWebAPIWrapper.Api
 			localVarPathParams.Add("format", "json");
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields), false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType), false);
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -670,7 +678,7 @@ namespace PIWebAPIWrapper.Api
 			{
 				localVarPostBody = database;
 			}
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType), false);
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -687,6 +695,70 @@ namespace PIWebAPIWrapper.Api
 			return new ApiResponseObject(localVarStatusCode,
 				localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
 				(Object)Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+		}
+
+		/// <summary>Retrieve a list of all notification contact templates on the specified Asset Server.</summary>
+		public PIItemsNotificationContactTemplate GetNotificationContactTemplates(string webId, string selectedFields = null, string webIdType = null)
+		{
+			ApiResponsePIItemsNotificationContactTemplate localVarResponse = GetNotificationContactTemplatesWithHttpInfo(webId, selectedFields, webIdType);
+			return localVarResponse.Data;
+		}
+
+		/// <summary>Retrieve a list of all notification contact templates on the specified Asset Server.</summary>
+		public ApiResponsePIItemsNotificationContactTemplate GetNotificationContactTemplatesWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
+		{
+			if (string.IsNullOrEmpty(webId)==true)
+			{
+				webId = null;
+			}
+			if (string.IsNullOrEmpty(selectedFields)==true)
+			{
+				selectedFields = null;
+			}
+			if (string.IsNullOrEmpty(webIdType)==true)
+			{
+				webIdType = null;
+			}
+			if (webId == null)
+				throw new ApiException(400, "Missing required parameter 'webId'");
+
+			var localVarPath = "/assetservers/{webId}/notificationcontacttemplates";
+			var localVarPathParams = new Dictionary<String, String>();
+			var localVarQueryParams = new CustomDictionaryForQueryString();
+			var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+			var localVarFormParams = new Dictionary<String, String>();
+			var localVarFileParams = new Dictionary<String, FileParameter>();
+			Object localVarPostBody = null;
+
+			String[] localVarHttpContentTypes = new String[] { }; 
+			String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+			String[] localVarHttpHeaderAccepts = new String[] { "application/json", "text/json", "text/xml" };
+			String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+
+			if (localVarHttpHeaderAccept != null)
+				localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+			localVarPathParams.Add("format", "json");
+
+			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields), false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType), false);
+
+			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
+				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+				localVarPathParams, localVarHttpContentType);
+
+			int localVarStatusCode = (int)localVarResponse.StatusCode;
+
+			if (ExceptionFactory != null)
+			{
+				Exception exception = ExceptionFactory("GetNotificationContactTemplates", localVarResponse);
+				if (exception != null) throw exception;
+			}
+
+			return new ApiResponsePIItemsNotificationContactTemplate(localVarStatusCode,
+				localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+				(PIItemsNotificationContactTemplate)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsNotificationContactTemplate)));
 		}
 
 		/// <summary>Get the security information of the specified security item associated with the asset server for a specified user.</summary>
@@ -735,11 +807,11 @@ namespace PIWebAPIWrapper.Api
 			localVarPathParams.Add("format", "json");
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
-			localVarQueryParams.Add("userIdentity", Configuration.ApiClient.ParameterToString(userIdentity));
-			localVarQueryParams.Add("forceRefresh", Configuration.ApiClient.ParameterToString(forceRefresh));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem), true);
+			localVarQueryParams.Add("userIdentity", Configuration.ApiClient.ParameterToString(userIdentity), true);
+			localVarQueryParams.Add("forceRefresh", Configuration.ApiClient.ParameterToString(forceRefresh), false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields), false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType), false);
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -810,10 +882,10 @@ namespace PIWebAPIWrapper.Api
 			localVarPathParams.Add("format", "json");
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter));
-			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (nameFilter!= null) localVarQueryParams.Add("nameFilter", Configuration.ApiClient.ParameterToString(nameFilter), false);
+			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem), false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields), false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType), false);
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -886,9 +958,9 @@ namespace PIWebAPIWrapper.Api
 			{
 				localVarPostBody = securityEntry;
 			}
-			localVarQueryParams.Add("applyToChildren", Configuration.ApiClient.ParameterToString(applyToChildren));
-			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			localVarQueryParams.Add("applyToChildren", Configuration.ApiClient.ParameterToString(applyToChildren), false);
+			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem), false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType), false);
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -962,9 +1034,9 @@ namespace PIWebAPIWrapper.Api
 
 			if (name!= null) localVarPathParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem), false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields), false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType), false);
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1040,8 +1112,8 @@ namespace PIWebAPIWrapper.Api
 			{
 				localVarPostBody = securityEntry;
 			}
-			localVarQueryParams.Add("applyToChildren", Configuration.ApiClient.ParameterToString(applyToChildren));
-			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
+			localVarQueryParams.Add("applyToChildren", Configuration.ApiClient.ParameterToString(applyToChildren), false);
+			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem), false);
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1107,8 +1179,8 @@ namespace PIWebAPIWrapper.Api
 
 			if (name!= null) localVarPathParams.Add("name", Configuration.ApiClient.ParameterToString(name));
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			localVarQueryParams.Add("applyToChildren", Configuration.ApiClient.ParameterToString(applyToChildren));
-			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem));
+			localVarQueryParams.Add("applyToChildren", Configuration.ApiClient.ParameterToString(applyToChildren), false);
+			if (securityItem!= null) localVarQueryParams.Add("securityItem", Configuration.ApiClient.ParameterToString(securityItem), false);
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1187,13 +1259,13 @@ namespace PIWebAPIWrapper.Api
 			localVarPathParams.Add("format", "json");
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (field!= null) localVarQueryParams.Add("field", Configuration.ApiClient.ParameterToString(field));
-			localVarQueryParams.Add("maxCount", Configuration.ApiClient.ParameterToString(maxCount));
-			if (query!= null) localVarQueryParams.Add("query", Configuration.ApiClient.ParameterToString(query));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (field!= null) localVarQueryParams.Add("field", Configuration.ApiClient.ParameterToString(field), false);
+			localVarQueryParams.Add("maxCount", Configuration.ApiClient.ParameterToString(maxCount), false);
+			if (query!= null) localVarQueryParams.Add("query", Configuration.ApiClient.ParameterToString(query), false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields), false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField), false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder), false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType), false);
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1262,7 +1334,7 @@ namespace PIWebAPIWrapper.Api
 			{
 				localVarPostBody = securityIdentity;
 			}
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType), false);
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1331,9 +1403,9 @@ namespace PIWebAPIWrapper.Api
 			localVarPathParams.Add("format", "json");
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (userIdentity!= null) localVarQueryParams.Add("userIdentity", Configuration.ApiClient.ParameterToString(userIdentity));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (userIdentity!= null) localVarQueryParams.Add("userIdentity", Configuration.ApiClient.ParameterToString(userIdentity), false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields), false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType), false);
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1412,13 +1484,13 @@ namespace PIWebAPIWrapper.Api
 			localVarPathParams.Add("format", "json");
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (field!= null) localVarQueryParams.Add("field", Configuration.ApiClient.ParameterToString(field));
-			localVarQueryParams.Add("maxCount", Configuration.ApiClient.ParameterToString(maxCount));
-			if (query!= null) localVarQueryParams.Add("query", Configuration.ApiClient.ParameterToString(query));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField));
-			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (field!= null) localVarQueryParams.Add("field", Configuration.ApiClient.ParameterToString(field), false);
+			localVarQueryParams.Add("maxCount", Configuration.ApiClient.ParameterToString(maxCount), false);
+			if (query!= null) localVarQueryParams.Add("query", Configuration.ApiClient.ParameterToString(query), false);
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields), false);
+			if (sortField!= null) localVarQueryParams.Add("sortField", Configuration.ApiClient.ParameterToString(sortField), false);
+			if (sortOrder!= null) localVarQueryParams.Add("sortOrder", Configuration.ApiClient.ParameterToString(sortOrder), false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType), false);
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1487,7 +1559,7 @@ namespace PIWebAPIWrapper.Api
 			{
 				localVarPostBody = securityMapping;
 			}
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType), false);
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1550,8 +1622,8 @@ namespace PIWebAPIWrapper.Api
 			localVarPathParams.Add("format", "json");
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields), false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType), false);
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1614,8 +1686,8 @@ namespace PIWebAPIWrapper.Api
 			localVarPathParams.Add("format", "json");
 
 			if (webId!= null) localVarPathParams.Add("webId", Configuration.ApiClient.ParameterToString(webId));
-			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields));
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (selectedFields!= null) localVarQueryParams.Add("selectedFields", Configuration.ApiClient.ParameterToString(selectedFields), false);
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType), false);
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
@@ -1684,7 +1756,7 @@ namespace PIWebAPIWrapper.Api
 			{
 				localVarPostBody = unitClass;
 			}
-			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType));
+			if (webIdType!= null) localVarQueryParams.Add("webIdType", Configuration.ApiClient.ParameterToString(webIdType), false);
 
 			IRestResponse localVarResponse = (IRestResponse)Configuration.ApiClient.CallApi(localVarPath,
 				Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,

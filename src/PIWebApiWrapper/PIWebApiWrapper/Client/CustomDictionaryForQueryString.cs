@@ -1,6 +1,6 @@
 ﻿// ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -15,24 +15,35 @@
 // ************************************************************************
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 
-namespace PIWebAPIWrapper
+namespace PIWebAPIWrapper.Client
 {
     public class CustomDictionaryForQueryString
     {
         private List<KeyValuePair<String, String>> items = new List<KeyValuePair<String, String>>();
-        public void Add(string key, string value)
+        public void Add(string key, object value, bool isMulti)
         {
-            //
-            string[] queryStringWords = value.Split(',');
-            foreach (var item in queryStringWords)
+            if (isMulti == true)
             {
-                items.Add(new KeyValuePair<string, string>(key, item));
+                string[] valueList = Convert.ToString(value).Split(',');
+                foreach (var val in valueList)
+                {
+                    items.Add(new KeyValuePair<string, string>(key, val.Trim()));
+                }
+            }
+            else
+            {
+                items.Add(new KeyValuePair<string, string>(key, value.ToString()));
+            }
+        }
+
+        public int Count
+        {
+            get
+            {
+                return items.Count;
             }
         }
 

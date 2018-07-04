@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Model
 {
 
-	[Guid("B368BF3C-DA05-4611-BBFF-2808223EAE60")]
+	[Guid("BF134131-A664-4456-87EB-141AE10691B4")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -48,14 +48,17 @@ namespace PIWebAPIWrapper.Model
 		string DataServers { get; set; }
 
 		[DispId(4)]
-		string Search { get; set; }
+		string PIDirectory { get; set; }
 
 		[DispId(5)]
+		string Search { get; set; }
+
+		[DispId(6)]
 		string System { get; set; }
 
 	}
 
-	[Guid("48886F8B-D015-4A7B-BDDF-2DEBF1DA755E")]
+	[Guid("163FCE28-5C46-4D3E-82EF-2C713F337905")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IPILandingLinks))]
@@ -76,6 +79,9 @@ namespace PIWebAPIWrapper.Model
 
 		[DataMember(Name = "DataServers", EmitDefaultValue = false)]
 		public string DataServers { get; set; }
+
+		[DataMember(Name = "PIDirectory", EmitDefaultValue = false)]
+		public string PIDirectory { get; set; }
 
 		[DataMember(Name = "Search", EmitDefaultValue = false)]
 		public string Search { get; set; }

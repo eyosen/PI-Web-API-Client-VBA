@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Model
 {
 
-	[Guid("1E6480FA-87D7-4FEE-AC02-3696AD748136")]
+	[Guid("203B82D1-3597-4747-B51B-FED75513D215")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -57,17 +57,26 @@ namespace PIWebAPIWrapper.Model
 		string BaseTemplate { get; set; }
 
 		[DispId(7)]
-		string DefaultAttribute { get; set; }
+		string BaseTemplates { get; set; }
 
 		[DispId(8)]
-		string Security { get; set; }
+		string DerivedTemplates { get; set; }
 
 		[DispId(9)]
+		string DefaultAttribute { get; set; }
+
+		[DispId(10)]
+		string NotificationRuleTemplates { get; set; }
+
+		[DispId(11)]
+		string Security { get; set; }
+
+		[DispId(12)]
 		string SecurityEntries { get; set; }
 
 	}
 
-	[Guid("39DDD521-D9EE-4032-A111-348164CFB111")]
+	[Guid("7787A0F5-BF2B-4B4A-8C4E-050637DE7A7E")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IPIElementTemplateLinks))]
@@ -98,8 +107,17 @@ namespace PIWebAPIWrapper.Model
 		[DataMember(Name = "BaseTemplate", EmitDefaultValue = false)]
 		public string BaseTemplate { get; set; }
 
+		[DataMember(Name = "BaseTemplates", EmitDefaultValue = false)]
+		public string BaseTemplates { get; set; }
+
+		[DataMember(Name = "DerivedTemplates", EmitDefaultValue = false)]
+		public string DerivedTemplates { get; set; }
+
 		[DataMember(Name = "DefaultAttribute", EmitDefaultValue = false)]
 		public string DefaultAttribute { get; set; }
+
+		[DataMember(Name = "NotificationRuleTemplates", EmitDefaultValue = false)]
+		public string NotificationRuleTemplates { get; set; }
 
 		[DataMember(Name = "Security", EmitDefaultValue = false)]
 		public string Security { get; set; }

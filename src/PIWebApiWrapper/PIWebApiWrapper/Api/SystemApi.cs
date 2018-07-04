@@ -27,7 +27,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Api
 {
 
-	[Guid("E4FE0317-3149-44BB-B103-87E7E2612B3D")]
+	[Guid("234ADE93-ED88-4A78-829D-D5DB244BAAC1")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -50,11 +50,11 @@ namespace PIWebAPIWrapper.Api
 		[DispId(4)]
 		ApiResponsePIItemsCacheInstance CacheInstancesWithHttpInfo();
 
-		/// <summary>Get the system uptime, the system state and the number of cache instances for this PI System Web API instance.</summary>
+		/// <summary>Get information about this PI Web API instance. Examples of information returned include the system uptime, the number of cache instances for this PI System Web API instance, and the system run state.</summary>
 		[DispId(5)]
 		PISystemStatus Status();
 
-		/// <summary>Get the system uptime, the system state and the number of cache instances for this PI System Web API instance.</summary>
+		/// <summary>Get information about this PI Web API instance. Examples of information returned include the system uptime, the number of cache instances for this PI System Web API instance, and the system run state.</summary>
 		[DispId(6)]
 		ApiResponsePISystemStatus StatusWithHttpInfo();
 
@@ -77,7 +77,7 @@ namespace PIWebAPIWrapper.Api
 		#endregion
 	}
 
-	[Guid("78F35A3B-E207-4D91-A907-BD81177BC8AB")]
+	[Guid("3807B5F4-09D2-458B-A72E-CDC11D2D51C2")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(ISystemApi))]
@@ -209,14 +209,14 @@ namespace PIWebAPIWrapper.Api
 				(PIItemsCacheInstance)Configuration.ApiClient.Deserialize(localVarResponse, typeof(PIItemsCacheInstance)));
 		}
 
-		/// <summary>Get the system uptime, the system state and the number of cache instances for this PI System Web API instance.</summary>
+		/// <summary>Get information about this PI Web API instance. Examples of information returned include the system uptime, the number of cache instances for this PI System Web API instance, and the system run state.</summary>
 		public PISystemStatus Status()
 		{
 			ApiResponsePISystemStatus localVarResponse = StatusWithHttpInfo();
 			return localVarResponse.Data;
 		}
 
-		/// <summary>Get the system uptime, the system state and the number of cache instances for this PI System Web API instance.</summary>
+		/// <summary>Get information about this PI Web API instance. Examples of information returned include the system uptime, the number of cache instances for this PI System Web API instance, and the system run state.</summary>
 		public ApiResponsePISystemStatus StatusWithHttpInfo()
 		{
 

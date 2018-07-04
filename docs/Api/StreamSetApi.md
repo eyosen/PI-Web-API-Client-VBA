@@ -46,6 +46,10 @@ Method | HTTP request | Description
 [**GetRecordedAtTimesAdHocWithHttpInfo**](StreamSetApi.md#getrecordedattimesadhocwithhttpinfo) | **GET** /streamsets/recordedattimes | Returns recorded values of the specified streams at the specified times.
 [**GetSummariesAdHoc**](StreamSetApi.md#getsummariesadhoc) | **GET** /streamsets/summary | Returns summary values of the specified streams.
 [**GetSummariesAdHocWithHttpInfo**](StreamSetApi.md#getsummariesadhocwithhttpinfo) | **GET** /streamsets/summary | Returns summary values of the specified streams.
+[**RetrieveStreamSetUpdates**](StreamSetApi.md#retrievestreamsetupdates) | **GET** /streamsets/updates | Receive stream updates
+[**RetrieveStreamSetUpdatesWithHttpInfo**](StreamSetApi.md#retrievestreamsetupdateswithhttpinfo) | **GET** /streamsets/updates | Receive stream updates
+[**RegisterStreamSetUpdates**](StreamSetApi.md#registerstreamsetupdates) | **POST** /streamsets/updates | Register for stream updates
+[**RegisterStreamSetUpdatesWithHttpInfo**](StreamSetApi.md#registerstreamsetupdateswithhttpinfo) | **POST** /streamsets/updates | Register for stream updates
 [**GetValuesAdHoc**](StreamSetApi.md#getvaluesadhoc) | **GET** /streamsets/value | Returns values of the specified streams.
 [**GetValuesAdHocWithHttpInfo**](StreamSetApi.md#getvaluesadhocwithhttpinfo) | **GET** /streamsets/value | Returns values of the specified streams.
 [**UpdateValueAdHoc**](StreamSetApi.md#updatevalueadhoc) | **POST** /streamsets/value | Updates a single value for the specified streams.
@@ -122,7 +126,7 @@ Name | Type | Description | Notes
  **categoryName** | **string**| Specify that included attributes must have this category. The default is no category filter.. | [optional] - always use empty strings("") instead of Null
  **nameFilter** | **string**| The name query string used for filtering attributes. The default is no filter.. | [optional] - always use empty strings("") instead of Null
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
- **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
+ **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
  **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'. | [optional] - always use empty strings("") instead of Null
  **templateName** | **string**| Specify that included attributes must be members of this template. The default is no template filter.. | [optional] - always use empty strings("") instead of Null
  **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional] - always use empty strings("") instead of Null
@@ -150,7 +154,7 @@ Name | Type | Description | Notes
  **categoryName** | **string**| Specify that included attributes must have this category. The default is no category filter.. | [optional] - always use empty strings("") instead of Null
  **nameFilter** | **string**| The name query string used for filtering attributes. The default is no filter.. | [optional] - always use empty strings("") instead of Null
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
- **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
+ **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
  **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'. | [optional] - always use empty strings("") instead of Null
  **templateName** | **string**| Specify that included attributes must be members of this template. The default is no template filter.. | [optional] - always use empty strings("") instead of Null
  **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional] - always use empty strings("") instead of Null
@@ -182,8 +186,8 @@ Name | Type | Description | Notes
  **interval** | **string**| The sampling interval, in AFTimeSpan format.. | [optional] - always use empty strings("") instead of Null
  **nameFilter** | **string**| The name query string used for filtering attributes. The default is no filter.. | [optional] - always use empty strings("") instead of Null
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
- **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
- **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'. | [optional] - always use empty strings("") instead of Null
+ **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
+ **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'.. | [optional] - always use empty strings("") instead of Null
  **startTime** | **string**| An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.. | [optional] - always use empty strings("") instead of Null
  **syncTime** | **string**| An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.. | [optional] - always use empty strings("") instead of Null
  **syncTimeBoundaryType** | **string**| An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.. | [optional] - always use empty strings("") instead of Null
@@ -218,8 +222,8 @@ Name | Type | Description | Notes
  **interval** | **string**| The sampling interval, in AFTimeSpan format.. | [optional] - always use empty strings("") instead of Null
  **nameFilter** | **string**| The name query string used for filtering attributes. The default is no filter.. | [optional] - always use empty strings("") instead of Null
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
- **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
- **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'. | [optional] - always use empty strings("") instead of Null
+ **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
+ **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'.. | [optional] - always use empty strings("") instead of Null
  **startTime** | **string**| An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.. | [optional] - always use empty strings("") instead of Null
  **syncTime** | **string**| An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.. | [optional] - always use empty strings("") instead of Null
  **syncTimeBoundaryType** | **string**| An optional string specifying the boundary type to use when applying a syncTime. The allowed values are 'Inside' and 'Outside'. The default is 'Inside'.. | [optional] - always use empty strings("") instead of Null
@@ -314,7 +318,7 @@ Name | Type | Description | Notes
  **endTime** | **string**| An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.. | [optional] - always use empty strings("") instead of Null
  **nameFilter** | **string**| The name query string used for filtering attributes. The default is no filter.. | [optional] - always use empty strings("") instead of Null
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
- **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
+ **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
  **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'. | [optional] - always use empty strings("") instead of Null
  **startTime** | **string**| An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.. | [optional] - always use empty strings("") instead of Null
  **templateName** | **string**| Specify that included attributes must be members of this template. The default is no template filter.. | [optional] - always use empty strings("") instead of Null
@@ -346,7 +350,7 @@ Name | Type | Description | Notes
  **endTime** | **string**| An optional end time. The default is '*' for element attributes and points. For event frame attributes, the default is the event frame's end time, or '*' if that is not set. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.. | [optional] - always use empty strings("") instead of Null
  **nameFilter** | **string**| The name query string used for filtering attributes. The default is no filter.. | [optional] - always use empty strings("") instead of Null
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
- **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
+ **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
  **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'. | [optional] - always use empty strings("") instead of Null
  **startTime** | **string**| An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.. | [optional] - always use empty strings("") instead of Null
  **templateName** | **string**| Specify that included attributes must be members of this template. The default is no template filter.. | [optional] - always use empty strings("") instead of Null
@@ -381,7 +385,7 @@ Name | Type | Description | Notes
  **filterExpression** | **string**| An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. The default is no filtering.. | [optional] - always use empty strings("") instead of Null
  **nameFilter** | **string**| The name query string used for filtering attributes. The default is no filter.. | [optional] - always use empty strings("") instead of Null
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
- **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
+ **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
  **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'. | [optional] - always use empty strings("") instead of Null
  **startTime** | **string**| An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.. | [optional] - always use empty strings("") instead of Null
  **templateName** | **string**| Specify that included attributes must be members of this template. The default is no template filter.. | [optional] - always use empty strings("") instead of Null
@@ -416,7 +420,7 @@ Name | Type | Description | Notes
  **filterExpression** | **string**| An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. The default is no filtering.. | [optional] - always use empty strings("") instead of Null
  **nameFilter** | **string**| The name query string used for filtering attributes. The default is no filter.. | [optional] - always use empty strings("") instead of Null
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
- **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
+ **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
  **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'. | [optional] - always use empty strings("") instead of Null
  **startTime** | **string**| An optional start time. The default is '*-1d' for element attributes and points. For event frame attributes, the default is the event frame's start time, or '*-1d' if that is not set.. | [optional] - always use empty strings("") instead of Null
  **templateName** | **string**| Specify that included attributes must be members of this template. The default is no template filter.. | [optional] - always use empty strings("") instead of Null
@@ -678,7 +682,7 @@ Name | Type | Description | Notes
  **categoryName** | **string**| Specify that included attributes must have this category. The default is no category filter.. | [optional] - always use empty strings("") instead of Null
  **nameFilter** | **string**| The name query string used for filtering attributes. The default is no filter.. | [optional] - always use empty strings("") instead of Null
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
- **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
+ **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
  **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'. | [optional] - always use empty strings("") instead of Null
  **templateName** | **string**| Specify that included attributes must be members of this template. The default is no template filter.. | [optional] - always use empty strings("") instead of Null
  **time** | **string**| An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.. | [optional] - always use empty strings("") instead of Null
@@ -708,7 +712,7 @@ Name | Type | Description | Notes
  **categoryName** | **string**| Specify that included attributes must have this category. The default is no category filter.. | [optional] - always use empty strings("") instead of Null
  **nameFilter** | **string**| The name query string used for filtering attributes. The default is no filter.. | [optional] - always use empty strings("") instead of Null
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
- **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
+ **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
  **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'. | [optional] - always use empty strings("") instead of Null
  **templateName** | **string**| Specify that included attributes must be members of this template. The default is no template filter.. | [optional] - always use empty strings("") instead of Null
  **time** | **string**| An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.. | [optional] - always use empty strings("") instead of Null
@@ -817,7 +821,7 @@ Name | Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
  **webIds** | **string**| The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.. | [required] - join strings separated by ','
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
- **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
+ **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
  **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'. | [optional] - always use empty strings("") instead of Null
  **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional] - always use empty strings("") instead of Null
 
@@ -839,7 +843,7 @@ Name | Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
  **webIds** | **string**| The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.. | [required] - join strings separated by ','
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
- **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
+ **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
  **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'. | [optional] - always use empty strings("") instead of Null
  **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional] - always use empty strings("") instead of Null
 
@@ -865,7 +869,7 @@ Name | Type | Description | Notes
  **filterExpression** | **string**| An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. If the attribute does not support filtering, the filter will be ignored. The default is no filtering.. | [optional] - always use empty strings("") instead of Null
  **interval** | **string**| The sampling interval, in AFTimeSpan format.. | [optional] - always use empty strings("") instead of Null
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
- **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
+ **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
  **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'. | [optional] - always use empty strings("") instead of Null
  **startTime** | **string**| An optional start time. The default is '*-1d'.. | [optional] - always use empty strings("") instead of Null
  **syncTime** | **string**| An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.. | [optional] - always use empty strings("") instead of Null
@@ -895,7 +899,7 @@ Name | Type | Description | Notes
  **filterExpression** | **string**| An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. If the attribute does not support filtering, the filter will be ignored. The default is no filtering.. | [optional] - always use empty strings("") instead of Null
  **interval** | **string**| The sampling interval, in AFTimeSpan format.. | [optional] - always use empty strings("") instead of Null
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
- **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
+ **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
  **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'. | [optional] - always use empty strings("") instead of Null
  **startTime** | **string**| An optional start time. The default is '*-1d'.. | [optional] - always use empty strings("") instead of Null
  **syncTime** | **string**| An optional start time anchor, in AFTime format. When specified, interpolated data retrieval will use the sync time as the origin for calculating the interval times.. | [optional] - always use empty strings("") instead of Null
@@ -973,7 +977,7 @@ Name | Type | Description | Notes
  **intervals** | **int**| The number of intervals to plot over. Typically, this would be the number of horizontal pixels in the trend. The default is '24'. For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).. | [required]
  **endTime** | **string**| An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.. | [optional] - always use empty strings("") instead of Null
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
- **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
+ **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
  **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'. | [optional] - always use empty strings("") instead of Null
  **startTime** | **string**| An optional start time. The default is '*-1d'.. | [optional] - always use empty strings("") instead of Null
  **timeZone** | **string**| The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.. | [optional] - always use empty strings("") instead of Null
@@ -999,7 +1003,7 @@ Name | Type | Description | Notes
  **intervals** | **int**| The number of intervals to plot over. Typically, this would be the number of horizontal pixels in the trend. The default is '24'. For each interval, the data available is examined and significant values are returned. Each interval can produce up to 5 values if they are unique, the first value in the interval, the last value, the highest value, the lowest value and at most one exceptional point (bad status or digital state).. | [required]
  **endTime** | **string**| An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.. | [optional] - always use empty strings("") instead of Null
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
- **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
+ **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
  **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'. | [optional] - always use empty strings("") instead of Null
  **startTime** | **string**| An optional start time. The default is '*-1d'.. | [optional] - always use empty strings("") instead of Null
  **timeZone** | **string**| The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.. | [optional] - always use empty strings("") instead of Null
@@ -1028,7 +1032,7 @@ Name | Type | Description | Notes
  **endTime** | **string**| An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.. | [optional] - always use empty strings("") instead of Null
  **filterExpression** | **string**| An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. The default is no filtering.. | [optional] - always use empty strings("") instead of Null
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
- **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
+ **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
  **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'. | [optional] - always use empty strings("") instead of Null
  **startTime** | **string**| An optional start time. The default is '*-1d'.. | [optional] - always use empty strings("") instead of Null
  **timeZone** | **string**| The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.. | [optional] - always use empty strings("") instead of Null
@@ -1057,7 +1061,7 @@ Name | Type | Description | Notes
  **endTime** | **string**| An optional end time. The default is '*'. Note that if endTime is earlier than startTime, the resulting values will be in time-descending order.. | [optional] - always use empty strings("") instead of Null
  **filterExpression** | **string**| An optional string containing a filter expression. Expression variables are relative to the data point. Use '.' to reference the containing attribute. The default is no filtering.. | [optional] - always use empty strings("") instead of Null
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
- **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
+ **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
  **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'. | [optional] - always use empty strings("") instead of Null
  **startTime** | **string**| An optional start time. The default is '*-1d'.. | [optional] - always use empty strings("") instead of Null
  **timeZone** | **string**| The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.. | [optional] - always use empty strings("") instead of Null
@@ -1264,6 +1268,86 @@ Name | Type | Description | Notes
 
 [[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
 
+# **RetrieveStreamSetUpdatesWithHttpInfo**
+> RetrieveStreamSetUpdatesWithHttpInfo(string markers, string selectedFields = null, string webIdType = null)
+
+Receive stream updates
+
+### Parameters
+
+Name | Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+ **markers** | **string**| Identifier of stream source and current position. Multiple markers may be specified with multiple instances of the parameter.. | [required] - join strings separated by ','
+ **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
+ **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional] - always use empty strings("") instead of Null
+
+
+### Return type
+
+[**ApiResponsePIItemsStreamUpdatesRetrieve**](../Response/ApiResponsePIItemsStreamUpdatesRetrieve.md)
+
+[[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
+
+# **RetrieveStreamSetUpdates**
+> RetrieveStreamSetUpdates(string markers, string selectedFields = null, string webIdType = null)
+
+Receive stream updates
+
+### Parameters
+
+Name | Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+ **markers** | **string**| Identifier of stream source and current position. Multiple markers may be specified with multiple instances of the parameter.. | [required] - join strings separated by ','
+ **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
+ **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional] - always use empty strings("") instead of Null
+
+
+### Return type
+
+[**PIItemsStreamUpdatesRetrieve**](../Model/PIItemsStreamUpdatesRetrieve.md)
+
+[[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
+
+# **RegisterStreamSetUpdatesWithHttpInfo**
+> RegisterStreamSetUpdatesWithHttpInfo(string webIds, string selectedFields = null, string webIdType = null)
+
+Register for stream updates
+
+### Parameters
+
+Name | Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+ **webIds** | **string**| The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.. | [required] - join strings separated by ','
+ **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
+ **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional] - always use empty strings("") instead of Null
+
+
+### Return type
+
+[**ApiResponsePIItemsStreamUpdatesRegister**](../Response/ApiResponsePIItemsStreamUpdatesRegister.md)
+
+[[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
+
+# **RegisterStreamSetUpdates**
+> RegisterStreamSetUpdates(string webIds, string selectedFields = null, string webIdType = null)
+
+Register for stream updates
+
+### Parameters
+
+Name | Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+ **webIds** | **string**| The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.. | [required] - join strings separated by ','
+ **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
+ **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional] - always use empty strings("") instead of Null
+
+
+### Return type
+
+[**PIItemsStreamUpdatesRegister**](../Model/PIItemsStreamUpdatesRegister.md)
+
+[[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
+
 # **GetValuesAdHocWithHttpInfo**
 > GetValuesAdHocWithHttpInfo(string webIds, string selectedFields = null, string sortField = null, string sortOrder = null, string time = null, string timeZone = null, string webIdType = null)
 
@@ -1275,7 +1359,7 @@ Name | Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
  **webIds** | **string**| The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.. | [required] - join strings separated by ','
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
- **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
+ **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
  **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'. | [optional] - always use empty strings("") instead of Null
  **time** | **string**| An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.. | [optional] - always use empty strings("") instead of Null
  **timeZone** | **string**| The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.. | [optional] - always use empty strings("") instead of Null
@@ -1299,7 +1383,7 @@ Name | Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
  **webIds** | **string**| The ID of a stream. Multiple streams may be specified with multiple instances of the parameter.. | [required] - join strings separated by ','
  **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
- **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, The default is unsorted. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
+ **sortField** | **string**| The field or property of the object used to sort the returned collection. For better performance, by default no sorting is applied. 'Name' is the only supported field by which to sort.. | [optional] - always use empty strings("") instead of Null
  **sortOrder** | **string**| The order that the returned collection is sorted. The default is 'Ascending'. | [optional] - always use empty strings("") instead of Null
  **time** | **string**| An AF time string, which is used as the time context to get stream values if it is provided. By default, it is not specified, and the default time context of the AF object will be used.. | [optional] - always use empty strings("") instead of Null
  **timeZone** | **string**| The time zone in which the time string will be interpreted. This parameter will be ignored if a time zone is specified in the time string. If no time zone is specified in either places, the PI Web API server time zone will be used.. | [optional] - always use empty strings("") instead of Null

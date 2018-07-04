@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Model
 {
 
-	[Guid("791A37BC-9FD6-4B11-A5DB-6E0A32DD41C5")]
+	[Guid("A498F3E4-B608-45CF-9048-34B5BCDF9972")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -93,14 +93,17 @@ namespace PIWebAPIWrapper.Model
 		string TraitName { get; set; }
 
 		[DispId(19)]
-		PIAttributeTemplateLinks Links { get; set; }
+		string DefaultUnitsNameAbbreviation { get; set; }
 
 		[DispId(20)]
+		PIAttributeTemplateLinks Links { get; set; }
+
+		[DispId(21)]
 		PIWebException WebException { get; set; }
 
 	}
 
-	[Guid("52114F70-1A10-4A32-8A90-AA0894F552D8")]
+	[Guid("15F151FC-0C3F-4FEE-9F4C-5616175D9794")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IPIAttributeTemplate))]
@@ -166,6 +169,9 @@ namespace PIWebAPIWrapper.Model
 
 		[DataMember(Name = "TraitName", EmitDefaultValue = false)]
 		public string TraitName { get; set; }
+
+		[DataMember(Name = "DefaultUnitsNameAbbreviation", EmitDefaultValue = false)]
+		public string DefaultUnitsNameAbbreviation { get; set; }
 
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
 		public PIAttributeTemplateLinks Links { get; set; }

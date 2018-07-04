@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Model
 {
 
-	[Guid("D07A629A-C9BF-43F3-92A8-77389469E51D")]
+	[Guid("A38F6FB5-BE59-41C7-A05B-B95758828224")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -92,9 +92,12 @@ namespace PIWebAPIWrapper.Model
 		[DispId(18)]
 		string SecurityEntries { get; set; }
 
+		[DispId(19)]
+		string NotificationRules { get; set; }
+
 	}
 
-	[Guid("9BA2FD6F-66BA-4A93-8F67-EEA607DCD3B3")]
+	[Guid("CCA65790-5BBA-42B4-9768-7D36715F6DCE")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IPIElementLinks))]
@@ -160,6 +163,9 @@ namespace PIWebAPIWrapper.Model
 
 		[DataMember(Name = "SecurityEntries", EmitDefaultValue = false)]
 		public string SecurityEntries { get; set; }
+
+		[DataMember(Name = "NotificationRules", EmitDefaultValue = false)]
+		public string NotificationRules { get; set; }
 
 	}
 }

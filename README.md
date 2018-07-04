@@ -1,12 +1,12 @@
-PI Web API Wrapper for VBA (2017 R2)
+PI Web API Wrapper for VBA (2018)
 ===
 
 ## Overview
-This repository has the source code package of the PI Web API Wrapper for VBA. This version was developed on top of the PI Web API 2017 R2 swagger specification. 
+This repository has the source code package of the PI Web API Wrapper for VBA. This version was developed on top of the PI Web API 2018 swagger specification. 
 
 ## Requirements
 
- - PI Web API 2017 R2 installed within your domain using Kerberos or Basic Authentication. If you are using an older version, some methods might not work.
+ - PI Web API 2018 installed within your domain using Kerberos or Basic Authentication. If you are using an older version, some methods might not work.
  - PI ProcessBook 2012 SP1+
  - .NET Framework 3.5  
 
@@ -185,9 +185,27 @@ If you want to use basic authentication instead of Kerberos, set useKerberos to 
     Set efs = client.AssetDatabase.GetEventFrames(db.webId, False, False, 100, True, 0, "", "*", "", elem.Name, elem.templateName, "", "", "None", "", "", "*-900", "", "")
 ```
 
+### Making calculations with expressions
+
+```vb# 
+    Dim expression As String
+	Dim values As PITimedValues
+    expression = "'cdt158'+tagval('sinusoid','*-1d')"
+    Set values = client.Calculation.GetAtTimes(expression, "", "", "*-1d, *-2d", webid)
+```
+
+
+### Generating WebID 2.0 on the client
+
+```vb# 
+    Dim dataServer As PIDataServer
+    webid = client.WebIdHelper.GenerateWebIdByPath("\\MARC-PI2016", "PIDataServer", "")
+    Set dataServer = client.DataServer.Get(webid)
+```
+
 
 ## Licensing
-Copyright 2017 OSIsoft, LLC.
+Copyright 2018 OSIsoft, LLC.
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Model
 {
 
-	[Guid("BCFEA709-7F67-4FF9-BB2D-2F83472CEC7F")]
+	[Guid("BADC775A-97DC-499F-A566-6B0B1FE473C3")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -45,29 +45,32 @@ namespace PIWebAPIWrapper.Model
 		string Databases { get; set; }
 
 		[DispId(3)]
-		string SecurityIdentities { get; set; }
+		string NotificationContactTemplates { get; set; }
 
 		[DispId(4)]
-		string SecurityMappings { get; set; }
+		string SecurityIdentities { get; set; }
 
 		[DispId(5)]
-		string UnitClasses { get; set; }
+		string SecurityMappings { get; set; }
 
 		[DispId(6)]
-		string AnalysisRulePlugIns { get; set; }
+		string UnitClasses { get; set; }
 
 		[DispId(7)]
-		string TimeRulePlugIns { get; set; }
+		string AnalysisRulePlugIns { get; set; }
 
 		[DispId(8)]
-		string Security { get; set; }
+		string TimeRulePlugIns { get; set; }
 
 		[DispId(9)]
+		string Security { get; set; }
+
+		[DispId(10)]
 		string SecurityEntries { get; set; }
 
 	}
 
-	[Guid("EC9AD28D-DD32-404B-8CE4-70270577E8F4")]
+	[Guid("5F1E32BE-F925-4B30-9F50-5BA8BC0076B0")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IPIAssetServerLinks))]
@@ -85,6 +88,9 @@ namespace PIWebAPIWrapper.Model
 
 		[DataMember(Name = "Databases", EmitDefaultValue = false)]
 		public string Databases { get; set; }
+
+		[DataMember(Name = "NotificationContactTemplates", EmitDefaultValue = false)]
+		public string NotificationContactTemplates { get; set; }
 
 		[DataMember(Name = "SecurityIdentities", EmitDefaultValue = false)]
 		public string SecurityIdentities { get; set; }

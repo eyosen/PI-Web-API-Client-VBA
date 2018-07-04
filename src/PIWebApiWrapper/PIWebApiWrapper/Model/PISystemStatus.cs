@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Model
 {
 
-	[Guid("33F54290-B898-45C1-806C-510E58BF2925")]
+	[Guid("941B19DE-4D41-41F0-ABA5-B96340AD45F7")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -48,11 +48,14 @@ namespace PIWebAPIWrapper.Model
 		int CacheInstances { get; set; }
 
 		[DispId(4)]
+		string ServerTime { get; set; }
+
+		[DispId(5)]
 		PIWebException WebException { get; set; }
 
 	}
 
-	[Guid("A1B62D28-34DB-4B02-AF51-083B8DC25A57")]
+	[Guid("5C6D1520-4384-4594-8BAC-624643283D4D")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IPISystemStatus))]
@@ -73,6 +76,9 @@ namespace PIWebAPIWrapper.Model
 
 		[DataMember(Name = "CacheInstances", EmitDefaultValue = false)]
 		public int CacheInstances { get; set; }
+
+		[DataMember(Name = "ServerTime", EmitDefaultValue = false)]
+		public string ServerTime { get; set; }
 
 		[DataMember(Name = "WebException", EmitDefaultValue = false)]
 		public PIWebException WebException { get; set; }

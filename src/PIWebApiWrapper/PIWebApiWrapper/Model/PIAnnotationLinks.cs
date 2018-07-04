@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Model
 {
 
-	[Guid("C8E6043C-ACB6-4087-AEA3-73C98AB29453")]
+	[Guid("7B8ECE38-9EC4-4BDB-AE37-4235BABBA0AB")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -44,9 +44,15 @@ namespace PIWebAPIWrapper.Model
 		[DispId(2)]
 		string Owner { get; set; }
 
+		[DispId(3)]
+		string MediaData { get; set; }
+
+		[DispId(4)]
+		string MediaMetadata { get; set; }
+
 	}
 
-	[Guid("1CEC559F-0BB8-4138-9358-415610B097CB")]
+	[Guid("FD16C4A5-F158-4972-9D4D-97F24787695E")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IPIAnnotationLinks))]
@@ -64,6 +70,12 @@ namespace PIWebAPIWrapper.Model
 
 		[DataMember(Name = "Owner", EmitDefaultValue = false)]
 		public string Owner { get; set; }
+
+		[DataMember(Name = "MediaData", EmitDefaultValue = false)]
+		public string MediaData { get; set; }
+
+		[DataMember(Name = "MediaMetadata", EmitDefaultValue = false)]
+		public string MediaMetadata { get; set; }
 
 	}
 }

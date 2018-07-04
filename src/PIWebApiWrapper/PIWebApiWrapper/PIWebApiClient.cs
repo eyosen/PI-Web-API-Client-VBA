@@ -1,6 +1,6 @@
 ﻿// ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -16,6 +16,7 @@
 
 using PIWebAPIWrapper.Api;
 using PIWebAPIWrapper.Client;
+using PIWebAPIWrapper.WebID;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -73,40 +74,51 @@ namespace PIWebAPIWrapper
         IEventFrameApi EventFrame { get; }
         [DispId(20)]
         IHomeApi Home { get; }
-        IPointApi Point { get; }
+        [DispId(21)]
+        INotificationContactTemplateApi NotificationContactTemplate { get; }
         [DispId(22)]
-        ISecurityIdentityApi SecurityIdentity { get; }
+        INotificationRuleApi NotificationRule { get; }
         [DispId(23)]
-        ISecurityMappingApi SecurityMapping { get; }
+        INotificationRuleSubscriberApi NotificationRuleSubscriber { get; }
         [DispId(24)]
-        IStreamApi Stream { get; }
+        INotificationRuleTemplateApi NotificationRuleTemplate { get; }
         [DispId(25)]
-        IStreamSetApi StreamSet { get; }
+        IPointApi Point { get; }
         [DispId(26)]
-        ISystemApi System { get; }
+        ISecurityIdentityApi SecurityIdentity { get; }
         [DispId(27)]
-        ITableApi Table { get; }
+        ISecurityMappingApi SecurityMapping { get; }
         [DispId(28)]
-        ITableCategoryApi TableCategory { get; }
+        IStreamApi Stream { get; }
         [DispId(29)]
-        ITimeRuleApi TimeRule { get; }
+        IStreamSetApi StreamSet { get; }
         [DispId(30)]
-        ITimeRulePlugInApi TimeRulePlugIn { get; }
+        ISystemApi System { get; }
         [DispId(31)]
-        IUnitApi Unit { get; }
+        ITableApi Table { get; }
         [DispId(32)]
-        IUnitClassApi UnitClass { get; }
-		
-		/// <summary>Get defined user name</summary>
+        ITableCategoryApi TableCategory { get; }
         [DispId(33)]
+        ITimeRuleApi TimeRule { get; }
+        [DispId(34)]
+        ITimeRulePlugInApi TimeRulePlugIn { get; }
+        [DispId(35)]
+        IUnitApi Unit { get; }
+        [DispId(36)]
+        IUnitClassApi UnitClass { get; }
+        [DispId(37)]
+        WebIdHelper WebIdHelper { get; }
+
+        /// <summary>Get defined user name</summary>
+        [DispId(38)]
         string UserName { get; }
 		
 		/// <summary>Get defined PI Web API base service url</summary>
-        [DispId(34)]
+        [DispId(39)]
         string BaseUrl { get; }
 		
 		/// <summary>Check if the authentication which is being used is Kerberos or Basic</summary>
-        [DispId(35)]
+        [DispId(40)]
         bool UseKerberos { get; }
 
     }
@@ -356,8 +368,6 @@ namespace PIWebAPIWrapper
             }
         }
 
-
-
         public IElementTemplateApi ElementTemplate
         {
             get
@@ -377,7 +387,6 @@ namespace PIWebAPIWrapper
             }
         }
 
-
         public IEnumerationValueApi EnumerationValue
         {
             get
@@ -396,13 +405,49 @@ namespace PIWebAPIWrapper
             }
         }
 
-
         public IHomeApi Home
         {
             get
             {
                 Configuration config = GetConfiguration(true);
                 return new HomeApi(config);
+            }
+        }
+
+
+        public INotificationContactTemplateApi NotificationContactTemplate
+        {
+            get
+            {
+                Configuration config = GetConfiguration(true);
+                return new NotificationContactTemplateApi(config);
+            }
+        }
+
+        public INotificationRuleApi NotificationRule
+        {
+            get
+            {
+                Configuration config = GetConfiguration(true);
+                return new NotificationRuleApi(config);
+            }
+        }
+
+        public INotificationRuleSubscriberApi NotificationRuleSubscriber
+        {
+            get
+            {
+                Configuration config = GetConfiguration(true);
+                return new NotificationRuleSubscriberApi(config);
+            }
+        }
+
+        public INotificationRuleTemplateApi NotificationRuleTemplate
+        {
+            get
+            {
+                Configuration config = GetConfiguration(true);
+                return new NotificationRuleTemplateApi(config);
             }
         }
 
@@ -415,8 +460,6 @@ namespace PIWebAPIWrapper
                 return new PointApi(config);
             }
         }
-
-
 
         public ISecurityIdentityApi SecurityIdentity
         {
@@ -514,6 +557,14 @@ namespace PIWebAPIWrapper
             {
                 Configuration config = GetConfiguration(true);
                 return new UnitClassApi(config);
+            }
+        }
+
+        public WebIdHelper WebIdHelper
+        {
+            get
+            {
+                return new WebIdHelper();
             }
         }
     }

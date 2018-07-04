@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Model
 {
 
-	[Guid("9AD6DAEB-6989-4625-B640-0945D82C71C0")]
+	[Guid("D0774C87-D5AA-47F7-89F2-2BAAA509DCAC")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -63,44 +63,56 @@ namespace PIWebAPIWrapper.Model
 		string DefaultUnitsName { get; set; }
 
 		[DispId(9)]
-		string DataReferencePlugIn { get; set; }
+		int DisplayDigits { get; set; }
 
 		[DispId(10)]
-		string ConfigString { get; set; }
+		string DataReferencePlugIn { get; set; }
 
 		[DispId(11)]
-		bool IsConfigurationItem { get; set; }
+		string ConfigString { get; set; }
 
 		[DispId(12)]
-		bool IsExcluded { get; set; }
+		bool IsConfigurationItem { get; set; }
 
 		[DispId(13)]
-		bool IsHidden { get; set; }
+		bool IsExcluded { get; set; }
 
 		[DispId(14)]
-		bool IsManualDataEntry { get; set; }
+		bool IsHidden { get; set; }
 
 		[DispId(15)]
-		bool HasChildren { get; set; }
+		bool IsManualDataEntry { get; set; }
 
 		[DispId(16)]
-		string[] CategoryNames { get; set; }
+		bool HasChildren { get; set; }
 
 		[DispId(17)]
-		bool Step { get; set; }
+		string[] CategoryNames { get; set; }
 
 		[DispId(18)]
-		string TraitName { get; set; }
+		bool Step { get; set; }
 
 		[DispId(19)]
-		PIAttributeLinks Links { get; set; }
+		string TraitName { get; set; }
 
 		[DispId(20)]
+		string DefaultUnitsNameAbbreviation { get; set; }
+
+		[DispId(21)]
+		double Span { get; set; }
+
+		[DispId(22)]
+		double Zero { get; set; }
+
+		[DispId(23)]
+		PIAttributeLinks Links { get; set; }
+
+		[DispId(24)]
 		PIWebException WebException { get; set; }
 
 	}
 
-	[Guid("147DEF27-7F28-4F06-AB5D-4FCF013525B3")]
+	[Guid("1EF21DE3-15AC-421F-B1CF-D66D3C0189A3")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IPIAttribute))]
@@ -137,6 +149,9 @@ namespace PIWebAPIWrapper.Model
 		[DataMember(Name = "DefaultUnitsName", EmitDefaultValue = false)]
 		public string DefaultUnitsName { get; set; }
 
+		[DataMember(Name = "DisplayDigits", EmitDefaultValue = false)]
+		public int DisplayDigits { get; set; }
+
 		[DataMember(Name = "DataReferencePlugIn", EmitDefaultValue = false)]
 		public string DataReferencePlugIn { get; set; }
 
@@ -166,6 +181,15 @@ namespace PIWebAPIWrapper.Model
 
 		[DataMember(Name = "TraitName", EmitDefaultValue = false)]
 		public string TraitName { get; set; }
+
+		[DataMember(Name = "DefaultUnitsNameAbbreviation", EmitDefaultValue = false)]
+		public string DefaultUnitsNameAbbreviation { get; set; }
+
+		[DataMember(Name = "Span", EmitDefaultValue = false)]
+		public double Span { get; set; }
+
+		[DataMember(Name = "Zero", EmitDefaultValue = false)]
+		public double Zero { get; set; }
 
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
 		public PIAttributeLinks Links { get; set; }

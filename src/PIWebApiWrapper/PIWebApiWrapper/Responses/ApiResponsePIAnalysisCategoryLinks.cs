@@ -27,7 +27,7 @@ using PIWebAPIWrapper.Model;
 
 namespace PIWebAPIWrapper.Responses
 {
-	[Guid("149AF188-2DA3-4452-A51E-1AF5BFE048F3")]
+	[Guid("EC211E85-960D-4500-80AA-BF26502F2BE6")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -40,7 +40,7 @@ namespace PIWebAPIWrapper.Responses
 		int StatusCode { get; set; }
 	}
 
-	[Guid("7F746E44-5E0C-434E-90AB-68D40CD56B81")]
+	[Guid("FE342759-2329-434E-B71C-D9BCE16E8D49")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IApiResponsePIAnalysisCategoryLinks))]

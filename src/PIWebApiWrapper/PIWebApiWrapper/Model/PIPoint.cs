@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Model
 {
 
-	[Guid("FD4337F6-517D-441B-861F-E61CC7E33540")]
+	[Guid("C06240B9-C190-4A23-8AF5-F6D002B6F0AA")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -63,23 +63,32 @@ namespace PIWebAPIWrapper.Model
 		string DigitalSetName { get; set; }
 
 		[DispId(9)]
-		string EngineeringUnits { get; set; }
+		double Span { get; set; }
 
 		[DispId(10)]
-		bool Step { get; set; }
+		double Zero { get; set; }
 
 		[DispId(11)]
-		bool Future { get; set; }
+		string EngineeringUnits { get; set; }
 
 		[DispId(12)]
-		PIPointLinks Links { get; set; }
+		bool Step { get; set; }
 
 		[DispId(13)]
+		bool Future { get; set; }
+
+		[DispId(14)]
+		int DisplayDigits { get; set; }
+
+		[DispId(15)]
+		PIPointLinks Links { get; set; }
+
+		[DispId(16)]
 		PIWebException WebException { get; set; }
 
 	}
 
-	[Guid("AF435DBF-51A2-44BF-982C-081A990E542B")]
+	[Guid("27A55A85-D974-4DB5-A884-CD359F436026")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IPIPoint))]
@@ -116,6 +125,12 @@ namespace PIWebAPIWrapper.Model
 		[DataMember(Name = "DigitalSetName", EmitDefaultValue = false)]
 		public string DigitalSetName { get; set; }
 
+		[DataMember(Name = "Span", EmitDefaultValue = false)]
+		public double Span { get; set; }
+
+		[DataMember(Name = "Zero", EmitDefaultValue = false)]
+		public double Zero { get; set; }
+
 		[DataMember(Name = "EngineeringUnits", EmitDefaultValue = false)]
 		public string EngineeringUnits { get; set; }
 
@@ -124,6 +139,9 @@ namespace PIWebAPIWrapper.Model
 
 		[DataMember(Name = "Future", EmitDefaultValue = false)]
 		public bool Future { get; set; }
+
+		[DataMember(Name = "DisplayDigits", EmitDefaultValue = false)]
+		public int DisplayDigits { get; set; }
 
 		[DataMember(Name = "Links", EmitDefaultValue = false)]
 		public PIPointLinks Links { get; set; }

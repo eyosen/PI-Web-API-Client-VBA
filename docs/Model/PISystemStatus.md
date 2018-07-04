@@ -6,6 +6,7 @@ Name | Type | Notes
 **UpTimeInMinutes** | **double**
 **State** | **string**
 **CacheInstances** | **int**
+**ServerTime** | **string**
 **WebException** | **[**PIWebException**](../Model/PIWebException.md)**
 
 ## Methods

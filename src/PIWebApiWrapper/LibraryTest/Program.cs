@@ -1,6 +1,6 @@
 ﻿// ************************************************************************
 //
-// * Copyright 2017 OSIsoft, LLC
+// * Copyright 2018 OSIsoft, LLC
 // * Licensed under the Apache License, Version 2.0 (the "License");
 // * you may not use this file except in compliance with the License.
 // * You may obtain a copy of the License at
@@ -18,9 +18,11 @@
 using PIWebAPIWrapper;
 using PIWebAPIWrapper.Model;
 using PIWebAPIWrapper.Responses;
+using PIWebAPIWrapper.WebID;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 
 
@@ -30,8 +32,10 @@ namespace LibraryTest
     {
         static void Main(string[] args)
         {
+            ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
             PIWebApiClient client = new PIWebApiClient();
-            bool connectionTest = client.Connect("https://marc-web-sql.marc.net/piwebapi", true);
+            string webId43 = client.WebIdHelper.GenerateWebIdByPath("\\\\MARC-PI2016\\SINUSOID", "PIPoint", null);
+            bool connectionTest = client.Connect("https://marc-rras.osisoft.int/piwebapi", false, "marc.adm", "kk");
             if (connectionTest == false)
             {
                 return;
@@ -56,7 +60,7 @@ namespace LibraryTest
             PIPoint point1 = client.Point.GetByPath("\\\\marc-pi2016\\sinusoid");
             PIPoint point2 = client.Point.GetByPath("\\\\marc-pi2016\\sinusoidu");
             PIPoint point3 = client.Point.GetByPath("\\\\marc-pi2016\\cdt158");
-            string webIds = point1.WebId + "," + point1.WebId + "," + point1.WebId;
+            string webIds = point1.WebId + "," + point2.WebId + "," + point3.WebId;
             PIItemsStreamValues piItemsStreamValues = client.StreamSet.GetRecordedAdHoc(webIds, true, 10000);
             for (int i = 0; i < piItemsStreamValues.GetItemsLength(); i++)
             {
@@ -122,6 +126,23 @@ namespace LibraryTest
             PIAttribute attribute = client.Attribute.GetByPath(string.Format("{0}|{1}", "\\\\MARC-PI2016\\CrossPlatformLab\\marc.adm", attributes.Items[0].Name));
             PITimedValue value = client.Stream.GetEnd(attribute.WebId);
             Console.WriteLine(value);
+
+
+
+            string expression = "'sinusoid'*2 + 'cdt158'";
+            PITimedValues values1 = client.Calculation.GetAtTimes(webId: dataServer.WebId, expression: expression, times: "*-1d, *-2d");
+
+            string expression2 = "'cdt158'+tagval('sinusoid','*-1d')";
+            PITimedValues values2 = client.Calculation.GetAtTimes(webId: dataServer.WebId, expression: expression2, times: "*-1d, *-2d");
+
+            PIItemsSummaryValue itemsSummaryValue = client.Calculation.GetSummary(expression: expression2, startTime: "*-1d", endTime: "*", webId: dataServer.WebId,
+                summaryTypes:  "Average, Maximum");
+
+            
+
+            //Get the attribute's end of the stream value
+            PITimedValue newValue = client.Stream.GetEnd(attribute.WebId);
+
         }
     }
 }

@@ -62,7 +62,9 @@
     <Compile Include="Api\AttributeCategoryApi.cs" />
     <Compile Include="Api\AttributeTemplateApi.cs" />
     <Compile Include="Api\AttributeTraitApi.cs" />
+    <Compile Include="Api\BatchApi.cs" />
     <Compile Include="Api\CalculationApi.cs" />
+    <Compile Include="Api\ConfigurationApi.cs" />
     <Compile Include="Api\DataServerApi.cs" />
     <Compile Include="Api\ElementApi.cs" />
     <Compile Include="Api\ElementCategoryApi.cs" />
@@ -71,6 +73,10 @@
     <Compile Include="Api\EnumerationValueApi.cs" />
     <Compile Include="Api\EventFrameApi.cs" />
     <Compile Include="Api\HomeApi.cs" />
+    <Compile Include="Api\NotificationContactTemplateApi.cs" />
+    <Compile Include="Api\NotificationRuleApi.cs" />
+    <Compile Include="Api\NotificationRuleSubscriberApi.cs" />
+    <Compile Include="Api\NotificationRuleTemplateApi.cs" />
     <Compile Include="Api\PointApi.cs" />
     <Compile Include="Api\SecurityIdentityApi.cs" />
     <Compile Include="Api\SecurityMappingApi.cs" />
@@ -92,9 +98,9 @@
     <Compile Include="Client\IValidatableObject.cs" />
     <Compile Include="Client\ValidationContext.cs" />
     <Compile Include="Client\ValidationResult.cs" />
-    <Compile Include="ConfigurationApi.cs" />
-    <Compile Include="CustomDictionaryForQueryString.cs" />
+    <Compile Include="Client\CustomDictionaryForQueryString.cs" />
     <Compile Include="Client\ExtensionMethods.cs" />
+    <Compile Include="Model\PIAmbiguous.cs" />
     <Compile Include="Model\PIAnalysis.cs" />
     <Compile Include="Model\PIAnalysisCategory.cs" />
     <Compile Include="Model\PIAnalysisCategoryLinks.cs" />
@@ -121,6 +127,7 @@
     <Compile Include="Model\PIAttributeTraitLinks.cs" />
     <Compile Include="Model\PICacheInstance.cs" />
     <Compile Include="Model\PIChannelInstance.cs" />
+    <Compile Include="Model\PIDataPipeEvent.cs" />
     <Compile Include="Model\PIDataServer.cs" />
     <Compile Include="Model\PIDataServerLicense.cs" />
     <Compile Include="Model\PIDataServerLicenseLinks.cs" />
@@ -138,6 +145,8 @@
     <Compile Include="Model\PIErrors.cs" />
     <Compile Include="Model\PIEventFrame.cs" />
     <Compile Include="Model\PIEventFrameLinks.cs" />
+    <Compile Include="Model\PIExtendedTimedValue.cs" />
+    <Compile Include="Model\PIExtendedTimedValues.cs" />
     <Compile Include="Model\PIItemAttribute.cs" />
     <Compile Include="Model\PIItemElement.cs" />
     <Compile Include="Model\PIItemEventFrame.cs" />
@@ -168,6 +177,10 @@
     <Compile Include="Model\PIItemsItemEventFrame.cs" />
     <Compile Include="Model\PIItemsItemPoint.cs" />
     <Compile Include="Model\PIItemsItemsSubstatus.cs" />
+    <Compile Include="Model\PIItemsNotificationContactTemplate.cs" />
+    <Compile Include="Model\PIItemsNotificationRule.cs" />
+    <Compile Include="Model\PIItemsNotificationRuleSubscriber.cs" />
+    <Compile Include="Model\PIItemsNotificationRuleTemplate.cs" />
     <Compile Include="Model\PIItemsPoint.cs" />
     <Compile Include="Model\PIItemsPointAttribute.cs" />
     <Compile Include="Model\PIItemsSecurityEntry.cs" />
@@ -175,8 +188,11 @@
     <Compile Include="Model\PIItemsSecurityMapping.cs" />
     <Compile Include="Model\PIItemsSecurityRights.cs" />
     <Compile Include="Model\PIItemsStreamSummaries.cs" />
+    <Compile Include="Model\PIItemsStreamUpdatesRegister.cs" />
+    <Compile Include="Model\PIItemsStreamUpdatesRetrieve.cs" />
     <Compile Include="Model\PIItemsStreamValue.cs" />
     <Compile Include="Model\PIItemsStreamValues.cs" />
+    <Compile Include="Model\PIItemsstring.cs" />
     <Compile Include="Model\PIItemsSubstatus.cs" />
     <Compile Include="Model\PIItemsSummaryValue.cs" />
     <Compile Include="Model\PIItemsTable.cs" />
@@ -185,6 +201,13 @@
     <Compile Include="Model\PIItemsUnitClass.cs" />
     <Compile Include="Model\PILanding.cs" />
     <Compile Include="Model\PILandingLinks.cs" />
+    <Compile Include="Model\PIMediaMetadata.cs" />
+    <Compile Include="Model\PIMediaMetadataLinks.cs" />
+    <Compile Include="Model\PINotificationContactTemplate.cs" />
+    <Compile Include="Model\PINotificationContactTemplateLinks.cs" />
+    <Compile Include="Model\PINotificationRule.cs" />
+    <Compile Include="Model\PINotificationRuleSubscriber.cs" />
+    <Compile Include="Model\PINotificationRuleTemplate.cs" />
     <Compile Include="Model\PIPaginationLinks.cs" />
     <Compile Include="Model\PIPoint.cs" />
     <Compile Include="Model\PIPointAttribute.cs" />
@@ -204,8 +227,11 @@
     <Compile Include="Model\PISecurityMappingLinks.cs" />
     <Compile Include="Model\PISecurityRights.cs" />
     <Compile Include="Model\PISecurityRightsLinks.cs" />
+    <Compile Include="Model\PIStreamAnnotation.cs" />
     <Compile Include="Model\PIStreamSummaries.cs" />
     <Compile Include="Model\PIStreamSummariesLinks.cs" />
+    <Compile Include="Model\PIStreamUpdatesRegister.cs" />
+    <Compile Include="Model\PIStreamUpdatesRetrieve.cs" />
     <Compile Include="Model\PIStreamValue.cs" />
     <Compile Include="Model\PIStreamValueLinks.cs" />
     <Compile Include="Model\PIStreamValues.cs" />
@@ -238,6 +264,7 @@
     <Compile Include="PIWebApiClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Responses\ApiResponseObject.cs" />
+    <Compile Include="Responses\ApiResponsePIAmbiguous.cs" />
     <Compile Include="Responses\ApiResponsePIAnalysis.cs" />
     <Compile Include="Responses\ApiResponsePIAnalysisCategory.cs" />
     <Compile Include="Responses\ApiResponsePIAnalysisCategoryLinks.cs" />
@@ -264,6 +291,7 @@
     <Compile Include="Responses\ApiResponsePIAttributeTraitLinks.cs" />
     <Compile Include="Responses\ApiResponsePICacheInstance.cs" />
     <Compile Include="Responses\ApiResponsePIChannelInstance.cs" />
+    <Compile Include="Responses\ApiResponsePIDataPipeEvent.cs" />
     <Compile Include="Responses\ApiResponsePIDataServer.cs" />
     <Compile Include="Responses\ApiResponsePIDataServerLicense.cs" />
     <Compile Include="Responses\ApiResponsePIDataServerLicenseLinks.cs" />
@@ -281,6 +309,8 @@
     <Compile Include="Responses\ApiResponsePIErrors.cs" />
     <Compile Include="Responses\ApiResponsePIEventFrame.cs" />
     <Compile Include="Responses\ApiResponsePIEventFrameLinks.cs" />
+    <Compile Include="Responses\ApiResponsePIExtendedTimedValue.cs" />
+    <Compile Include="Responses\ApiResponsePIExtendedTimedValues.cs" />
     <Compile Include="Responses\ApiResponsePIItemAttribute.cs" />
     <Compile Include="Responses\ApiResponsePIItemElement.cs" />
     <Compile Include="Responses\ApiResponsePIItemEventFrame.cs" />
@@ -311,6 +341,10 @@
     <Compile Include="Responses\ApiResponsePIItemsItemEventFrame.cs" />
     <Compile Include="Responses\ApiResponsePIItemsItemPoint.cs" />
     <Compile Include="Responses\ApiResponsePIItemsItemsSubstatus.cs" />
+    <Compile Include="Responses\ApiResponsePIItemsNotificationContactTemplate.cs" />
+    <Compile Include="Responses\ApiResponsePIItemsNotificationRule.cs" />
+    <Compile Include="Responses\ApiResponsePIItemsNotificationRuleSubscriber.cs" />
+    <Compile Include="Responses\ApiResponsePIItemsNotificationRuleTemplate.cs" />
     <Compile Include="Responses\ApiResponsePIItemsPoint.cs" />
     <Compile Include="Responses\ApiResponsePIItemsPointAttribute.cs" />
     <Compile Include="Responses\ApiResponsePIItemsSecurityEntry.cs" />
@@ -318,8 +352,11 @@
     <Compile Include="Responses\ApiResponsePIItemsSecurityMapping.cs" />
     <Compile Include="Responses\ApiResponsePIItemsSecurityRights.cs" />
     <Compile Include="Responses\ApiResponsePIItemsStreamSummaries.cs" />
+    <Compile Include="Responses\ApiResponsePIItemsStreamUpdatesRegister.cs" />
+    <Compile Include="Responses\ApiResponsePIItemsStreamUpdatesRetrieve.cs" />
     <Compile Include="Responses\ApiResponsePIItemsStreamValue.cs" />
     <Compile Include="Responses\ApiResponsePIItemsStreamValues.cs" />
+    <Compile Include="Responses\ApiResponsePIItemsstring.cs" />
     <Compile Include="Responses\ApiResponsePIItemsSubstatus.cs" />
     <Compile Include="Responses\ApiResponsePIItemsSummaryValue.cs" />
     <Compile Include="Responses\ApiResponsePIItemsTable.cs" />
@@ -328,6 +365,13 @@
     <Compile Include="Responses\ApiResponsePIItemsUnitClass.cs" />
     <Compile Include="Responses\ApiResponsePILanding.cs" />
     <Compile Include="Responses\ApiResponsePILandingLinks.cs" />
+    <Compile Include="Responses\ApiResponsePIMediaMetadata.cs" />
+    <Compile Include="Responses\ApiResponsePIMediaMetadataLinks.cs" />
+    <Compile Include="Responses\ApiResponsePINotificationContactTemplate.cs" />
+    <Compile Include="Responses\ApiResponsePINotificationContactTemplateLinks.cs" />
+    <Compile Include="Responses\ApiResponsePINotificationRule.cs" />
+    <Compile Include="Responses\ApiResponsePINotificationRuleSubscriber.cs" />
+    <Compile Include="Responses\ApiResponsePINotificationRuleTemplate.cs" />
     <Compile Include="Responses\ApiResponsePIPaginationLinks.cs" />
     <Compile Include="Responses\ApiResponsePIPoint.cs" />
     <Compile Include="Responses\ApiResponsePIPointAttribute.cs" />
@@ -347,8 +391,11 @@
     <Compile Include="Responses\ApiResponsePISecurityMappingLinks.cs" />
     <Compile Include="Responses\ApiResponsePISecurityRights.cs" />
     <Compile Include="Responses\ApiResponsePISecurityRightsLinks.cs" />
+    <Compile Include="Responses\ApiResponsePIStreamAnnotation.cs" />
     <Compile Include="Responses\ApiResponsePIStreamSummaries.cs" />
     <Compile Include="Responses\ApiResponsePIStreamSummariesLinks.cs" />
+    <Compile Include="Responses\ApiResponsePIStreamUpdatesRegister.cs" />
+    <Compile Include="Responses\ApiResponsePIStreamUpdatesRetrieve.cs" />
     <Compile Include="Responses\ApiResponsePIStreamValue.cs" />
     <Compile Include="Responses\ApiResponsePIStreamValueLinks.cs" />
     <Compile Include="Responses\ApiResponsePIStreamValues.cs" />
@@ -378,6 +425,7 @@
     <Compile Include="Responses\ApiResponsePIValueQuery.cs" />
     <Compile Include="Responses\ApiResponsePIVersion.cs" />
     <Compile Include="Responses\ApiResponsePIWebException.cs" />
+    <Compile Include="WebID\WebIdHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

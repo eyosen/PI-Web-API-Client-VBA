@@ -10,6 +10,7 @@ Name | Type | Notes
 **Path** | **string**
 **IsConnected** | **bool**
 **ServerVersion** | **string**
+**ServerTime** | **string**
 **ExtendedProperties** | **[**object**](../Model/Object.md)**
 **Links** | **[**PIAssetServerLinks**](../Model/PIAssetServerLinks.md)**
 **WebException** | **[**PIWebException**](../Model/PIWebException.md)**

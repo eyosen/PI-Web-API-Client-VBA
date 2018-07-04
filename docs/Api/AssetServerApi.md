@@ -16,6 +16,8 @@ Method | HTTP request | Description
 [**GetDatabasesWithHttpInfo**](AssetServerApi.md#getdatabaseswithhttpinfo) | **GET** /assetservers/{webId}/assetdatabases | Retrieve a list of all Asset Databases on the specified Asset Server.
 [**CreateAssetDatabase**](AssetServerApi.md#createassetdatabase) | **POST** /assetservers/{webId}/assetdatabases | Create an asset database.
 [**CreateAssetDatabaseWithHttpInfo**](AssetServerApi.md#createassetdatabasewithhttpinfo) | **POST** /assetservers/{webId}/assetdatabases | Create an asset database.
+[**GetNotificationContactTemplates**](AssetServerApi.md#getnotificationcontacttemplates) | **GET** /assetservers/{webId}/notificationcontacttemplates | Retrieve a list of all notification contact templates on the specified Asset Server.
+[**GetNotificationContactTemplatesWithHttpInfo**](AssetServerApi.md#getnotificationcontacttemplateswithhttpinfo) | **GET** /assetservers/{webId}/notificationcontacttemplates | Retrieve a list of all notification contact templates on the specified Asset Server.
 [**GetSecurity**](AssetServerApi.md#getsecurity) | **GET** /assetservers/{webId}/security | Get the security information of the specified security item associated with the asset server for a specified user.
 [**GetSecurityWithHttpInfo**](AssetServerApi.md#getsecuritywithhttpinfo) | **GET** /assetservers/{webId}/security | Get the security information of the specified security item associated with the asset server for a specified user.
 [**GetSecurityEntries**](AssetServerApi.md#getsecurityentries) | **GET** /assetservers/{webId}/securityentries | Retrieve the security entries of the specified security item associated with the asset server based on the specified criteria. By default, all security entries for this asset server are returned.
@@ -321,6 +323,46 @@ Name | Type | Description | Notes
 ### Return type
 
 [**Object**](../Model/Object.md)
+
+[[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
+
+# **GetNotificationContactTemplatesWithHttpInfo**
+> GetNotificationContactTemplatesWithHttpInfo(string webId, string selectedFields = null, string webIdType = null)
+
+Retrieve a list of all notification contact templates on the specified Asset Server.
+
+### Parameters
+
+Name | Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+ **webId** | **string**| The ID of the server.. | [required]
+ **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
+ **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional] - always use empty strings("") instead of Null
+
+
+### Return type
+
+[**ApiResponsePIItemsNotificationContactTemplate**](../Response/ApiResponsePIItemsNotificationContactTemplate.md)
+
+[[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
+
+# **GetNotificationContactTemplates**
+> GetNotificationContactTemplates(string webId, string selectedFields = null, string webIdType = null)
+
+Retrieve a list of all notification contact templates on the specified Asset Server.
+
+### Parameters
+
+Name | Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+ **webId** | **string**| The ID of the server.. | [required]
+ **selectedFields** | **string**| List of fields to be returned in the response, separated by semicolons (;). If this parameter is not specified, all available fields will be returned.. | [optional] - always use empty strings("") instead of Null
+ **webIdType** | **string**| Optional parameter. Used to specify the type of WebID. Useful for URL brevity and other special cases. Default is the value of the configuration item "WebIDType".. | [optional] - always use empty strings("") instead of Null
+
+
+### Return type
+
+[**PIItemsNotificationContactTemplate**](../Model/PIItemsNotificationContactTemplate.md)
 
 [[Back to top]](#) [[Back to API list]](../../DOCUMENTATION.md#documentation-for-api-endpoints) [[Back to Model list]](../../DOCUMENTATION.md#documentation-for-models) [[Back to DOCUMENTATION]](../../DOCUMENTATION.md)
 

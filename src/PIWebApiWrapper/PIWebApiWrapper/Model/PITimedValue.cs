@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 namespace PIWebAPIWrapper.Model
 {
 
-	[Guid("A18A6135-8183-48C5-93DE-D4E48F480A51")]
+	[Guid("7BE96AAB-4AC8-426B-B243-94B654DC7147")]
 	[ComVisible(true)]
 	[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 
@@ -54,26 +54,29 @@ namespace PIWebAPIWrapper.Model
 		bool Substituted { get; set; }
 
 		[DispId(6)]
-		object Value { get; set; }
+		bool Annotated { get; set; }
 
 		[DispId(7)]
-		void SetValueWithString(string value);
+		object Value { get; set; }
 
 		[DispId(8)]
-		void SetValueWithInt(int value);
+		void SetValueWithString(string value);
 
 		[DispId(9)]
-		void SetValueWithDouble(double value);
+		void SetValueWithInt(int value);
 
 		[DispId(10)]
-		PIPropertyError[] Errors { get; set; }
+		void SetValueWithDouble(double value);
 
 		[DispId(11)]
+		PIPropertyError[] Errors { get; set; }
+
+		[DispId(12)]
 		PIWebException WebException { get; set; }
 
 	}
 
-	[Guid("2E8B60D5-59A9-4F06-BC16-F3A8B5926309")]
+	[Guid("2844E887-DB44-4A70-9B5D-32256AEA57D2")]
 	[ComVisible(true)]
 	[ClassInterface(ClassInterfaceType.None)]
 	[ComSourceInterfaces(typeof(IPITimedValue))]
@@ -100,6 +103,9 @@ namespace PIWebAPIWrapper.Model
 
 		[DataMember(Name = "Substituted", EmitDefaultValue = false)]
 		public bool Substituted { get; set; }
+
+		[DataMember(Name = "Annotated", EmitDefaultValue = false)]
+		public bool Annotated { get; set; }
 
 		[DataMember(Name = "Value", EmitDefaultValue = false)]
 		public object Value { get; set; }
