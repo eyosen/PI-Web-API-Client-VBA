@@ -25,17 +25,20 @@ namespace PIWebAPIWrapper.Client
         private List<KeyValuePair<String, String>> items = new List<KeyValuePair<String, String>>();
         public void Add(string key, object value, bool isMulti)
         {
-            if (isMulti == true)
+            if ((value != null) && (value.ToString() != ""))
             {
-                string[] valueList = Convert.ToString(value).Split(',');
-                foreach (var val in valueList)
+                if (isMulti == true)
                 {
-                    items.Add(new KeyValuePair<string, string>(key, val.Trim()));
+                    string[] valueList = Convert.ToString(value).Split(',');
+                    foreach (var val in valueList)
+                    {
+                        items.Add(new KeyValuePair<string, string>(key, val.Trim()));
+                    }
                 }
-            }
-            else
-            {
-                items.Add(new KeyValuePair<string, string>(key, value.ToString()));
+                else
+                {
+                    items.Add(new KeyValuePair<string, string>(key, value.ToString()));
+                }
             }
         }
 

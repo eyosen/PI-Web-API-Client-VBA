@@ -32,10 +32,9 @@ namespace LibraryTest
     {
         static void Main(string[] args)
         {
-            ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
             PIWebApiClient client = new PIWebApiClient();
-            string webId43 = client.WebIdHelper.GenerateWebIdByPath("\\\\MARC-PI2016\\SINUSOID", "PIPoint", null);
-            bool connectionTest = client.Connect("https://marc-rras.osisoft.int/piwebapi", false, "marc.adm", "kk");
+
+            bool connectionTest = client.Connect("https://marc-web-sql.marc.net/piwebapi", true);
             if (connectionTest == false)
             {
                 return;
@@ -54,6 +53,8 @@ namespace LibraryTest
             createdPoint.PointClass = null;
             createdPoint.PointType = null;
             createdPoint.WebId = null;
+            createdPoint.Span = 0;
+            createdPoint.Zero = 0;
             ApiResponseObject response = client.Point.UpdateWithHttpInfo(webId, createdPoint);
             Console.WriteLine(response.StatusCode);
 
@@ -118,7 +119,7 @@ namespace LibraryTest
             streamValuesItems.SetItem(2, streamValue3);
 
             ApiResponsePIItemsItemsSubstatus responsee = client.StreamSet.UpdateValuesAdHocWithHttpInfo(streamValuesItems);
-          
+
             PIElement myElement = client.Element.GetByPath("\\\\MARC-PI2016\\CrossPlatformLab\\marc.adm");
             Console.WriteLine(myElement.Description);
             PIItemsAttribute attributes = client.Element.GetAttributes(myElement.WebId, 1000, false, false, false, 0);
@@ -136,12 +137,34 @@ namespace LibraryTest
             PITimedValues values2 = client.Calculation.GetAtTimes(webId: dataServer.WebId, expression: expression2, times: "*-1d, *-2d");
 
             PIItemsSummaryValue itemsSummaryValue = client.Calculation.GetSummary(expression: expression2, startTime: "*-1d", endTime: "*", webId: dataServer.WebId,
-                summaryTypes:  "Average, Maximum");
+                summaryTypes: "Average, Maximum");
 
-            
+
 
             //Get the attribute's end of the stream value
             PITimedValue newValue = client.Stream.GetEnd(attribute.WebId);
+
+
+            //Stream Updates
+            PIItemsStreamUpdatesRegister piItemsStreamUpdatesRegister = client.StreamSet.RegisterStreamSetUpdates(webIds);
+            List<string> markersList = piItemsStreamUpdatesRegister.Items.Select(i => i.LatestMarker).ToList();
+            string markers = String.Join(",", markersList.ToArray());
+            int k = 3;
+            while (k > 0)
+            {
+                PIItemsStreamUpdatesRetrieve piItemsStreamUpdatesRetrieve = client.StreamSet.RetrieveStreamSetUpdates(markers);
+                markersList = piItemsStreamUpdatesRetrieve.Items.Select(i => i.LatestMarker).ToList();
+                markers = String.Join(",", markersList.ToArray());
+                foreach (PIStreamUpdatesRetrieve item in piItemsStreamUpdatesRetrieve.Items)
+                {
+                    foreach (PIDataPipeEvent piEvent in item.Events)
+                    {
+                        Console.WriteLine("Action={0}, Value={1}, SourcePath={2}", piEvent.Action, piEvent.Value, item.SourcePath);
+                    }
+                }
+                System.Threading.Thread.Sleep(30000);
+                k--;
+            }
 
         }
     }
