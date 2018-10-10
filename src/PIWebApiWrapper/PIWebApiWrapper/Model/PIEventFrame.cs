@@ -98,7 +98,7 @@ namespace PIWebAPIWrapper.Model
 		[DispId(20)]
 		string[] RefElementWebIds { get; set; }
 
-		[DispId(21)]
+        [DispId(21)]
 		PISecurity Security { get; set; }
 
 		[DispId(22)]
@@ -107,7 +107,16 @@ namespace PIWebAPIWrapper.Model
 		[DispId(23)]
 		PIWebException WebException { get; set; }
 
-	}
+        [DispId(24)]
+        string GetRefElementWebIdsItem(int i);
+
+        [DispId(25)]
+        void SetRefElementWebIdsItem(int i, string values);
+
+        [DispId(26)]
+        void CreateRefElementWebIdsItemsArray(int i);
+
+    }
 
 	[Guid("4F20BB1E-9C91-41CC-82AA-A35ABF6B7A9B")]
 	[ComVisible(true)]
@@ -191,5 +200,19 @@ namespace PIWebAPIWrapper.Model
 		[DataMember(Name = "WebException", EmitDefaultValue = false)]
 		public PIWebException WebException { get; set; }
 
-	}
+        public void CreateRefElementWebIdsItemsArray(int i)
+        {
+            this.RefElementWebIds = new string[i];
+        }
+
+        public string GetRefElementWebIdsItem(int i)
+        {
+            return this.RefElementWebIds[i];
+        }
+
+        public void SetRefElementWebIdsItem(int i, string value)
+        {
+            this.RefElementWebIds[i] = value;
+        }
+    }
 }
